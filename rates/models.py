@@ -2,12 +2,23 @@ from django.db import models
 
 
 class Category(models.Model):
-        
+    name = models.CharField(max_length=100, verbose_name='Категория')
+    slug = models.SlugField(max_length=100, verbose_name='Слаг')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
 
 class Rate(models.Model):
     name = models.CharField(max_length=100, verbose_name='Тариф')
     slug = models.SlugField(max_length=100, verbose_name='Слаг')
     sub_name = models.CharField(max_length=100, verbose_name='Описание тарифа')
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='rates',
+                                 verbose_name='Категория')
 
     # quantity
     photos = models.SmallIntegerField(default=1, verbose_name='Фото', help_text='-1 для безлимита')
