@@ -23,6 +23,7 @@ class City(models.Model):
         return self.name
 
     class Meta:
+        ordering = ('-name',)
         verbose_name = 'Город'
         verbose_name_plural = 'Города'
 
@@ -36,6 +37,7 @@ class Region(models.Model):
         return self.name
     
     class Meta:
+        ordering = ('-name',)
         verbose_name = 'Район'
         verbose_name_plural = 'Районы'
 
@@ -52,6 +54,11 @@ class Girl(models.Model):
     )
     name = models.CharField(max_length=100, verbose_name='Имя')
     age = models.PositiveSmallIntegerField(verbose_name='Возраст')
+    city = models.ForeignKey(City, related_name='girls', verbose_name='Город', on_delete=models.SET_NULL, null=True,
+                             blank=True)
+    region = models.ForeignKey(Region, related_name='girls', verbose_name='Район', on_delete=models.SET_NULL, null=True,
+                               blank=True)
+
     breast = models.PositiveSmallIntegerField(verbose_name='Грудь')
     growth = models.PositiveSmallIntegerField(verbose_name='Рост')
     weight = models.PositiveSmallIntegerField(verbose_name='Вес')
@@ -79,8 +86,8 @@ class Girl(models.Model):
 
     # date
     publish = models.DateTimeField(default=timezone.now, verbose_name='Опубликовано')
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Создано')
+    updated = models.DateTimeField(auto_now=True, verbose_name='Обновлено')
 
     # contacts
     whatsapp = models.CharField(max_length=300, verbose_name='WhatsApp', blank=True, null=True)
@@ -101,6 +108,7 @@ class Girl(models.Model):
     # rate
     rate = models.ForeignKey(Rate, related_name='girls', on_delete=models.SET_NULL, null=True, blank=True,
                              verbose_name='Тарифный план')
+    rate_end_date = models.DateField(verbose_name='Окончание тарифа', null=True, blank=True)
 
     objects = models.Manager()
     published = PublishedManager()
@@ -165,6 +173,7 @@ class View(models.Model):
     )
     type = models.CharField(max_length=10, choices=TYPE_CHOICES)
     created = models.DateTimeField(auto_now_add=True)
+    profile = models.ForeignKey(Girl, on_delete=models.CASCADE, verbose_name='Девушка', related_name='views')
 
     class Meta:
         ordering = ('-created',)

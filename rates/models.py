@@ -16,7 +16,7 @@ class Category(models.Model):
 class Rate(models.Model):
     name = models.CharField(max_length=100, verbose_name='Тариф')
     slug = models.SlugField(max_length=100, verbose_name='Слаг')
-    sub_name = models.CharField(max_length=100, verbose_name='Описание тарифа')
+    sub_name = models.TextField(max_length=300, verbose_name='Описание тарифа')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='rates',
                                  verbose_name='Категория')
 
@@ -33,8 +33,8 @@ class Rate(models.Model):
     photos_bonus = models.PositiveSmallIntegerField(verbose_name='Бонусное количество фото', default=0)
     videos_bonus = models.PositiveSmallIntegerField(verbose_name='Бонусное количество видео', default=0)
     adds_bonus = models.PositiveSmallIntegerField(verbose_name='Бонусное количество автоподбросов', default=0)
-    bonus_start = models.DateTimeField(blank=True, null=True)
-    bonus_end = models.DateTimeField(blank=True, null=True)
+    bonus_start = models.DateTimeField(blank=True, null=True, verbose_name='Начало акции')
+    bonus_end = models.DateTimeField(blank=True, null=True, verbose_name='Окончание акции')
 
     created = models.DateTimeField(auto_now_add=True)
     price = models.PositiveSmallIntegerField(verbose_name='Цена')
@@ -54,7 +54,7 @@ class Toss(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ('-created',)
+        ordering = ('quantity',)
         verbose_name = ('Автоподброс')
         verbose_name_plural = ('Автоподбросы')
 
