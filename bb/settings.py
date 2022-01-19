@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'girls.apps.GirlsConfig',
     'rates.apps.RatesConfig',
+    'orders.apps.OrdersConfig'
 ]
 
 MIDDLEWARE = [

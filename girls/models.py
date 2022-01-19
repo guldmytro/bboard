@@ -44,7 +44,7 @@ class Girl(models.Model):
     growth = models.PositiveSmallIntegerField(verbose_name='Рост')
     weight = models.PositiveSmallIntegerField(verbose_name='Вес')
     about = models.TextField(blank=True, null=True, verbose_name='Информация')
-    services = models.ManyToManyField(Service, verbose_name='Услуги', null=True, blank=True, related_name='girls')
+    services = models.ManyToManyField(Service, verbose_name='Услуги', blank=True, related_name='girls')
 
     # pricing
     price_30_home = models.PositiveSmallIntegerField(verbose_name='Цена 30 минут (апартаменты)', null=True, blank=True)
@@ -87,7 +87,7 @@ class Girl(models.Model):
                                                      verbose_name='Длительность показа обьявления в часах')
 
     # rate
-    rate = models.ForeignKey(Rate, on_delete=models.SET_NULL, verbose_name='Тарифный план')
+    rate = models.ForeignKey(Rate, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Тарифный план')
 
     objects = models.Manager()
     published = PublishedManager()
