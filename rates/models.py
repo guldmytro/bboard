@@ -1,6 +1,9 @@
 from django.db import models
 
 
+class Category(models.Model):
+        
+
 class Rate(models.Model):
     name = models.CharField(max_length=100, verbose_name='Тариф')
     slug = models.SlugField(max_length=100, verbose_name='Слаг')
@@ -23,9 +26,27 @@ class Rate(models.Model):
     bonus_end = models.DateTimeField(blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
+    price = models.PositiveSmallIntegerField(verbose_name='Цена')
 
     class Meta:
         ordering = ('-created',)
+        verbose_name = ('Тарифный план')
+        verbose_name_plural = ('Тарифные планы')
 
     def __str__(self):
         return self.name
+
+
+class Toss(models.Model):
+    quantity = models.PositiveSmallIntegerField(verbose_name='Количество')
+    price = models.PositiveSmallIntegerField(verbose_name='Цена')
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('-created',)
+        verbose_name = ('Автоподброс')
+        verbose_name_plural = ('Автоподбросы')
+
+    def __str__(self):
+        return f'Автоподбросы - {self.quantity} шт.'
+    

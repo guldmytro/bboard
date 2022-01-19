@@ -9,6 +9,10 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = 'Услуга'
+        verbose_name_plural = 'Услуги'
 
 
 class City(models.Model):
@@ -18,6 +22,10 @@ class City(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Город'
+        verbose_name_plural = 'Города'
+
 
 class Region(models.Model):
     name = models.CharField(max_length=100, verbose_name='Район')
@@ -26,6 +34,10 @@ class Region(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = 'Район'
+        verbose_name_plural = 'Районы'
 
 
 class PublishedManager(models.Manager):
@@ -87,13 +99,16 @@ class Girl(models.Model):
                                                      verbose_name='Длительность показа обьявления в часах')
 
     # rate
-    rate = models.ForeignKey(Rate, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Тарифный план')
+    rate = models.ForeignKey(Rate, related_name='girls', on_delete=models.SET_NULL, null=True, blank=True,
+                             verbose_name='Тарифный план')
 
     objects = models.Manager()
     published = PublishedManager()
 
     class Meta:
         ordering = ('-publish',)
+        verbose_name = 'Девушка'
+        verbose_name_plural = 'Девушки'
     
     def __str__(self):
         return self.name
@@ -103,11 +118,13 @@ class Review(models.Model):
     name = models.CharField(max_length=100, verbose_name='Имя')
     phone = models.CharField(max_length=30, verbose_name='Телефон')
     body = models.TextField(max_length=400, verbose_name='Текст отзыва')
-    girl = models.ForeignKey(Girl, verbose_name='Девушка', on_delete=models.CASCADE)
+    girl = models.ForeignKey(Girl, related_name='reviews', verbose_name='Девушка', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ('-created',)
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
 
     def __str__(self):
         return f'Отзыв {self.name} o {self.girl.name}'
@@ -120,6 +137,8 @@ class Video(models.Model):
 
     class Meta:
         ordering = ('-created',)
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видео'
 
     def __str__(self):
         return self.file.name
@@ -132,6 +151,8 @@ class Image(models.Model):
 
     class Meta:
         ordering = ('-created',)
+        verbose_name = 'Фото'
+        verbose_name_plural = 'Фото'
 
     def __str__(self):
         return self.file.name
@@ -147,3 +168,5 @@ class View(models.Model):
 
     class Meta:
         ordering = ('-created',)
+        verbose_name = 'Просмотр'
+        verbose_name_plural = 'Просмотры'
