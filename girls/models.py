@@ -127,7 +127,7 @@ class Review(models.Model):
     phone = models.CharField(max_length=30, verbose_name='Телефон')
     body = models.TextField(max_length=400, verbose_name='Текст отзыва')
     girl = models.ForeignKey(Girl, related_name='reviews', verbose_name='Девушка', on_delete=models.CASCADE)
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Создано')
 
     class Meta:
         ordering = ('-created',)
