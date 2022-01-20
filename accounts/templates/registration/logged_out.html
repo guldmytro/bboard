@@ -1,0 +1,16 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<main class="logged-out">
+    <div class="container">
+        <div class="form-authentification form-authentification_center">
+            <h1 class="form-authentification__title">Вы вышли</h1>
+            <p>
+                Вы можете
+                <a href="{% url 'login' %}">войти снова.</a> или
+                <a href="{% url 'girls:home' %}">перейти на главную</a>
+            </p>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="account">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-header__title">
+                {% block account_title %}{% endblock %} - Личный кабинет
+            </h1>
+        </div>
+        <div class="account-nav-wrapper">
+            <a href="tarif.html" class="account-plan">
+                <span class="account-plan__label">Ваш тариф:</span>
+                <span class="account-plan__value">VIP на месяц</span>
+            </a>
+            <nav class="account-nav">
+                <a class="account-nav__link account-nav-link" href="account.html">
+                    <img src="{% static 'img/icon-user.png' %}" alt="анкета">
+                    <span class="account-nav-link__text">Ваша Анкета</span>
+                </a>
+                <a class="account-nav__link account-nav-link" href="blacklist.html">
+                    <img src="{% static 'img/icon-warning.png' %}" alt="внимание">
+                    <span class="account-nav-link__text">Черный список</span>
+                </a>
+                <a class="account-nav__link account-nav-link{% if section == 'dashboard' %} active{% endif %}"
+                   href="{% url 'dashboard' %}">
+                    <img src="{% static 'img/icon-stats.png' %}" alt="внимание">
+                    <span class="account-nav-link__text">Статистика</span>
+                </a>
+                <a class="account-nav__link account-nav-link" href="girl.html">
+                    <span class="account-nav-link__text">Объявление</span>
+                </a>
+                <a class="account-nav__link account-nav-link" href="random.html">
+                    <span class="account-nav-link__text">Автоподброс</span>
+                </a>
+                <a class="account-nav__link account-nav-link{% if section == 'password-change' %} active{% endif %}"
+                   href="{% url 'password_change' %}">
+                    <span class="account-nav-link__text">Сменить пароль</span>
+                </a>
+                <a class="account-nav__link account-nav-link" href="{% url 'logout' %}">
+                    <img src="{% static 'img/logout.svg' %}" alt="выйти">
+                    <span class="account-nav-link__text">Выйти</span>
+                </a>
+            </nav>
+        </div>
+        {% block account_content %}{% endblock %}
+    </div>
+</main>
+<!-- /.account -->
+{% endblock %}

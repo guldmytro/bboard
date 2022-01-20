@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Главная - Juicy Pussy</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+        <header class="header">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header__logo header-logo">
+                        <a href="index.html" class="header-logo__link">
+                            <img src="{% static 'img/logo.png' %}" alt="Джусси-Пусси">
+                        </a>
+                    </div>
+                    <!-- /.header-logo -->
+                    <ul class="header-menus">
+                        <li class="header-menus__item">
+                            <a class="header-menus__link active" href="index.html">Главная</a>
+                        </li>
+                        <li class="header-menus__item">
+                            <a class="header-menus__link" href="catalog.html">Анкеты</a>
+                        </li>
+                        <li class="header-menus__item">
+                            <a class="header-menus__link" href="about.html">О нас</a>
+                        </li>
+                    </ul>
+                    <!-- /.header-menus -->
+                    <div class="header-controls">
+                        <select class="header-controls__city header-city" required>
+                            <option value="">Выберите город</option>
+                            <option value="Москва">Москва</option>
+                            <option value="Петербург">Петербург</option>
+                            <option value="Екатеренбург">Екатеренбург</option>
+                        </select>
+                        <!-- /.header-city -->
+                        <a href="{% url 'login' %}" class="header-controls__login header-login">
+                            <img class="header-login__img" src="{% static 'img/icon-login' %}.png" alt="войти">
+                            <span class="headr-login__text">Авторизация</span>
+                        </a>
+                        <!-- /.header-login -->
+                        <button class="header-controls__add header-add">
+                            <img src="{% static 'img/icon-plus' %}.png" alt="добавить" class="header-add__img">
+                            <span class="header-add__text">Добавить анкету</span>
+                        </button>
+                        <!-- /.header-add -->
+                        <select name="language" class="header-controls__languages header-languages">
+                            <option class="header-languages__option" value="ru">RU</option>
+                            <option class="header-languages__option" value="en">EN</option>
+                        </select>
+                        <!-- /.header-languages -->
+                        <a href="search.html" class="header-controls__search header-search" type="button" aria-label="Поиск">
+                            <img class="header-search__img" src="{% static 'img/icon-search' %}.png" alt="поиск">
+                        </a>
+                        <!-- /.header-search -->
+                        <button class="header-controls__mail header-mail" type="button" aria-label="Написать нам">
+                            <img class="header-mail__img" src="{% static 'img/icon-mail' %}.png" alt="конверт">
+                        </button>
+                        <!-- /.header-mail -->
+                    </div>
+                    <!-- /.header-controls -->
+                    <button class="header-menu-btn" type="button" aria-label="мобильное меню">
+                        <span></span>
+                    </button>
+                </div>
+                <!-- /.header-row -->
+                <div class="mobile-menu">
+                    <div class="mobile-menu-inner">
+                        <div class="mobile-menu__controls mobile-controls">
+                            <button class="mobile-controls__mail" type="button" aria-label="написать нам">
+                                <img src="{% static 'img/icon-mail' %}.png" alt="конверт">
+                            </button>
+                            <a class="mobile-controls__search" href="search.html" aria-label="поиск">
+                                <img src="{% static 'img/icon-search' %}.png" alt="поиск">
+                            </a>
+                        </div>
+                        <!-- /.mobile-controls -->
+                        <ul class="mobile-menu__nav mobile-nav">
+                            <li class="mobile-nav__item active"><a href="index.html">Главная</a></li>
+                            <li class="mobile-nav__item mobile-nav__item_has_children">
+                                <span>Анкеты</span>
+                                <ul class="mobile-sub-menu">
+                                    <li><a href="catalog.html">Все анкеты</a></li>
+                                    <li><a href="catalog.html">Luxury Zone</a></li>
+                                    <li><a href="catalog.html">Premium</a></li>
+                                    <li class="active"><a href="catalog.html">VIP</a></li>
+                                    <li><a href="catalog.html">Luxury Zone</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- /.mobile-nav -->
+                        <div class="mobile-login">
+                            <a class="mobile-login__link" href="login.html">
+                                <img src="{% static 'img/icon-login' %}.png" alt="дверь">
+                                <span>Авторизация</span>
+                            </a>
+                        </div>
+                        <!-- /.mobile-login -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- /.header -->
+        {% block content %}{% endblock %}
+    </div>
+    <!-- /.content -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <a class="footer-logo" href="index.html">
+                    <img class="footer-logo__img" src="{% static 'img/logo.png' %}" alt="Джусси-Пусси">
+                </a>
+                <nav class="footer-nav">
+                    <a class="footer-nav__link active" href="#">Главная</a>
+                    <a class="footer-nav__link" href="#">Анкеты</a>
+                </nav>
+                <p class="footer-copy">© 2021 Проститутки Израиля</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ./footer -->
+    <button class="to-top" type="button" aria-label="Наверх">
+        <img class="to-top__img" src="{% static 'img/icon-arrow-double.png' %}" alt="стрелки">
+    </button>
+</div>
+<!-- /.wrapper -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

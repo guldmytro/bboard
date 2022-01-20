@@ -1,0 +1,24 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<main class="register">
+    <div class="container">
+        <form action="." method="post" class="form-authentification">
+            <h1 class="form-authentification__title">Регистрация</h1>
+            {{ user_form.as_p }}
+            {% csrf_token %}
+            <p>
+                <label class="agreenment">
+                    <input type="checkbox" name="agree" required checked>
+                    <span>Регистрируясь я принимаю <a href="#">Политику конфиденциальности</a></span>
+                </label>
+            </p>
+            <p>
+                Администрация сайта исключительно предоставляет площадку для размещения на ней рекламы и ответственности
+                за содержимое рекламы не несет. Вся ответственность возлагается на рекламодателя!
+            </p>
+            <p><button type="submit">Зарегистрироваться</button></p>
+        </form>
+    </div>
+</main>
+{% endblock %}

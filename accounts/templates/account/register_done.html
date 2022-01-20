@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<main class="register">
+    <div class="container">
+        <div class="form-authentification">
+            <h1 class="form-authentification__title">Добро пожаловать!</h1>
+            <p>
+                Ваша учетная запись была успешно создана.
+                Теперь вы можете <a href="{% url 'login' %}">войти</a>.
+            </p>
+        </div>
+    </div>
+</main>
+{% endblock %}
