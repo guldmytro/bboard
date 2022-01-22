@@ -1,0 +1,37 @@
+<form id="form-bb_price" class="form-bb form-bb_price"
+      action="{% url 'profile-update-price' %}" method="post">
+    <h2 class="form-bb__title">Стоимость</h2>
+    <table class="form-bb__table">
+        <thead>
+            <tr>
+                <td></td>
+                <td>Апартаменты</td>
+                <td>Выезд</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>30 мин</td>
+                <td>{{ profile_price_form.price_30_home }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1 час</td>
+                <td>{{ profile_price_form.price_1h_home }}</td>
+                <td>{{ profile_price_form.price_1h_departure }}</td>
+            </tr>
+            <tr>
+                <td>2 часа</td>
+                <td>{{ profile_price_form.price_2h_home }}</td>
+                <td>{{ profile_price_form.price_2h_departure }}</td>
+            </tr>
+            <tr>
+                <td>Ночь</td>
+                <td>{{ profile_price_form.price_night_home }}</td>
+                <td>{{ profile_price_form.price_night_departure }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% csrf_token %}
+    <button type="submit" class="btn btn_form">Сохранить</button>
+</form>

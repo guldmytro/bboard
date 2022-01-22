@@ -1,7 +1,6 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
-from django.urls import reverse_lazy
 
 urlpatterns = [
     path('login/', auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
@@ -26,4 +25,7 @@ urlpatterns = [
          name='password_reset_complete'),
     path('register/', views.register, name='register'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('profile/', views.profile, name='profile'),
+    path('profile/update-info/', views.profile_update_info, name='profile-update-info'),
+    path('profile/update-price/', views.prifile_update_price, name='profile-update-price')
 ]

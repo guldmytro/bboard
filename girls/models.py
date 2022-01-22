@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from rates.models import Rate
+from django.conf import settings
 
 
 class Service(models.Model):
@@ -49,19 +50,21 @@ class PublishedManager(models.Manager):
 
 class Girl(models.Model):
     STATUS_CHOICES = (
-        ('draft', 'Приостановлена'),
+        ('draft', 'Черновик'),
+        ('disabled', 'Остановлена'),
         ('published', 'Опубликована')
     )
-    name = models.CharField(max_length=100, verbose_name='Имя')
-    age = models.PositiveSmallIntegerField(verbose_name='Возраст')
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, verbose_name='Имя', blank=True, null=True)
+    age = models.PositiveSmallIntegerField(verbose_name='Возраст', blank=True, null=True)
     city = models.ForeignKey(City, related_name='girls', verbose_name='Город', on_delete=models.SET_NULL, null=True,
                              blank=True)
     region = models.ForeignKey(Region, related_name='girls', verbose_name='Район', on_delete=models.SET_NULL, null=True,
                                blank=True)
 
-    breast = models.PositiveSmallIntegerField(verbose_name='Грудь')
-    growth = models.PositiveSmallIntegerField(verbose_name='Рост')
-    weight = models.PositiveSmallIntegerField(verbose_name='Вес')
+    breast = models.PositiveSmallIntegerField(verbose_name='Грудь', blank=True, null=True)
+    growth = models.PositiveSmallIntegerField(verbose_name='Рост', blank=True, null=True)
+    weight = models.PositiveSmallIntegerField(verbose_name='Вес', blank=True, null=True)
     about = models.TextField(blank=True, null=True, verbose_name='Информация')
     services = models.ManyToManyField(Service, verbose_name='Услуги', blank=True, related_name='girls')
 
@@ -92,7 +95,7 @@ class Girl(models.Model):
     # contacts
     whatsapp = models.CharField(max_length=300, verbose_name='WhatsApp', blank=True, null=True)
     telegram = models.CharField(max_length=300, verbose_name='Telegram', blank=True, null=True)
-    phone = models.CharField(max_length=30, verbose_name='Телефон')
+    phone = models.CharField(max_length=30, verbose_name='Телефон', blank=True, null=True)
 
     # limits
     max_images = models.IntegerField(verbose_name='Максимальное количество картинок', default=1)
@@ -119,7 +122,10 @@ class Girl(models.Model):
         verbose_name_plural = 'Девушки'
     
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return '-'
 
 
 class Review(models.Model):

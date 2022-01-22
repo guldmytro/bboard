@@ -71,3 +71,9 @@ $(window).on('resize', function(e) {
         mobileMenu.hide();
     }
 });
+
+// messages
+$('.messages button').on('click', function(e) {
+    e.preventDefault();
+    $(this).parent().slideUp(100);
+});

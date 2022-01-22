@@ -372,6 +372,12 @@ textarea {
     border: none
 }
 
+select {
+    padding: 0 1.5rem;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
 textarea {
     overflow: auto;
     padding-top: 1rem;
@@ -2050,6 +2056,40 @@ input[type=time] {
     justify-content: flex-start;
     align-items: baseline;
     gap: 1ch;
+}
+
+.messages {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+}
+
+.messages li {
+    position: relative;
+    padding: 2rem 2.5rem;
+    padding-right: 4rem;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.messages .success {
+    background-color: #2e8b57;
+}
+
+.messages .error {
+    background-color: var(--color-primary);
+}
+
+.messages li button {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 50%;
+    right: 2.5rem;
+    transform: translateY(-50%);
 }
 
 @media (max-width:1399px) {

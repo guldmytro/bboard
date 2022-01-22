@@ -1,0 +1,89 @@
+{% extends 'layout/account.html' %}
+
+{% block title %}Ваша анкета{% endblock %}
+
+{% block account_title %}Ваша анкета{% endblock %}
+
+{% block account_content %}
+<div class="account-forms">
+    <div class="account-forms__row">
+        <div class="col">
+            {% include 'account/forms/form_profile.html' %}
+        </div>
+        <!-- /.col -->
+        <div class="col">
+            {% include 'account/forms/form_profile_price.html' %}
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.account-forms__row -->
+    <div class="account-forms__section forms-section">
+        <div class="forms-section__row">
+            <div class="col">
+                <h3 class="forms-section__title">Загрузите ваше видео</h3>
+                <div class="file-wrapper">
+                    <input type="file">
+                    <div class="file-placeholder file-placeholder_video"></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col">
+                <h3 class="forms-section__title">Загрузите ваше проверочное
+                    фото с сегодняшней датой</h3>
+                <div class="file-wrapper">
+                    <input type="file">
+                    <div class="file-placeholder file-placeholder_photo"></div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="account-photos">
+            <h3>Загрузите ваши фото</h3>
+            <div class="file-wrapper">
+                <input type="file">
+                <div class="file-placeholder file-placeholder_photo"></div>
+            </div>
+        </div>
+        <!-- /.account-photos -->
+        <div class="account-services">
+            <h2 class="account-services__title">Ваши услуги</h2>
+            <form class="services-form" action=".">
+                <div class="servises-group">
+                    <label class="input-wrapper">
+                        <input type="checkbox" value="1">
+                        <span class="custom-checkbox"></span>
+                        <span class="label">Классика</span>
+                    </label>
+                    <label class="input-wrapper">
+                        <input type="checkbox" value="1">
+                        <span class="custom-checkbox"></span>
+                        <span class="label">Классика</span>
+                    </label>
+                    <label class="input-wrapper">
+                        <input type="checkbox" value="1">
+                        <span class="custom-checkbox"></span>
+                        <span class="label">Классика</span>
+                    </label>
+                    <label class="input-wrapper">
+                        <input type="checkbox" value="1">
+                        <span class="custom-checkbox"></span>
+                        <span class="label">Классика</span>
+                    </label>
+                    <label class="input-wrapper">
+                        <input type="checkbox" value="1">
+                        <span class="custom-checkbox"></span>
+                        <span class="label">Классика</span>
+                    </label>
+                    <label class="input-wrapper">
+                        <input type="checkbox" value="1">
+                        <span class="custom-checkbox"></span>
+                        <span class="label">Классика</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn_form">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.account-forms -->
+{% endblock %}

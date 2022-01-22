@@ -1,13 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegistrationForm
-
-@login_required
-def dashboard(request):
-    context = {
-        'section': 'dashboard'
-    }
-    return render(request, 'account/dashboard.html', context)
+from .forms import UserRegistrationForm, ProfileEditForm, ProfilePriceEditForm
+from girls.models import Girl
+from django.contrib import messages
+from django.views.decorators.http import require_POST
 
 
 def register(request):
@@ -17,9 +13,59 @@ def register(request):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
+            Girl.objects.create(user=new_user)
             return render(request, 'account/register_done.html',
                           {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
     return render(request, 'account/register.html',
                   {'user_form': user_form})
+
+
+@login_required
+def dashboard(request):
+    context = {
+        'section': 'dashboard'
+    }
+    return render(request, 'account/dashboard.html', context)
+
+
+@login_required
+def profile(request):
+    profile_form = ProfileEditForm(instance=request.user.girl)
+    profile_price_form = ProfilePriceEditForm(instance=request.user.girl)
+    context = {
+        'profile_form': profile_form,
+        'profile_price_form': profile_price_form,
+        'section': 'profile'
+    }
+    return render(request, 'account/profile.html', context)
+
+
+@require_POST
+@login_required
+def profile_update_info(request):
+    profile_form = ProfileEditForm(request.POST, instance=request.user.girl)
+    if profile_form.is_valid():
+        if profile_form.has_changed():
+            profile_form.save()
+            if request.user.girl.status == 'draft':
+                request.user.girl.status = 'published'
+                request.user.girl.save()
+            messages.success(request, 'Ваш профиль был успешно обновлен')
+    else:
+        messages.error(request, 'Ошибка обновления профиля')
+    return redirect('profile')
+
+
+@require_POST
+@login_required
+def prifile_update_price(request):
+    profile_price_form = ProfilePriceEditForm(request.POST, instance=request.user.girl)
+    if profile_price_form.is_valid():
+        if profile_price_form.has_changed():
+            profile_price_form.save()
+            messages.success(request, 'Ваш профиль был успешно обновлен')
+    else:
+        messages.error(request, 'Ошибка обновления профиля')
+    return redirect('profile')

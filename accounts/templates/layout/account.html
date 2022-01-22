@@ -6,7 +6,7 @@
     <div class="container">
         <div class="section-header">
             <h1 class="section-header__title">
-                {% block account_title %}{% endblock %} - Личный кабинет
+                {% block account_title %}{% endblock %}
             </h1>
         </div>
         <div class="account-nav-wrapper">
@@ -15,7 +15,8 @@
                 <span class="account-plan__value">VIP на месяц</span>
             </a>
             <nav class="account-nav">
-                <a class="account-nav__link account-nav-link" href="account.html">
+                <a class="account-nav__link account-nav-link{% if section == 'profile' %} active{% endif %}"
+                   href="{% url 'profile' %}">
                     <img src="{% static 'img/icon-user.png' %}" alt="анкета">
                     <span class="account-nav-link__text">Ваша Анкета</span>
                 </a>
@@ -44,6 +45,7 @@
                 </a>
             </nav>
         </div>
+        {% include 'account/messages.html' %}
         {% block account_content %}{% endblock %}
     </div>
 </main>
