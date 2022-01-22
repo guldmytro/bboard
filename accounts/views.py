@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegistrationForm, ProfileEditForm, ProfilePriceEditForm
+from .forms import UserRegistrationForm, ProfileEditForm, ProfilePriceEditForm, ProfileServicesEditForm, \
+    ProfileCheckPhotoForm
 from girls.models import Girl
 from django.contrib import messages
 from django.views.decorators.http import require_POST
@@ -34,9 +36,13 @@ def dashboard(request):
 def profile(request):
     profile_form = ProfileEditForm(instance=request.user.girl)
     profile_price_form = ProfilePriceEditForm(instance=request.user.girl)
+    profile_service_form = ProfileServicesEditForm(instance=request.user.girl)
+    profile_check_photo_form = ProfileCheckPhotoForm(instance=request.user.girl)
     context = {
         'profile_form': profile_form,
         'profile_price_form': profile_price_form,
+        'profile_service_form': profile_service_form,
+        'profile_check_photo_form': profile_check_photo_form,
         'section': 'profile'
     }
     return render(request, 'account/profile.html', context)
@@ -69,3 +75,36 @@ def prifile_update_price(request):
     else:
         messages.error(request, 'Ошибка обновления профиля')
     return redirect('profile')
+
+
+@require_POST
+@login_required
+def profile_update_services(request):
+    profile_service_form = ProfileServicesEditForm(request.POST, instance=request.user.girl)
+    if profile_service_form.is_valid():
+        if profile_service_form.has_changed():
+            profile_service_form.save()
+            messages.success(request, 'Список Ваших услуг был успешно обновлен')
+    else:
+        messages.error(request, 'Ошибка обновления профиля')
+    return redirect('profile')
+
+
+@require_POST
+@login_required
+def profile_send_test_photo(request):
+    image = request.FILES.get('0')
+    if image:
+        request.user.girl.test_photo = image
+        request.user.girl.save()
+        return JsonResponse({'status': 'ok'})
+    else:
+        return JsonResponse({'status': 'bad'})
+
+
+@require_POST
+@login_required
+def profile_delete_test_photo(request):
+    request.user.girl.test_photo = None
+    request.user.girl.save()
+    return JsonResponse({'status': 'ok'})

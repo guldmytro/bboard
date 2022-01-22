@@ -27,5 +27,8 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('profile/', views.profile, name='profile'),
     path('profile/update-info/', views.profile_update_info, name='profile-update-info'),
-    path('profile/update-price/', views.prifile_update_price, name='profile-update-price')
+    path('profile/update-price/', views.prifile_update_price, name='profile-update-price'),
+    path('profile/update-services/', views.profile_update_services, name='profile-update-services'),
+    path('profile/send-test-photo/', views.profile_send_test_photo, name='profile-send-test-photo'),
+    path('profile/delete-test-photo/', views.profile_delete_test_photo, name='profile-delete-test-photo'),
 ]

@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
-from girls.models import Girl, City
+from girls.models import Girl, City, Service
+
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput, min_length=8)
@@ -103,3 +104,19 @@ class ProfilePriceEditForm(forms.ModelForm):
                   'price_2h_home', 'price_night_home',
                   'price_1h_departure', 'price_2h_departure',
                   'price_night_departure')
+
+
+class ProfileServicesEditForm(forms.ModelForm):
+    services = forms.ModelMultipleChoiceField(queryset=Service.objects.all().order_by('name'),
+                                              widget=forms.CheckboxSelectMultiple,
+                                              required=False)
+
+    class Meta:
+        model = Girl
+        fields = ('services',)
+
+
+class ProfileCheckPhotoForm(forms.ModelForm):
+    class Meta:
+        model = Girl
+        fields = ('test_photo',)
