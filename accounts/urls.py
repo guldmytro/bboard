@@ -31,4 +31,8 @@ urlpatterns = [
     path('profile/update-services/', views.profile_update_services, name='profile-update-services'),
     path('profile/send-test-photo/', views.profile_send_test_photo, name='profile-send-test-photo'),
     path('profile/delete-test-photo/', views.profile_delete_test_photo, name='profile-delete-test-photo'),
+    path('profile/send-photos/', views.profile_send_photos, name='profile-send-photos'),
+    path('profile/delete-photo/', views.profile_delete_photo, name='profile-delete-photo'),
+    path('profile/send-video/', views.profile_send_video, name='profile-send-video'),
+    path('profile/delete-video/', views.profile_delete_video, name='profile-delete-video'),
 ]

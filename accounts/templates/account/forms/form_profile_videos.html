@@ -1,0 +1,9 @@
+<form class="profile-videos-form"
+      method="post"
+      action="{% url 'profile-send-video' %}"
+      data-delete="{% url 'profile-delete-video' %}">
+    <label class="file-wrapper">
+        <input type="file" accept="video/mp4" multiple id="profile-videos">
+        <div class="file-placeholder file-placeholder_video"></div>
+    </label>
+</form>

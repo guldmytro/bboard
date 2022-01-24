@@ -1,0 +1,9 @@
+{% for video in videos %}
+    <div class="uploaded-image">
+        <div class="uploaded-image__inner">
+            <video src="{{ video.file.url }}" controls></video>
+            <div class="progress"><span></span></div>
+            <button type="button" class="delete-photo active" data-id="{{ video.id }}">x</button>
+        </div>
+    </div>
+{% endfor %}

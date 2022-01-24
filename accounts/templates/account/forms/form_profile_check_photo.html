@@ -1,9 +1,9 @@
 <form action="{% url 'profile-send-test-photo' %}" method="post"
       enctype="multipart/form-data">
-    <label class="file-wrapper">
+    <label class="file-wrapper file-wrapper_test">
         <input type="file" name="test-photo" accept="image/*" id="test-photo">
         <div class="file-placeholder file-placeholder_photo"></div>
-        <img class="preloaded-image"{% if request.user.girl.test_photo %} src="{{ request.user.girl.test_photo.url }}"{% endif %}>
+        <img class="preloaded-image preloaded-image_test"{% if request.user.girl.test_photo %} src="{{ request.user.girl.test_photo.url }}"{% endif %}>
         <div class="progress"><span></span></div>
         <button class="delete-photo{% if request.user.girl.test_photo %} active{% endif %}"
                 type="button" aria-label="удалить фото" data-url="{% url 'profile-delete-test-photo' %}">x</button>

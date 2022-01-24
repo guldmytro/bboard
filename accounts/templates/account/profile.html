@@ -23,18 +23,14 @@
             {% include 'account/forms/form_profile_check_photo.html' %}
         </div>
         <h3 class="forms-section__title">Загрузите ваше видео</h3>
-        <div class="forms-section__row">
-            <div class="file-wrapper">
-                <input type="file">
-                <div class="file-placeholder file-placeholder_video"></div>
-            </div>
+        <div class="forms-section__row forms-section__row_videos">
+            {% include 'account/forms/form_profile_videos.html' %}
+            {% include 'account/videos.html' %}
         </div>
         <h3 class="forms-section__title">Загрузите ваши фото</h3>
-        <div class="forms-section__row">
-            <div class="file-wrapper">
-                <input type="file">
-                <div class="file-placeholder file-placeholder_photo"></div>
-            </div>
+        <div class="forms-section__row forms-section__row_gallery">
+            {% include 'account/forms/form_profile_photos.html' %}
+            {% include 'account/gallery.html' %}
         </div>
         <div class="account-services">
             <h2 class="account-services__title">Ваши услуги</h2>

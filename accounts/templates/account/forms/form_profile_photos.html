@@ -1,0 +1,7 @@
+<form class="profile-images-form"
+      action="{% url 'profile-send-photos' %}" method="post" data-delete="{% url 'profile-delete-photo' %}">
+    <label class="file-wrapper">
+        <input type="file" accept="image/*" multiple id="profile-images">
+        <div class="file-placeholder file-placeholder_photo"></div>
+    </label>
+</form>

@@ -8,6 +8,20 @@
             </label>
         {% endfor %}
     </div>
+
+    <h2 class="account-services__title">Дополнительные опции</h2>
+    <div class="servises-group">
+        <label class="input-wrapper">
+            {{ profile_additional_form.parking }}
+            <span class="custom-checkbox"></span>
+            <span class="label">{{ profile_additional_form.parking.label }}</span>
+        </label>
+        <label class="input-wrapper">
+            {{ profile_additional_form.apartment }}
+            <span class="custom-checkbox"></span>
+            <span class="label">{{ profile_additional_form.apartment.label }}</span>
+        </label>
+    </div>
     {% csrf_token %}
     <button type="submit" class="btn btn_form">Сохранить</button>
 </form>

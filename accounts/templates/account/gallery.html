@@ -1,0 +1,9 @@
+{% for photo in photos %}
+    <div class="uploaded-image">
+        <div class="uploaded-image__inner">
+            <img src="{{ photo.file.url }}">
+            <div class="progress"><span></span></div>
+            <button type="button" class="delete-photo active" data-id="{{ photo.id }}">x</button>
+        </div>
+    </div>
+{% endfor %}

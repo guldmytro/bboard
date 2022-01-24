@@ -1782,7 +1782,8 @@ input[type=time] {
 
 .forms-section__row {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-gap: 1.5rem;
 }
 
 .file-wrapper {
@@ -1831,7 +1832,7 @@ input[type=time] {
     object-fit: contain;
 }
 
-.file-wrapper .progress {
+.progress {
     display: none;
     position: absolute;
     bottom: 12px;
@@ -1844,7 +1845,7 @@ input[type=time] {
     overflow: hidden;
 }
 
-.file-wrapper .progress span {
+.progress span {
     position: absolute;
     top: 0;
     left: 0;
@@ -1854,7 +1855,7 @@ input[type=time] {
     transition: width 150ms ease;
 }
 
-.file-wrapper .delete-photo {
+.delete-photo {
     display: none;
     position: absolute;
     top: 12px;
@@ -1869,12 +1870,54 @@ input[type=time] {
     border-radius: 4px;
 }
 
-.file-wrapper .delete-photo.active {
+.delete-photo.active {
     display: block;
 }
 
-.file-wrapper .delete-photo:hover {
+.delete-photo:hover {
     opacity: 0.5;
+}
+
+.uploaded-image {
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+}
+
+.uploaded-image__inner {
+    position: relative;
+    height: 0;
+    padding-top: 70%;
+}
+
+.uploaded-image__inner img,
+.uploaded-image__inner video {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.forbidden__label {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.forbidden__label span {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .file-placeholder_video {

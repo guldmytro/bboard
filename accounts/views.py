@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, ProfileEditForm, ProfilePriceEditForm, ProfileServicesEditForm, \
-    ProfileCheckPhotoForm
-from girls.models import Girl
+    ProfileCheckPhotoForm, ProfileAdditionalEditForm
+from girls.models import Girl, Image, Video
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 
@@ -34,16 +34,23 @@ def dashboard(request):
 
 @login_required
 def profile(request):
-    profile_form = ProfileEditForm(instance=request.user.girl)
-    profile_price_form = ProfilePriceEditForm(instance=request.user.girl)
-    profile_service_form = ProfileServicesEditForm(instance=request.user.girl)
-    profile_check_photo_form = ProfileCheckPhotoForm(instance=request.user.girl)
+    girl = request.user.girl
+    profile_form = ProfileEditForm(instance=girl)
+    profile_price_form = ProfilePriceEditForm(instance=girl)
+    profile_service_form = ProfileServicesEditForm(instance=girl)
+    profile_check_photo_form = ProfileCheckPhotoForm(instance=girl)
+    profile_additional_form = ProfileAdditionalEditForm(instance=girl)
+    photos = Image.objects.filter(girl=girl)
+    videos = Video.objects.filter(girl=girl)
     context = {
         'profile_form': profile_form,
         'profile_price_form': profile_price_form,
         'profile_service_form': profile_service_form,
         'profile_check_photo_form': profile_check_photo_form,
-        'section': 'profile'
+        'profile_additional_form': profile_additional_form,
+        'photos': photos,
+        'videos': videos,
+        'section': 'profile',
     }
     return render(request, 'account/profile.html', context)
 
@@ -81,9 +88,11 @@ def prifile_update_price(request):
 @login_required
 def profile_update_services(request):
     profile_service_form = ProfileServicesEditForm(request.POST, instance=request.user.girl)
-    if profile_service_form.is_valid():
-        if profile_service_form.has_changed():
+    profile_additional_form = ProfileAdditionalEditForm(request.POST, instance=request.user.girl)
+    if profile_service_form.is_valid() and profile_additional_form.is_valid():
+        if profile_service_form.has_changed() or profile_additional_form.has_changed():
             profile_service_form.save()
+            profile_additional_form.save()
             messages.success(request, 'Список Ваших услуг был успешно обновлен')
     else:
         messages.error(request, 'Ошибка обновления профиля')
@@ -108,3 +117,73 @@ def profile_delete_test_photo(request):
     request.user.girl.test_photo = None
     request.user.girl.save()
     return JsonResponse({'status': 'ok'})
+
+
+@require_POST
+@login_required
+def profile_send_photos(request):
+    profile = request.user.girl
+    max_photos = profile.max_images
+    images = Image.objects.filter(girl=profile)
+    if max_photos == -1 or images.count() < max_photos:
+        file_img = request.FILES.get('0')
+        if file_img:
+            img = Image(file=file_img, girl=request.user.girl)
+            img.save()
+            return JsonResponse({'status': 'ok', 'id': img.id})
+        else:
+            return JsonResponse({'status': 'bad'})
+    else:
+        return JsonResponse({'status': 'forbidden',
+                             'text': 'Превышен лимит загрузок'})
+
+
+@require_POST
+@login_required
+def profile_delete_photo(request):
+    image_id = request.POST.get('id')
+    if image_id:
+        try:
+            image = Image.objects.get(girl=request.user.girl, id=image_id)
+            image.delete()
+            return JsonResponse({'status': 'ok'})
+        except Image.DoesNotExist:
+            return JsonResponse({'status': 'bad'})
+    else:
+        return JsonResponse({'status': 'bad'})
+
+
+@require_POST
+@login_required
+def profile_send_video(request):
+    profile = request.user.girl
+    max_videos = profile.max_videos
+    images = Video.objects.filter(girl=profile)
+    if max_videos == -1 or images.count() < max_videos:
+        file_video = request.FILES.get('0')
+        if file_video:
+            video = Video(file=file_video, girl=request.user.girl)
+            video.save()
+            return JsonResponse({'status': 'ok', 'id': video.id,
+                                 'url': video.file.url})
+        else:
+            return JsonResponse({'status': 'bad'})
+    else:
+        return JsonResponse({'status': 'forbidden',
+                             'text': 'Превышен лимит загрузок'})
+
+
+@require_POST
+@login_required
+def profile_delete_video(request):
+    video_id = request.POST.get('id')
+    if video_id:
+        try:
+            video = Video.objects.get(girl=request.user.girl, id=video_id)
+            video.delete()
+            return JsonResponse({'status': 'ok'})
+        except Image.DoesNotExist:
+            return JsonResponse({'status': 'bad'})
+    else:
+        return JsonResponse({'status': 'bad'})
+
