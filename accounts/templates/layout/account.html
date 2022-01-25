@@ -29,7 +29,7 @@
                     <img src="{% static 'img/icon-stats.png' %}" alt="внимание">
                     <span class="account-nav-link__text">Статистика</span>
                 </a>
-                <a class="account-nav__link account-nav-link" href="girl.html">
+                <a class="account-nav__link account-nav-link" href="{{ request.user.girl.get_absolute_url }}">
                     <span class="account-nav-link__text">Объявление</span>
                 </a>
                 <a class="account-nav__link account-nav-link" href="random.html">

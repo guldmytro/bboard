@@ -351,3 +351,59 @@ $('.forms-section__row_videos').on('click', '.delete-photo', function(e) {
         }
     }); 
 });
+
+// popup
+const popup = $('.popup');
+$('.single-add-review button').on('click', function(e) {
+    e.preventDefault();
+    popup.fadeIn(200);
+    $('body').css('overflow', 'hidden');
+});
+
+$('.review-form__close').on('click', function(e) {
+    e.preventDefault();
+    popup.fadeOut(200);
+    $('body').css('overflow', 'auto');
+});
+
+// send girlreview
+$('.review-form').on('submit', function(e) {
+    e.preventDefault();
+    const btn = $(this).find('[type="submit"]');
+    const url = $(this).attr('action');
+    const reviewData = $(this).serialize();
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: reviewData,
+        beforeSend: function() {
+            btn.prop('disabled', true).text('Отправка...');
+        },
+        success: function(res) {
+            if (res?.status === 'ok') {
+                btn.text('Отправлено!');
+            } else {
+                btn.text('Ошибка...');
+            }
+        }
+    });
+});
+
+// delete reviews
+$('.review-item__delete').on('click', function(e) {
+    e.preventDefault();
+    const btn = $(this);
+    const url = btn.attr('data-action');
+    $.ajax({
+        url: url,
+        method: 'POST',
+        beforeSend: function() {
+            btn.prop('disabled', true);
+        },
+        success: function(res) {
+            if (res?.status === 'ok') {
+                btn.closest('.review-item').remove();
+            }
+        }
+    });
+});

@@ -1,0 +1,181 @@
+{% extends 'layout/base.html' %}
+{% load bb_tags %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}{{ girl.name }}{% endblock %}
+
+{% block content %}
+<main class="single">
+    <div class="container">
+        <div class="single-row">
+            <div class="single-galleries">
+                {% if photos %}
+                <div class="single-gallery">
+                    {% for photo in photos %}
+                    <div class="single-gallery__item">
+                        <div class="thumb">
+                            <img src="{{ photo.file|thumbnail_url:'medium' }}">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- /.single-gallery -->
+                <div class="single-subgallery">
+                    {% for photo in photos %}
+                    <div class="single-subgallery__item">
+                        <div class="thumb">
+                            <img src="{{ photo.file|thumbnail_url:'small' }}">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- /.single-subgallery -->
+                {% endif %}
+            </div>
+            <!-- /.single-subgalleries -->
+            <div class="single-info">
+                {% if girl.name %}
+                    <h1 class="single__title">{{ girl.name }}</h1>
+                {% endif %}
+                <ul class="single__params single-params">
+                    {% if girl.age %}
+                    <li class="single-params__item">
+                        <span class="label">Возраст</span>
+                        <strong class="value">{{ girl.age }} год(а)</strong>
+                    </li>
+                    {% endif %}
+                    {% if girl.breast %}
+                    <li class="single-params__item">
+                        <span class="label">Грудь</span>
+                        <strong class="value">{{ girl.breast }}</strong>
+                    </li>
+                    {% endif %}
+                    {% if girl.growth %}
+                    <li class="single-params__item">
+                        <span class="label">Рост</span>
+                        <strong class="value">{{ girl.growth }} см</strong>
+                    </li>
+                    {% endif %}
+                    {% if girl.weight %}
+                    <li class="single-params__item">
+                        <span class="label">Вес</span>
+                        <strong class="value">{{ girl.weight }} кг</strong>
+                    </li>
+                    {% endif %}
+                </ul>
+                <ul class="socials">
+                    {% if girl.whatsapp %}
+                    <li class="socials__item socials-item">
+                        <a class="socials-item__link" target="_blank" href="{{ girl.whatsapp }}" aria-label="вотсап">
+                            <img class="socials-item__img" src="{% static 'img/icon-whatsapp.png' %}" alt="вотсап">
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if girl.telegram %}
+                    <li class="socials__item socials-item">
+                        <a class="socials-item__link" target="_blank" href="{{ girl.telegram }}" aria-label="телеграм">
+                            <img class="socials-item__img" src="{% static 'img/icon-telegram.png' %}" alt="телеграм">
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if girl.phone %}
+                    <li class="socials__item socials-item">
+                        <a class="socials-item__link" href="{{ girl.phone|phone_to_link }}" aria-label="телефон">
+                            <img class="socials-item__img" src="{% static 'img/icon-phone.png' %}" alt="телефон">
+                            <span class="socials-item__text">{{ girl.phone }}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <!-- /.socials -->
+                {% if girl.about %}
+                <div class="single-about single__about">
+                    <h2 class="single-subtitle">Обо мне:</h2>
+                    <div class="single-about__desc">
+                        {{ girl.about|linebreaks }}
+                    </div>
+                </div>
+                {% endif %}
+                {% with girl.services.all as services %}
+                    {% if services %}
+                    <div class="single-services">
+                        <h2 class="single-subtitle">Услуги</h2>
+                        <ul class="services-group">
+                            {% for service in services %}
+                                <li class="services-group__item">{{ service.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- /.single-services -->
+                    {% endif %}
+                {% endwith %}
+                <div class="single-cost">
+                    <h2 class="single-subtitle">Стоимость:</h2>
+                    <table class="single-cost__table cost-table">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>Апартаменты</td>
+                                <td>Выезд</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>30 мин</td>
+                                <td>{% firstof girl.price_30_home '----' %} ₪</td>
+                                <td>---- ₪</td>
+                            </tr>
+                            <tr>
+                                <td>1 час</td>
+                                <td>{% firstof girl.price_1h_home '----' %} ₪</td>
+                                <td>{% firstof girl.price_1h_departure '----' %} ₪</td>
+                            </tr>
+                            <tr>
+                                <td>2 часа</td>
+                                <td>{% firstof girl.price_2h_home '----' %} ₪</td>
+                                <td>{% firstof girl.price_2h_departure '----' %} ₪</td>
+                            </tr>
+                            <tr>
+                                <td>Ночь</td>
+                                <td>{% firstof girl.price_night_home '----' %} ₪</td>
+                                <td>{% firstof girl.price_night_departure '----' %} ₪</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul class="single-cost__adds single-adds">
+                        {% if girl.parking %}
+                        <li class="single-adds__item adds-item">
+                            <div class="thumb">
+                                <img src="{% static 'img/icon-parking.png' %}" alt="маркер">
+                            </div>
+                            <div class="adds-item__text">Есть парковка</div>
+                        </li>
+                        {% endif %}
+                        {% if girl.apartment %}
+                        <li class="single-adds__item">
+                            <div class="thumb">
+                                <img src="{% static 'img/icon-checked-rounded.png' %}" alt="маркер">
+                            </div>
+                            <div class="adds-item__text">Дискретная квартира</div>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <!-- /.single-cost -->
+                <div class="single-add-review">
+                    <button class="btn btn_secondary" type="button">Оставить отзыв</button>
+                </div>
+            </div>
+            <!-- /.single-info -->
+        </div>
+    </div>
+</main>
+<!-- /.single -->
+
+{% include 'girls/parts/reviews.html' %}
+
+<div class="popup">
+    {% include 'girls/forms/review-form.html' %}
+</div>
+{% endblock %}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_cleanup.apps.CleanupConfig',
+    'easy_thumbnails',
     'girls.apps.GirlsConfig',
     'rates.apps.RatesConfig',
     'orders.apps.OrdersConfig',
@@ -148,3 +149,11 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'accounts.authentication.EmailAuthBackend',
 ]
+
+# Easy thumbnail settings
+THUMBNAIL_ALIASES = {
+    '': {
+        'small': {'size': (600, 600), 'crop': False},
+        'medium': {'size': (900, 900), 'crop': False},
+    },
+}

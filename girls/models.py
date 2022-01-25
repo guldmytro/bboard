@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from rates.models import Rate
 from django.conf import settings
+from django.urls import reverse
 
 
 class Service(models.Model):
@@ -82,6 +83,7 @@ class Girl(models.Model):
     verified = models.BooleanField(default=False, verbose_name='Реальное фото')
     test_photo = models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d', verbose_name='Проверочное фото')
     can_search = models.BooleanField(default=False, verbose_name='Поиск по номеру')
+    can_delete_comments = models.BooleanField(default=False, verbose_name='Может удалять комментарии')
 
     # additional features
     parking = models.BooleanField(default=False, verbose_name='Парковка')
@@ -126,6 +128,9 @@ class Girl(models.Model):
             return self.name
         else:
             return '-'
+
+    def get_absolute_url(self):
+        return reverse('girls:girl', kwargs={'id': self.pk})
 
 
 class Review(models.Model):
