@@ -1,0 +1,48 @@
+{% if reviews %}
+<section class="girl-reviews" id="girl-reviews">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-header__title">Отзывы</h2>
+            <ul class="reviews-group">
+                {% for review in reviews %}
+                <li class="reviews-group__item review-item">
+                    <div class="review-item__header">
+                        <h3 class="review-item__title">{{ review.name }}
+                            {% if request.user.is_authenticated and request.user.girl == girl %}
+                            <span class="tel">({{ review.phone }})</span>
+                            {% endif %}
+                        </h3>
+                        <time class="review_item__time">
+                            {{ review.created|date:"d.m.Y" }}
+                        </time>
+                    </div>
+                    <div class="review-item__body">
+                        {{ review.body }}
+                    </div>
+                    {% if request.user.is_authenticated and request.user.girl == girl and request.user.girl.can_delete_comments %}
+                    <div class="review-item_delete-wrapper">
+                        <button type="button" class="review-item__delete"
+                                data-action="{% url 'girls:delete_review' girl.id review.id %}">Удалить</button>
+                    </div>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="pagination">
+                {% if reviews.has_previous %}
+                    <a class="pagination__link" href="?page={{ reviews.previous_page_number }}#girl-reviews">
+                        &#8249;
+                    </a>
+                {% endif %}
+                <span class="pagination__current">{{ reviews.number }}</span>
+                {% if reviews.has_next %}
+                    <a class="pagination__link" href="?page={{ reviews.next_page_number }}#girl-reviews">
+                        &#8250;
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- girl-reviews -->
+{% endif %}
