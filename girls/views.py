@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Girl, Image, Review
+from .models import Girl, Image, Review, View, Video
 from .forms import AddReviewForm
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
@@ -15,6 +15,7 @@ def home(request):
 def girl_detail(request, id):
     girl = get_object_or_404(Girl, id=id)
     photos = Image.objects.filter(girl=girl)
+    videos = Video.objects.filter(girl=girl)
     reviews_objects = Review.objects.all().order_by('-created')
     paginator = Paginator(reviews_objects, 12)
     page = request.GET.get('page')
@@ -26,10 +27,13 @@ def girl_detail(request, id):
         reviews = paginator.page(paginator.num_pages)
 
     add_review_form = AddReviewForm()
+    if (request.user.is_authenticated and request.user.girl != girl) or not request.user.is_authenticated:
+        View.objects.create(type='profile', profile=girl)
 
     context = {
         'girl': girl,
         'photos': photos,
+        'videos': videos,
         'reviews': reviews,
         'add_review_form': add_review_form
     }
@@ -55,11 +59,18 @@ def girl_delete_review(request, girl_id, review_id):
     girl = request.user.girl
     if not girl.can_delete_comments:
         return JsonResponse({'status': 'bad'})
-
     review = get_object_or_404(Review, pk=review_id)
-
     if review.girl == girl:
         review.delete()
+        return JsonResponse({'status': 'ok'})
+    return JsonResponse({'status': 'bad'})
+
+
+@require_POST
+def girl_update_video_cnt(request, girl_id):
+    girl = get_object_or_404(Girl, id=girl_id)
+    if request.user.is_authenticated and request.user.girl != girl or not request.user.is_authenticated:
+        View.objects.create(profile=girl, type='video')
         return JsonResponse({'status': 'ok'})
     return JsonResponse({'status': 'bad'})
 

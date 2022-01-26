@@ -52,7 +52,7 @@ $('.lux-slider').slick({
 });
 
 $('.single-gallery').slick({
-    infinite: true,
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -67,7 +67,7 @@ $('.single-subgallery').on('init', function() {
 });
 
 $('.single-subgallery').slick({
-    infinite: true,
+    infinite: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: false,
@@ -407,3 +407,30 @@ $('.review-item__delete').on('click', function(e) {
         }
     });
 });
+
+// update video counter
+$('.single-gallery__item video').each(function(e) {
+    let triggerTime = 5;
+    let fired = 0;
+    const video = $(this);
+    video.on('timeupdate', function() {
+       const timer = video.get(0).currentTime.toFixed(2) ;
+       if (timer > triggerTime) {
+            if (!fired) {
+                updateVideoCounter(video);
+                fired = true;
+            }
+       }
+    });
+    video.on('ended', function() {
+        fired = false;
+    });
+});
+
+function updateVideoCounter(video) {
+    const url = video.attr('data-action');
+    $.ajax({
+        url: url,
+        method: 'POST'
+    });
+}

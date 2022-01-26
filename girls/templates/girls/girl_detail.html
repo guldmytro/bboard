@@ -10,12 +10,21 @@
     <div class="container">
         <div class="single-row">
             <div class="single-galleries">
-                {% if photos %}
+                {% if photos or videos %}
                 <div class="single-gallery">
                     {% for photo in photos %}
                     <div class="single-gallery__item">
                         <div class="thumb">
                             <img src="{{ photo.file|thumbnail_url:'medium' }}">
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% for video in videos %}
+                    <div class="single-gallery__item">
+                        <div class="thumb">
+                            <video src="{{ video.file.url }}" controls
+                                   data-action="{% url 'girls:update_video_cnt' girl.id %}">
+                            </video>
                         </div>
                     </div>
                     {% endfor %}
@@ -26,6 +35,13 @@
                     <div class="single-subgallery__item">
                         <div class="thumb">
                             <img src="{{ photo.file|thumbnail_url:'small' }}">
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% for video in videos %}
+                    <div class="single-subgallery__item">
+                        <div class="thumb">
+                            <video src="{{ video.file.url }}"></video>
                         </div>
                     </div>
                     {% endfor %}

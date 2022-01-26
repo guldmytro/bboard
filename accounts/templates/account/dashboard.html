@@ -12,21 +12,21 @@
                 <img src="{% static 'img/icon-document.png' %}" alt="документ">
                 Просмотренно анкеты (за всё время)
             </span>
-            <span class="stat-item__value">320</span>
+            <span class="stat-item__value">{{ all_views }}</span>
         </li>
         <li class="account-stats__item stat-item">
             <span class="stat-item__label">
                 <img src="{% static 'img/icon-document.png' %}" alt="документ">
                 Просмотренно анкеты (за сутки)
             </span>
-            <span class="stat-item__value">61</span>
+            <span class="stat-item__value">{{ last_day_views }}</span>
         </li>
         <li class="account-stats__item stat-item">
             <span class="stat-item__label">
                 <img src="{% static 'img/icon-document.png' %}" alt="документ">
                 Просмотренно видео
             </span>
-            <span class="stat-item__value">24</span>
+            <span class="stat-item__value">{{ video_views }}</span>
         </li>
     </ul>
 {% endblock %}

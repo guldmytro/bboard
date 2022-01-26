@@ -1114,6 +1114,17 @@ input[type=time] {
     cursor: pointer
 }
 
+.single-subgallery .thumb video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    cursor: pointer
+}
+
 .related-girls {
     overflow: hidden
 }
@@ -2221,6 +2232,16 @@ input[type=time] {
     height: 100%;
     object-fit: cover;
     object-position: center top;
+}
+
+.single-gallery__item .thumb video {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .popup {

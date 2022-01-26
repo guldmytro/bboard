@@ -3,9 +3,10 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, ProfileEditForm, ProfilePriceEditForm, ProfileServicesEditForm, \
     ProfileCheckPhotoForm, ProfileAdditionalEditForm
-from girls.models import Girl, Image, Video
+from girls.models import Girl, Image, Video, View
 from django.contrib import messages
 from django.views.decorators.http import require_POST
+from django.utils.timezone import datetime
 
 
 def register(request):
@@ -26,7 +27,18 @@ def register(request):
 
 @login_required
 def dashboard(request):
+    girl = request.user.girl
+    all_views = View.objects.filter(profile=girl, type='profile').count()
+    today = datetime.today()
+    last_day_views = View.objects.filter(profile=girl, type='profile',
+                                         created__year=today.year,
+                                         created__month=today.month,
+                                         created__day=today.day).count()
+    video_views = View.objects.filter(profile=girl, type='video').count()
     context = {
+        'all_views': all_views,
+        'last_day_views': last_day_views,
+        'video_views': video_views,
         'section': 'dashboard'
     }
     return render(request, 'account/dashboard.html', context)
