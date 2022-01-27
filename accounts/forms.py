@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from girls.models import Girl, City, Service
+from clients.models import Client, Review
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -129,3 +130,37 @@ class ProfileCheckPhotoForm(forms.ModelForm):
     class Meta:
         model = Girl
         fields = ('test_photo',)
+
+
+class CheckPhoneForm(forms.Form):
+    phone = forms.CharField(label=False,
+                            widget=forms.TextInput(attrs={
+                                'type': 'tel',
+                                'placeholder': 'Телефон*'
+                            }))
+
+
+class ClientForm(forms.ModelForm):
+    phone = forms.CharField(label=False,
+                            widget=forms.TextInput(attrs={
+                                'type': 'tel',
+                                'placeholder': 'Телефон*'
+                            }))
+
+    class Meta:
+        model = Client
+        fields = ('phone',)
+
+
+class ClientReviewForm(forms.ModelForm):
+    body = forms.CharField(max_length=200,
+                           widget=forms.Textarea(attrs={
+                               'placeholder': 'Отзыв*'
+                           }))
+
+    type = forms.ChoiceField(choices=Review.RATE_CHOICES,
+                             widget=forms.RadioSelect)
+
+    class Meta:
+        model = Review
+        fields = ('body', 'type')

@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, ProfileEditForm, ProfilePriceEditForm, ProfileServicesEditForm, \
-    ProfileCheckPhotoForm, ProfileAdditionalEditForm
+    ProfileCheckPhotoForm, ProfileAdditionalEditForm, CheckPhoneForm, ClientForm, ClientReviewForm
 from girls.models import Girl, Image, Video, View
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.utils.timezone import datetime
+from clients.models import Client, Revise, Review
+import re
 
 
 def register(request):
@@ -42,6 +44,29 @@ def dashboard(request):
         'section': 'dashboard'
     }
     return render(request, 'account/dashboard.html', context)
+
+
+@login_required
+def blacklist(request):
+    clients_cnt = Client.objects.all().count()
+    clients_checked = Revise.objects.all().count()
+    today = datetime.today()
+    last_day_checks = Revise.objects.filter(created__year=today.year,
+                                            created__month=today.month,
+                                            created__day=today.day).count()
+    check_phone_form = CheckPhoneForm()
+    client_form = ClientForm()
+    client_review_form = ClientReviewForm()
+    context = {
+        'last_day_checks': last_day_checks,
+        'clients_cnt': clients_cnt,
+        'clients_checked': clients_checked,
+        'check_phone_form': check_phone_form,
+        'client_form': client_form,
+        'client_review_form': client_review_form,
+        'section': 'blacklist'
+    }
+    return render(request, 'account/blacklist.html', context)
 
 
 @login_required
@@ -199,3 +224,41 @@ def profile_delete_video(request):
     else:
         return JsonResponse({'status': 'bad'})
 
+
+@require_POST
+@login_required
+def profile_check_phone(request):
+    phone_form = CheckPhoneForm(request.POST)
+    if phone_form.is_valid():
+        phone = phone_form.cleaned_data['phone']
+        phone = re.sub('[^0-9]', '', phone)
+        client = Client.objects.filter(phone__contains=phone).first()
+        reviews = Review.objects.filter(client=client)[:10]
+        if reviews.count():
+            Revise.objects.create()
+        context = {
+            'reviews': reviews
+        }
+        return render(request, 'account/reviews.html', context)
+    else:
+        return JsonResponse({'status': 'bad'})
+
+
+@require_POST
+@login_required
+def profile_add_phone(request):
+    client_form = ClientForm(request.POST)
+    client_review_form = ClientReviewForm(request.POST)
+    if client_form.is_valid() and client_review_form.is_valid():
+        phone = client_form.cleaned_data['phone']
+        phone = re.sub('[^0-9]', '', phone)
+        client, created = Client.objects.get_or_create(phone=phone)
+        review = client_review_form.save(commit=False)
+        review.client = client
+        review.author = request.user
+        review.save()
+        messages.success(request, 'Отзыв успешно добавлен!')
+
+    else:
+        messages.success(request, 'Ошибка добавления отзыва...')
+    return redirect('blacklist')

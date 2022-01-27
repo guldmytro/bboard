@@ -1,0 +1,26 @@
+<div class="account-number-result">
+    {% if reviews %}
+        <h3 class="account-number-result__title">
+            Результат:
+        </h3>
+        <ul class="reviews-group">
+            {% for review in reviews %}
+            <li class="reviews-group__item review-item">
+                <div class="review-item__header">
+                    <time class="review-item__date">{{ review.created|date:"d.m.Y" }}</time>
+                    <span class="review-item__tag review-item__tag_{{ review.type }}">{{ review.type_verbose }}</span>
+                </div>
+                <div class="review-item__text">
+                    {{ review.body|linebreaks }}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <!-- /.reviews-group -->
+    {% else %}
+        <h3 class="account-number-result__title">
+            По Вашему запросу отзывов не найдено.
+        </h3>
+    {% endif %}
+</div>
+<!-- /.account-number-result -->

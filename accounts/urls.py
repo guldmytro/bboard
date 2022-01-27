@@ -26,6 +26,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('profile/', views.profile, name='profile'),
+    path('blacklist/', views.blacklist, name='blacklist'),
     path('profile/update-info/', views.profile_update_info, name='profile-update-info'),
     path('profile/update-price/', views.prifile_update_price, name='profile-update-price'),
     path('profile/update-services/', views.profile_update_services, name='profile-update-services'),
@@ -35,4 +36,6 @@ urlpatterns = [
     path('profile/delete-photo/', views.profile_delete_photo, name='profile-delete-photo'),
     path('profile/send-video/', views.profile_send_video, name='profile-send-video'),
     path('profile/delete-video/', views.profile_delete_video, name='profile-delete-video'),
+    path('profile/check-phone/', views.profile_check_phone, name='profile-check-phone'),
+    path('profile/add-phone/', views.profile_add_phone, name='profile-add-phone'),
 ]

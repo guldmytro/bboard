@@ -20,7 +20,8 @@
                     <img src="{% static 'img/icon-user.png' %}" alt="анкета">
                     <span class="account-nav-link__text">Ваша Анкета</span>
                 </a>
-                <a class="account-nav__link account-nav-link" href="blacklist.html">
+                <a class="account-nav__link account-nav-link{% if section == 'blacklist' %} active{% endif %}"
+                   href="{% url 'blacklist' %}">
                     <img src="{% static 'img/icon-warning.png' %}" alt="внимание">
                     <span class="account-nav-link__text">Черный список</span>
                 </a>

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'girls.apps.GirlsConfig',
     'rates.apps.RatesConfig',
     'orders.apps.OrdersConfig',
+    'clients.apps.ClientsConfig',
 ]
 
 MIDDLEWARE = [

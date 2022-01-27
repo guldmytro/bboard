@@ -434,3 +434,24 @@ function updateVideoCounter(video) {
         method: 'POST'
     });
 }
+
+// check phone
+$('.number-form').on('submit', function(e) {
+    e.preventDefault();
+    const form = $(this);
+    const tel = form.serialize();
+    const url = form.attr('action');
+    const btn = form.find('[type="submit"]');
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: tel,
+        beforeSend: function() {
+            btn.prop('disabled', true);
+        },
+        success: function(res) {
+            btn.prop('disabled', false);
+            $('.number-check-wrapper').html(res);
+        }
+    });
+});
