@@ -106,9 +106,8 @@ class Girl(models.Model):
 
     # adds time
     active_advertising = models.BooleanField(default=False, verbose_name='Активна реклама')
-    start_add_at = models.TimeField(blank=True, null=True, verbose_name='Показывать обьявления после')
-    timedelta_add = models.PositiveSmallIntegerField(blank=True, null=True,
-                                                     verbose_name='Длительность показа обьявления в часах')
+    start_add_at = models.TimeField(blank=True, null=True, verbose_name='Начало рекламы')
+    end_add_at = models.TimeField(blank=True, null=True, verbose_name='Окончание рекламы')
 
     # rate
     rate = models.ForeignKey(Rate, related_name='girls', on_delete=models.SET_NULL, null=True, blank=True,

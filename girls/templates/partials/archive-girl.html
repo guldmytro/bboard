@@ -1,0 +1,15 @@
+{% load static %}
+{% load thumbnail %}
+
+<li class="catalog-group__item catalog-item">
+    <a href="{{ girl.get_absolute_url }}" class="catalog-item__thumb">
+        {% if girl.images.first %}
+            <img src="{{ girl.images.first.file|thumbnail_url:'medium' }}" class="catalog-item__img">
+        {% else %}
+            <img src="{% static 'img/girl.jpg' %}" class="catalog-item__img">
+        {% endif %}
+    </a>
+    <div class="catalog-item__info">
+        <h2 class="catalog-item__title"><a href="girl.html">{{ girl.name }}</a></h2>
+    </div>
+</li>

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, ProfileEditForm, ProfilePriceEditForm, ProfileServicesEditForm, \
-    ProfileCheckPhotoForm, ProfileAdditionalEditForm, CheckPhoneForm, ClientForm, ClientReviewForm
+    ProfileCheckPhotoForm, ProfileAdditionalEditForm, CheckPhoneForm, ClientForm, ClientReviewForm, RateForm
 from girls.models import Girl, Image, Video, View
 from django.contrib import messages
 from django.views.decorators.http import require_POST
@@ -262,3 +262,13 @@ def profile_add_phone(request):
     else:
         messages.success(request, 'Ошибка добавления отзыва...')
     return redirect('blacklist')
+
+
+@login_required
+def push(request):
+    rate_form = RateForm()
+    context = {
+        'rate_form': rate_form,
+        'section': 'push'
+    }
+    return render(request, 'account/push.html', context)

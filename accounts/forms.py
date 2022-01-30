@@ -164,3 +164,25 @@ class ClientReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ('body', 'type')
+
+
+class RateForm(forms.ModelForm):
+    active_advertising = forms.BooleanField(label='Автоподбросы',
+                                            widget=forms.RadioSelect(
+                                                choices=[
+                                                    (True, 'Да'),
+                                                    (False, 'Нет')
+                                                ]
+                                            ))
+    start_add_at = forms.CharField(label='Автоподбросы в',
+                                   widget=forms.TextInput(attrs={
+                                        'type': 'time'
+                                   }))
+    end_add_at = forms.CharField(label=False,
+                                 widget=forms.TextInput(attrs={
+                                     'type': 'time'
+                                 }))
+
+    class Meta:
+        model = Girl
+        fields = ('active_advertising', 'start_add_at', 'end_add_at')

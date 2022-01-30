@@ -5,10 +5,13 @@ from django.views.decorators.http import require_POST
 from django.http import JsonResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
+from rates.models import Category, Rate
 
 
 def home(request):
-    context = {}
+    context = {
+        'section': 'home'
+    }
     return render(request, 'pages/home.html', context)
 
 
@@ -73,4 +76,31 @@ def girl_update_video_cnt(request, girl_id):
         View.objects.create(profile=girl, type='video')
         return JsonResponse({'status': 'ok'})
     return JsonResponse({'status': 'bad'})
+
+
+def catalog(request, slug=None):
+    girls_object = Girl.published.all().order_by('-created')
+    if slug:
+        category = get_object_or_404(Category, slug=slug)
+        rates = Rate.objects.filter(category=category)
+        girls_object = girls_object.filter(rate__in=rates)
+        category_name = category.name
+    else:
+        slug = 'new'
+        category_name = 'Новые'
+    paginator = Paginator(girls_object, 15)
+    page = request.GET.get('page')
+    try:
+        girls = paginator.page(page)
+    except PageNotAnInteger:
+        girls = paginator.page(1)
+    except EmptyPage:
+        girls = paginator.page(paginator.num_pages)
+    context = {
+        'category_name': category_name,
+        'slug': slug,
+        'girls': girls,
+        'section': 'catalog'
+    }
+    return render(request, 'pages/catalog.html', context)
 

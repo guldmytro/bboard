@@ -33,9 +33,6 @@
                 <a class="account-nav__link account-nav-link" href="{{ request.user.girl.get_absolute_url }}">
                     <span class="account-nav-link__text">Объявление</span>
                 </a>
-                <a class="account-nav__link account-nav-link" href="random.html">
-                    <span class="account-nav-link__text">Автоподброс</span>
-                </a>
                 <a class="account-nav__link account-nav-link{% if section == 'password-change' %} active{% endif %}"
                    href="{% url 'password_change' %}">
                     <span class="account-nav-link__text">Сменить пароль</span>

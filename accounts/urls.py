@@ -27,6 +27,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('profile/', views.profile, name='profile'),
     path('blacklist/', views.blacklist, name='blacklist'),
+    # path('push/', views.push, name='push'),
     path('profile/update-info/', views.profile_update_info, name='profile-update-info'),
     path('profile/update-price/', views.prifile_update_price, name='profile-update-price'),
     path('profile/update-services/', views.profile_update_services, name='profile-update-services'),

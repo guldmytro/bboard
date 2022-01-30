@@ -1,0 +1,39 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+
+{% block content %}
+<main class="catalog" id="catalog">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-header__title">Элитный эскорт в Израиле</h1>
+        </div>
+        <nav class="catalog-nav">
+            {% for category in categories %}
+                <a class="catalog-nav__link{% if slug == category.slug %} active{% endif %}"
+                   href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+            {% endfor %}
+            <a class="catalog-nav__link{% if slug == 'new' %} active{% endif %}"
+               href="{% url 'girls:catalog' %}">Новые</a>
+        </nav>
+        <h2 class="catalog__title">{{ category_name }}</h2>
+        <div class="catalog-wrapper">
+            {% if girls %}
+            <ul class="catalog-group">
+                {% for girl in girls %}
+                    {% include 'partials/archive-girl.html' %}
+                {% endfor %}
+            </ul>
+            <!-- /.catalog-group -->
+            {% else %}
+            <p>По Вашему запросу девушек не найдено.</p>
+            {% endif %}
+            {% if girls.num_pages > 1 %}
+                {% include 'partials/pagination.html' with page=girls %}
+            {% endif %}
+        </div>
+    </div>
+</main>
+<!-- /.catalog -->
+{% endblock %}
