@@ -18,21 +18,7 @@
                href="{% url 'girls:catalog' %}">Новые</a>
         </nav>
         <h2 class="catalog__title">{{ category_name }}</h2>
-        <div class="catalog-wrapper">
-            {% if girls %}
-            <ul class="catalog-group">
-                {% for girl in girls %}
-                    {% include 'partials/archive-girl.html' %}
-                {% endfor %}
-            </ul>
-            <!-- /.catalog-group -->
-            {% else %}
-            <p>По Вашему запросу девушек не найдено.</p>
-            {% endif %}
-            {% if girls.num_pages > 1 %}
-                {% include 'partials/pagination.html' with page=girls %}
-            {% endif %}
-        </div>
+        {% include 'partials/girls-list.html' %}
     </div>
 </main>
 <!-- /.catalog -->

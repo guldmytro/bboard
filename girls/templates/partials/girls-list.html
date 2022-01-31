@@ -1,0 +1,15 @@
+<div class="catalog-wrapper">
+    {% if girls %}
+    <ul class="catalog-group">
+        {% for girl in girls %}
+            {% include 'partials/archive-girl.html' %}
+        {% endfor %}
+    </ul>
+    <!-- /.catalog-group -->
+    {% else %}
+    <p>По Вашему запросу девушек не найдено.</p>
+    {% endif %}
+    {% if girls.paginator.num_pages > 1 %}
+        {% include 'partials/pagination.html' with page=girls %}
+    {% endif %}
+</div>

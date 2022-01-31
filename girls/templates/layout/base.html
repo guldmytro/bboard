@@ -55,17 +55,19 @@
                         </a>
                         <!-- /.header-login -->
                         {% endif %}
-                        <button class="header-controls__add header-add">
+                        {% if not user.is_authenticated %}
+                        <a href="{% url 'register' %}" class="header-controls__add header-add">
                             <img src="{% static 'img/icon-plus' %}.png" alt="добавить" class="header-add__img">
                             <span class="header-add__text">Добавить анкету</span>
-                        </button>
+                        </a>
+                        {% endif %}
                         <!-- /.header-add -->
                         <select name="language" class="header-controls__languages header-languages">
                             <option class="header-languages__option" value="ru">RU</option>
                             <option class="header-languages__option" value="en">EN</option>
                         </select>
                         <!-- /.header-languages -->
-                        <a href="search.html" class="header-controls__search header-search" type="button" aria-label="Поиск">
+                        <a href="{% url 'girls:search' %}" class="header-controls__search header-search" type="button" aria-label="Поиск">
                             <img class="header-search__img" src="{% static 'img/icon-search' %}.png" alt="поиск">
                         </a>
                         <!-- /.header-search -->

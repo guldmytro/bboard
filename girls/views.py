@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from rates.models import Category, Rate
+from .forms import SearchForm
 
 
 def home(request):
@@ -104,3 +105,40 @@ def catalog(request, slug=None):
     }
     return render(request, 'pages/catalog.html', context)
 
+
+def search(request):
+    search_form = SearchForm(request.GET)
+    is_searching = False
+    girls = False
+    if search_form.is_valid():
+        cd = search_form.cleaned_data
+        girls_object = Girl.published.all()
+        if cd['city']:
+            girls_object = girls_object.filter(city=cd['city'])
+        if cd['age']:
+            girls_object = girls_object.filter(age=cd['age'])
+        if cd['price_from']:
+            girls_object = girls_object.filter(min_price__gte=int(cd['price_from']))
+        if cd['price_to']:
+            girls_object = girls_object.filter(max_price__lte=int(cd['price_to']))
+        if cd['apartments']:
+            girls_object = girls_object.filter(apartment=True)
+        if cd['arrive']:
+            girls_object = girls_object.filter(arrive=True)
+        if cd['search']:
+            is_searching = True
+        paginator = Paginator(girls_object, 15)
+        page = request.GET.get('page')
+        try:
+            girls = paginator.page(page)
+        except PageNotAnInteger:
+            girls = paginator.page(1)
+        except EmptyPage:
+            girls = paginator.page(paginator.num_pages)
+
+    context = {
+        'is_searching': is_searching,
+        'girls': girls,
+        'search_form': search_form
+    }
+    return render(request, 'pages/search.html', context)

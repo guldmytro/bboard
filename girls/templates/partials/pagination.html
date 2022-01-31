@@ -1,13 +1,25 @@
 <div class="pagination">
     {% if page.has_previous %}
-        <a class="pagination__link" href="?page={{ page.previous_page_number }}">
-            &#8249;
-        </a>
+        {% if is_searching %}
+            <a class="pagination__link" href="{{ request.get_full_path }}&page={{ page.previous_page_number }}">
+                &#8249;
+            </a>
+        {% else %}
+            <a class="pagination__link" href="?page={{ page.previous_page_number }}">
+                &#8249;
+            </a>
+        {% endif %}
     {% endif %}
     <span class="pagination__current">{{ page.number }}</span>
     {% if page.has_next %}
-        <a class="pagination__link" href="?page={{ page.next_page_number }}">
-            &#8250;
-        </a>
+        {% if is_searching %}
+            <a class="pagination__link" href="{{ request.get_full_path }}&page={{ page.next_page_number }}">
+                &#8250;
+            </a>
+        {% else %}
+            <a class="pagination__link" href="?page={{ page.next_page_number }}">
+                &#8250;
+            </a>
+        {% endif %}
     {% endif %}
 </div>

@@ -28,7 +28,7 @@
                 </li>
                 {% endfor %}
             </ul>
-            {% if reviews.num_pages %}
+            {% if reviews.paginator.num_pages > 1 %}
                 <div class="pagination">
                     {% if reviews.has_previous %}
                         <a class="pagination__link" href="?page={{ reviews.previous_page_number }}#girl-reviews">

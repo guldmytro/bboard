@@ -535,7 +535,6 @@ input[type=time] {
 
 .header-add {
     background-color: var(--color-primary);
-    display: none
 }
 
 .header-languages {
@@ -1168,14 +1167,15 @@ input[type=time] {
 }
 
 .radio-wrapper,
-.search-form__fieldset select {
+.search-form__fieldset select,
+.search-form__fieldset [type="number"] {
     height: 4.5rem;
     display: block;
     width: 100%;
     padding: 0 1.5rem;
     border: 1px solid #888;
     background-color: #fff;
-    color: #a9a9a9
+    color: #000;
 }
 
 .search-form__fieldset:nth-last-child(2) {
@@ -1961,7 +1961,8 @@ input[type=time] {
     width: 2.8rem;
     height: 2.6rem;
     border-radius: 4px;
-    background-color: #fff
+    background-color: #fff;
+    flex-shrink: 0;
 }
 
 :checked+.custom-checkbox {
@@ -2389,6 +2390,12 @@ input[type=time] {
     .add-review__fieldset .row:last-child .btn {
         grid-column: 1/span 2
     }
+    .servises-group {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+    .forms-section__row {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
 }
 
 @media (max-width:991px) {
@@ -2599,6 +2606,10 @@ input[type=time] {
     }
     .tarif-group {
         gap: 2rem
+    }
+    .servises-group,
+    .forms-section__row {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
     }
 }
 

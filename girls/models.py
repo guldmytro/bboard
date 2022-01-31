@@ -77,6 +77,8 @@ class Girl(models.Model):
     price_1h_departure = models.PositiveSmallIntegerField(verbose_name='Цена 1 час (выезд)', null=True, blank=True)
     price_2h_departure = models.PositiveSmallIntegerField(verbose_name='Цена 2 час (выезд)', null=True, blank=True)
     price_night_departure = models.PositiveSmallIntegerField(verbose_name='Цена ночь (выезд)', null=True, blank=True)
+    min_price = models.PositiveSmallIntegerField(verbose_name='Минимальная цена', null=True, blank=True)
+    max_price = models.PositiveSmallIntegerField(verbose_name='Максимальная цена', null=True, blank=True)
 
     # other status
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft', verbose_name='Статус')
@@ -88,6 +90,7 @@ class Girl(models.Model):
     # additional features
     parking = models.BooleanField(default=False, verbose_name='Парковка')
     apartment = models.BooleanField(default=False, verbose_name='Отдельная квартира')
+    arrive = models.BooleanField(default=False, verbose_name='Выезд')
 
     # date
     publish = models.DateTimeField(default=timezone.now, verbose_name='Опубликовано')

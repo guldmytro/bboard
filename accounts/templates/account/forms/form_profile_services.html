@@ -8,7 +8,6 @@
             </label>
         {% endfor %}
     </div>
-
     <h2 class="account-services__title">Дополнительные опции</h2>
     <div class="servises-group">
         <label class="input-wrapper">
@@ -20,6 +19,11 @@
             {{ profile_additional_form.apartment }}
             <span class="custom-checkbox"></span>
             <span class="label">{{ profile_additional_form.apartment.label }}</span>
+        </label>
+        <label class="input-wrapper">
+            {{ profile_additional_form.arrive }}
+            <span class="custom-checkbox"></span>
+            <span class="label">{{ profile_additional_form.arrive.label }}</span>
         </label>
     </div>
     {% csrf_token %}

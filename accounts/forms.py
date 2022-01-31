@@ -120,10 +120,11 @@ class ProfileServicesEditForm(forms.ModelForm):
 class ProfileAdditionalEditForm(forms.ModelForm):
     parking = forms.CheckboxInput()
     apartment = forms.CheckboxInput()
+    arrive = forms.CheckboxInput()
 
     class Meta:
         model = Girl
-        fields = ('parking', 'apartment')
+        fields = ('parking', 'apartment', 'arrive')
 
 
 class ProfileCheckPhotoForm(forms.ModelForm):

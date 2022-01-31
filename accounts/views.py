@@ -114,7 +114,19 @@ def prifile_update_price(request):
     profile_price_form = ProfilePriceEditForm(request.POST, instance=request.user.girl)
     if profile_price_form.is_valid():
         if profile_price_form.has_changed():
+            cd = profile_price_form.cleaned_data
+            price_list = []
+            for key in cd:
+                price = cd[key]
+                if price:
+                    price_list.append(price)
             profile_price_form.save()
+            if len(price_list):
+                min_price = min(price_list)
+                max_price = max(price_list)
+                request.user.girl.min_price = min_price
+                request.user.girl.max_price = max_price
+                request.user.girl.save()
             messages.success(request, 'Ваш профиль был успешно обновлен')
     else:
         messages.error(request, 'Ошибка обновления профиля')

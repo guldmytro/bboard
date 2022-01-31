@@ -1,0 +1,56 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Поиск{% endblock %}
+
+
+{% block content %}
+<section class="search">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-header__title">Поиск</h1>
+        </div>
+        <form action="{% url 'girls:search' %}" method="get" class="search-form">
+            <input type="hidden" name="search" value="search">
+            <fieldset class="search-form__fieldset">
+                {{ search_form.city.label_tag }}
+                {{ search_form.city }}
+            </fieldset>
+            <fieldset class="search-form__fieldset">
+                {{ search_form.age.label_tag }}
+                {{ search_form.age }}
+            </fieldset>
+            <fieldset class="search-form__fieldset">
+                {{ search_form.price_from.label_tag }}
+                {{ search_form.price_from }}
+            </fieldset>
+            <fieldset class="search-form__fieldset">
+                {{ search_form.price_to.label_tag }}
+                {{ search_form.price_to }}
+            </fieldset>
+            <fieldset class="search-form__fieldset">
+                <span class="label">Тип указания услуг</span>
+                <label class="radio-wrapper">
+                    <span class="custom-label">{{ search_form.apartments.label }}</span>
+                    {{ search_form.apartments }}
+                    <span class="custom-radio"></span>
+                </label>
+                <label class="radio-wrapper">
+                    <span class="custom-label">{{ search_form.arrive.label }}</span>
+                    {{ search_form.arrive }}
+                    <span class="custom-radio"></span>
+                </label>
+            </fieldset>
+            <fieldset class="search-form__fieldset">
+                <button type="submit" class="btn btn_invert">Поиск анкет</button>
+            </fieldset>
+        </form>
+        <!-- /.search-form -->
+        {% include 'partials/socials.html' %}
+
+        {% if is_searching %}
+            {% include 'partials/girls-list.html' %}
+        {% endif %}
+    </div>
+</section>
+<!-- /.search -->
+{% endblock %}
