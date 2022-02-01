@@ -10,7 +10,21 @@ from .forms import SearchForm
 
 
 def home(request):
+    girls_object = Girl.published.all().order_by('-created')
+    slug = 'new'
+    category_name = 'Новые'
+    paginator = Paginator(girls_object, 15)
+    page = request.GET.get('page')
+    try:
+        girls = paginator.page(page)
+    except PageNotAnInteger:
+        girls = paginator.page(1)
+    except EmptyPage:
+        girls = paginator.page(paginator.num_pages)
     context = {
+        'category_name': category_name,
+        'slug': slug,
+        'girls': girls,
         'section': 'home'
     }
     return render(request, 'pages/home.html', context)

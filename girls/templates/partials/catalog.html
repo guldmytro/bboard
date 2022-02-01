@@ -1,0 +1,18 @@
+<main class="catalog" id="catalog">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-header__title">Элитный эскорт в Израиле</h1>
+        </div>
+        <nav class="catalog-nav">
+            {% for category in categories %}
+                <a class="catalog-nav__link{% if slug == category.slug %} active{% endif %}"
+                   href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+            {% endfor %}
+            <a class="catalog-nav__link{% if slug == 'new' %} active{% endif %}"
+               href="{% url 'girls:catalog' %}">Новые</a>
+        </nav>
+        <h2 class="catalog__title">{{ category_name }}</h2>
+        {% include 'partials/girls-list.html' %}
+    </div>
+</main>
+<!-- /.catalog -->
