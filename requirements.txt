@@ -1,0 +1,15 @@
+asgiref==3.4.1
+backports.zoneinfo==0.2.1
+cssselect2==0.4.1
+Django==4.0.1
+django-cleanup==5.2.0
+easy-thumbnails==2.8.1
+lxml==4.7.1
+Pillow==9.0.0
+psycopg2==2.9.3
+psycopg2-binary==2.9.3
+reportlab==3.6.5
+sqlparse==0.4.2
+svglib==1.2.0
+tinycss2==1.1.1
+webencodings==0.5.1
