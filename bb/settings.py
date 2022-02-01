@@ -159,3 +159,8 @@ THUMBNAIL_ALIASES = {
         'medium': {'size': (900, 900), 'crop': False},
     },
 }
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
