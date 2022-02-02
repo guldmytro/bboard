@@ -55,13 +55,6 @@
                         </a>
                         <!-- /.header-login -->
                         {% endif %}
-                        {% if not user.is_authenticated %}
-                        <a href="{% url 'register' %}" class="header-controls__add header-add">
-                            <img src="{% static 'img/icon-plus' %}.png" alt="добавить" class="header-add__img">
-                            <span class="header-add__text">Добавить анкету</span>
-                        </a>
-                        {% endif %}
-                        <!-- /.header-add -->
                         <select name="language" class="header-controls__languages header-languages">
                             <option class="header-languages__option" value="ru">RU</option>
                             <option class="header-languages__option" value="en">EN</option>
@@ -88,32 +81,48 @@
                             <button class="mobile-controls__mail" type="button" aria-label="написать нам">
                                 <img src="{% static 'img/icon-mail' %}.png" alt="конверт">
                             </button>
-                            <a class="mobile-controls__search" href="search.html" aria-label="поиск">
+                            <a class="mobile-controls__search" href="{% url 'girls:search' %}" aria-label="поиск">
                                 <img src="{% static 'img/icon-search' %}.png" alt="поиск">
                             </a>
                         </div>
                         <!-- /.mobile-controls -->
                         <ul class="mobile-menu__nav mobile-nav">
-                            <li class="mobile-nav__item active"><a href="index.html">Главная</a></li>
-                            <li class="mobile-nav__item mobile-nav__item_has_children">
+                            <li class="mobile-nav__item{% if section == 'home' %} active{% endif %}"><a href="{% url 'girls:home' %}">Главная</a></li>
+                            <li class="mobile-nav__item mobile-nav__item_has_children{% if slug == 'new' %} active{% endif %}">
                                 <span>Анкеты</span>
                                 <ul class="mobile-sub-menu">
-                                    <li><a href="catalog.html">Все анкеты</a></li>
-                                    <li><a href="catalog.html">Luxury Zone</a></li>
-                                    <li><a href="catalog.html">Premium</a></li>
-                                    <li class="active"><a href="catalog.html">VIP</a></li>
-                                    <li><a href="catalog.html">Luxury Zone</a></li>
+                                    <li{% if slug == 'new' %} class="active"{% endif %}><a href="{% url 'girls:catalog' %}">Все анкеты</a></li>
+                                    {% for category in categories %}
+                                        <li{% if slug == category.slug %} class="active"{% endif %}>
+                                            <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </li>
+                            <li class="mobile-nav__item"><a href="{% url 'girls:home' %}#about">О нас</a></li>
                         </ul>
                         <!-- /.mobile-nav -->
+                        {% if user.is_authenticated %}
                         <div class="mobile-login">
-                            <a class="mobile-login__link" href="login.html">
+                            <a class="mobile-login__link" href="{% url 'profile' %}">
+                                <img src="{% static 'img/icon-user' %}.svg" alt="дверь">
+                                <span>Кабинет</span>
+                            </a>
+                        </div>
+                        <!-- /.mobile-login -->
+                        {% else %}
+                        <div class="mobile-login">
+                            <a class="mobile-login__link" href="{% url 'login' %}">
                                 <img src="{% static 'img/icon-login' %}.png" alt="дверь">
                                 <span>Авторизация</span>
                             </a>
                         </div>
                         <!-- /.mobile-login -->
+                        <a href="{% url 'register' %}" class="header-controls__add header-add">
+                            <img src="{% static 'img/icon-plus' %}.png" alt="добавить" class="header-add__img">
+                            <span class="header-add__text">Добавить анкету</span>
+                        </a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

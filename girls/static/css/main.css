@@ -534,6 +534,7 @@ input[type=time] {
 }
 
 .header-add {
+    display: none;
     background-color: var(--color-primary);
 }
 
@@ -2572,6 +2573,9 @@ input[type=time] {
         gap: 2rem;
         flex-flow: column nowrap;
         align-items: flex-start
+    }
+    .header-add {
+        display: flex;
     }
 }
 
