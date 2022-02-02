@@ -792,6 +792,7 @@ input[type=time] {
 }
 
 .catalog-item__title {
+    text-transform: capitalize;
     font-size: 1.9rem;
     font-weight: 700
 }
@@ -933,6 +934,7 @@ input[type=time] {
 }
 
 .single__title {
+    text-transform: capitalize;
     margin: 0;
     font-size: 4.2rem
 }
@@ -2246,6 +2248,7 @@ input[type=time] {
     object-fit: contain;
 }
 
+.popup-cities,
 .popup {
     position: fixed;
     top: 0;
@@ -2257,6 +2260,7 @@ input[type=time] {
     z-index: 2;
 }
 
+.cities-form,
 .review-form {
     position: absolute;
     top: 50%;
@@ -2277,6 +2281,7 @@ input[type=time] {
     resize: none;
 }
 
+.cities-form__close,
 .review-form__close {
     position: absolute;
     right: 1.5rem;
@@ -2287,6 +2292,8 @@ input[type=time] {
     border-radius: 3px;
 }
 
+.cities-form__close::before,
+.cities-form__close::after,
 .review-form__close::before,
 .review-form__close::after {
     content: '';
@@ -2299,10 +2306,12 @@ input[type=time] {
     left: 50%;
 }
 
+.cities-form__close::before,
 .review-form__close::before {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+.cities-form__close::after,
 .review-form__close::after {
     transform: translate(-50%, -50%) rotate(45deg);
 }
@@ -2356,6 +2365,28 @@ input[type=time] {
 
 .girl-reviews .pagination {
     margin-top: 3.5rem;
+}
+
+.cities-group {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.cities-group .cities-item__link {
+    display: block;
+    border-radius: 4px;
+    background: var(--color-primary);
+    text-align: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    width: 100%;
+}
+
+.cities-item__link.active,
+.cities-item__link:hover {
+    background: var(--color-secondary);
+    color: var(--color-primary);
 }
 
 @media (max-width:1399px) {
@@ -2749,5 +2780,14 @@ input[type=time] {
     }
     .tarif-group {
         grid-template-columns: repeat(1, minmax(0, 1fr))
+    }
+    .cities-group {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+    .form-authentification {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 }

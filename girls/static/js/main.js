@@ -455,3 +455,41 @@ $('.number-form').on('submit', function(e) {
         }
     });
 });
+
+// cities
+const popupCities = $('.popup-cities');
+$('.header-city').on('click', function(e) {
+    e.preventDefault();
+    popupCities.fadeIn(200);
+    $('body').css('overflow', 'hidden');
+});
+
+$('.cities-form__close').on('click', function(e) {
+    e.preventDefault();
+    popupCities.fadeOut(200);
+    $('body').css('overflow', 'auto');
+});
+
+$('.cities-item__link:not(.active)').on('click', function(e) {
+    e.preventDefault();
+    const btn = $(this);
+    const slug = btn.attr('data-slug');
+    const url = btn.attr('data-action');
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: {
+            slug: slug
+        },
+        beforeSend: function() {
+            btn.prop('disabled', true);
+        },
+        success: function(res) {
+            $('.cities-item__link.active').removeClass('active');
+            btn.addClass('active');
+            const urlPieces = [location.protocol, '//', location.host, location.pathname]
+            let url = urlPieces.join('')
+            window.location.href = url
+        }
+    });
+});

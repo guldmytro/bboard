@@ -5,6 +5,7 @@ app_name = 'girls'
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('set-city/', views.city, name='city'),
     path('catalog/', views.catalog, name='catalog'),
     path('catalog/<slug:slug>/', views.catalog, name='catalog_by_slug'),
     path('search/', views.search, name='search'),

@@ -1,0 +1,17 @@
+<div class="popup-cities">
+    <div class="cities-form form-authentification">
+        <button type="button" class="cities-form__close" aria-label="закрыть"></button>
+        <div class="section-header">
+            <h2 class="section-header__title">Выберите город</h2>
+        </div>
+        <ul class="cities-group">
+            {% for c in cities %}
+                <li class="cities-group__item cities-item">
+                    <button type="button" data-action="{% url 'girls:city' %}"
+                            class="cities-item__link{% if city == c %} active{% endif %}"
+                            data-slug="{{ c.slug }}">{{ c.name }}</button>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

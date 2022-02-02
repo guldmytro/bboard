@@ -71,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'girls.context_processors.category_processor',
+                'girls.context_processors.cities_processor',
             ],
         },
     },
@@ -159,6 +160,9 @@ THUMBNAIL_ALIASES = {
         'medium': {'size': (900, 900), 'crop': False},
     },
 }
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_COOKIE_HTTPONLY = True
 
 try:
     from .local_settings import *

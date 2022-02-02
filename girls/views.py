@@ -7,10 +7,12 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from rates.models import Category, Rate
 from .forms import SearchForm
+from .utils import filter_by_city, get_current_city
 
 
 def home(request):
     girls_object = Girl.published.all().order_by('-created')
+    girls_object = filter_by_city(request, girls_object)
     slug = 'new'
     category_name = 'Новые'
     paginator = Paginator(girls_object, 15)
@@ -95,6 +97,7 @@ def girl_update_video_cnt(request, girl_id):
 
 def catalog(request, slug=None):
     girls_object = Girl.published.all().order_by('-created')
+    girls_object = filter_by_city(request, girls_object)
     if slug:
         category = get_object_or_404(Category, slug=slug)
         rates = Rate.objects.filter(category=category)
@@ -121,7 +124,13 @@ def catalog(request, slug=None):
 
 
 def search(request):
-    search_form = SearchForm(request.GET)
+    city = get_current_city(request)
+    if request.GET.get('city'):
+        search_form = SearchForm(request.GET)
+    elif city:
+        search_form = SearchForm(initial={'city': city})
+    else:
+        search_form = SearchForm(request.GET)
     is_searching = False
     girls = False
     if search_form.is_valid():
@@ -156,3 +165,9 @@ def search(request):
         'search_form': search_form
     }
     return render(request, 'pages/search.html', context)
+
+
+@require_POST
+def city(request):
+    request.session['city'] = request.POST.get('slug')
+    return JsonResponse({'status': 'ok'})
