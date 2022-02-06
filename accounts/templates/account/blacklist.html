@@ -1,20 +1,21 @@
 {% extends 'layout/account.html' %}
+{% load i18n %}
 
-{% block title %}Черный список{% endblock %}
+{% block title %}{% trans 'Black list' %}{% endblock %}
 
-{% block account_title %}Черный список{% endblock %}
+{% block account_title %}{% trans 'Black list' %}{% endblock %}
 
 {% block account_content %}
 <div class="account-number">
-    <h2 class="account-number__title">Пробивка</h2>
+    <h2 class="account-number__title">{% trans 'Punching' %}</h2>
     <div class="account-number-wrapper">
         <div class="col">
             <form action="{% url 'profile-check-phone' %}" method='post' class="number-form">
                 <fieldset class="number-form__fieldset">
-                    <label for="number">Введите номер вашего клиента</label>
+                    <label>{% trans 'Enter your customer number' %}</label>
                     {{ check_phone_form.phone }}
                     {% csrf_token %}
-                    <button class="btn btn_form btn_invert" type="submit">Проверить</button>
+                    <button class="btn btn_form btn_invert" type="submit">{% trans 'Check' %}</button>
                 </fieldset>
             </form>
             <!-- /.number-form -->
@@ -23,19 +24,19 @@
         <!-- /.col -->
         <div class="col">
             <p class="account-number__info">
-                Пользоваться сервисом пробивки номеров вы можете оплатитив платный тариф один раз!
+                {% trans 'You can use the number punching service by paying a paid tariff once!' %}
             </p>
             <div class="account-number-stats">
                 <div class="account-number-stats__row">
-                    <span class="account-number-stats__label">Телефонов в чёрном списке</span>
+                    <span class="account-number-stats__label">{% trans 'Phones on the blacklist' %}</span>
                     <span class="account-number-stats__value">{{ clients_cnt }}</span>
                 </div>
                 <div class="account-number-stats__row">
-                    <span class="account-number-stats__label">Проверено телефонов всего</span>
+                    <span class="account-number-stats__label">{% trans 'Phones checked in total' %}</span>
                     <span class="account-number-stats__value">{{ clients_checked }}</span>
                 </div>
                 <div class="account-number-stats__row">
-                    <span class="account-number-stats__label">Проверено телефонов за 24 часа</span>
+                    <span class="account-number-stats__label">{% trans 'Checked phones in 24 hours' %}</span>
                     <span class="account-number-stats__value">{{ last_day_checks }}</span>
                 </div>
             </div>
@@ -44,10 +45,10 @@
     </div>
 </div>
 <div class="account-add-review">
-    <h2 class="account-add-review__title">Оставить отзыв о клиенте</h2>
+    <h2 class="account-add-review__title">{% trans 'Leave customer feedback' %}</h2>
     <form action="{% url 'profile-add-phone' %}" method="post" class="account-add-review__form add-review-form">
         <fieldset class="add-review__fieldset">
-            <legend>Введите номер вашего клиента</legend>
+            <legend>{% trans 'Enter your customer number' %}</legend>
             <div class="row">
                 {{ client_form.phone }}
                 {% for field in client_review_form.type %}
@@ -61,7 +62,7 @@
             <div class="row">
                 {{ client_review_form.body }}
                 {% csrf_token %}
-                <button type="submit" class="btn btn_submit btn_form btn_invert">Оставить отзыв</button>
+                <button type="submit" class="btn btn_submit btn_form btn_invert">{% trans %}</button>
             </div>
         </fieldset>
     </form>

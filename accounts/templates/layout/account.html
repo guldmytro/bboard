@@ -1,4 +1,5 @@
 {% extends 'layout/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -11,35 +12,35 @@
         </div>
         <div class="account-nav-wrapper">
             <a href="tarif.html" class="account-plan">
-                <span class="account-plan__label">Ваш тариф:</span>
+                <span class="account-plan__label">{% trans 'Your rate:' %}</span>
                 <span class="account-plan__value">VIP на месяц</span>
             </a>
             <nav class="account-nav">
                 <a class="account-nav__link account-nav-link{% if section == 'profile' %} active{% endif %}"
                    href="{% url 'profile' %}">
                     <img src="{% static 'img/icon-user.png' %}" alt="анкета">
-                    <span class="account-nav-link__text">Ваша Анкета</span>
+                    <span class="account-nav-link__text">{% trans 'Your profile' %}</span>
                 </a>
                 <a class="account-nav__link account-nav-link{% if section == 'blacklist' %} active{% endif %}"
                    href="{% url 'blacklist' %}">
                     <img src="{% static 'img/icon-warning.png' %}" alt="внимание">
-                    <span class="account-nav-link__text">Черный список</span>
+                    <span class="account-nav-link__text">{% trans 'Black list' %}</span>
                 </a>
                 <a class="account-nav__link account-nav-link{% if section == 'dashboard' %} active{% endif %}"
                    href="{% url 'dashboard' %}">
                     <img src="{% static 'img/icon-stats.png' %}" alt="внимание">
-                    <span class="account-nav-link__text">Статистика</span>
+                    <span class="account-nav-link__text">{% trans 'Statistics' %}</span>
                 </a>
                 <a class="account-nav__link account-nav-link" href="{{ request.user.girl.get_absolute_url }}">
-                    <span class="account-nav-link__text">Объявление</span>
+                    <span class="account-nav-link__text">{% trans 'Profile' %}</span>
                 </a>
                 <a class="account-nav__link account-nav-link{% if section == 'password-change' %} active{% endif %}"
                    href="{% url 'password_change' %}">
-                    <span class="account-nav-link__text">Сменить пароль</span>
+                    <span class="account-nav-link__text">{% trans 'Change password' %}</span>
                 </a>
                 <a class="account-nav__link account-nav-link" href="{% url 'logout' %}">
                     <img src="{% static 'img/logout.svg' %}" alt="выйти">
-                    <span class="account-nav-link__text">Выйти</span>
+                    <span class="account-nav-link__text">{% trans 'Logout' %}</span>
                 </a>
             </nav>
         </div>

@@ -1,6 +1,7 @@
+{% load i18n %}
 <form class="form-bb form-bb_basic"
       action="{% url 'profile-update-info' %}" method="post">
-    <h2 class="form-bb__title">Заполните информацию</h2>
+    <h2 class="form-bb__title">{% trans 'Fill in the information' %}</h2>
     {{ profile_form.non_field_errors }}
     <fieldset class="form-bb__fieldset">
         {{ profile_form.name }}
@@ -24,5 +25,5 @@
     </fieldset>
     {% csrf_token %}
     <input type="hidden" name="form_type" value="basic-form">
-    <button type="submit" class="btn btn_form">Сохранить</button>
+    <button type="submit" class="btn btn_form">{% trans 'Save' %}</button>
 </form>

@@ -1,7 +1,9 @@
+{% load i18n %}
+
 <div class="account-number-result">
     {% if reviews %}
         <h3 class="account-number-result__title">
-            Результат:
+            {% trans 'Result:' %}
         </h3>
         <ul class="reviews-group">
             {% for review in reviews %}
@@ -19,7 +21,7 @@
     <!-- /.reviews-group -->
     {% else %}
         <h3 class="account-number-result__title">
-            По Вашему запросу отзывов не найдено.
+            {% trans 'No reviews found for your query.' %}
         </h3>
     {% endif %}
 </div>

@@ -1,15 +1,16 @@
 {% extends 'layout/base.html' %}
+{% load i18n %}
 
-{% block title %}Регистрация завершена{% endblock %}
+{% block title %}{% trans 'Registration completed' %}{% endblock %}
 
 {% block content %}
 <main class="register">
     <div class="container">
         <div class="form-authentification">
-            <h1 class="form-authentification__title">Добро пожаловать!</h1>
+            <h1 class="form-authentification__title">{% trans 'Welcome!' %}</h1>
             <p>
-                Ваша учетная запись была успешно создана.
-                Теперь вы можете <a href="{% url 'login' %}">войти</a>.
+                {% trans 'Your account has been successfully created.' %}
+                {% trans 'Now you can' %} <a href="{% url 'login' %}">{% trans 'login' %}</a>.
             </p>
         </div>
     </div>

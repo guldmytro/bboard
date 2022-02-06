@@ -1,30 +1,31 @@
 {% extends 'layout/account.html' %}
+{% load i18n %}
 {% load static %}
 
-{% block title %}Статистика{% endblock %}
+{% block title %}{% trans 'Statistics' %}{% endblock %}
 
-{% block account_title %}Статистика{% endblock %}
+{% block account_title %}{% trans 'Statistics' %}{% endblock %}
 
 {% block account_content %}
     <ul class="account-stats">
         <li class="account-stats__item stat-item">
             <span class="stat-item__label">
                 <img src="{% static 'img/icon-document.png' %}" alt="документ">
-                Просмотренно анкеты (за всё время)
+                {% trans 'Profiles viewed (for all time)' %}
             </span>
             <span class="stat-item__value">{{ all_views }}</span>
         </li>
         <li class="account-stats__item stat-item">
             <span class="stat-item__label">
                 <img src="{% static 'img/icon-document.png' %}" alt="документ">
-                Просмотренно анкеты (за сутки)
+                {% trans 'Profiles viewed (per day)' %}
             </span>
             <span class="stat-item__value">{{ last_day_views }}</span>
         </li>
         <li class="account-stats__item stat-item">
             <span class="stat-item__label">
                 <img src="{% static 'img/icon-document.png' %}" alt="документ">
-                Просмотренно видео
+                {% trans 'Watched video' %}
             </span>
             <span class="stat-item__value">{{ video_views }}</span>
         </li>

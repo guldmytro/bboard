@@ -1,3 +1,4 @@
+{% load i18n %}
 <form class="services-form" action="{% url 'profile-update-services' %}" method="post">
     <div class="servises-group">
         {% for field in profile_service_form.services %}
@@ -8,7 +9,7 @@
             </label>
         {% endfor %}
     </div>
-    <h2 class="account-services__title">Дополнительные опции</h2>
+    <h2 class="account-services__title">{% trans 'Additional options' %}</h2>
     <div class="servises-group">
         <label class="input-wrapper">
             {{ profile_additional_form.parking }}
@@ -27,5 +28,5 @@
         </label>
     </div>
     {% csrf_token %}
-    <button type="submit" class="btn btn_form">Сохранить</button>
+    <button type="submit" class="btn btn_form">{% trans 'Save' %}</button>
 </form>

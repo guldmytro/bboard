@@ -1,8 +1,9 @@
 {% extends 'layout/account.html' %}
+{% load i18n %}
 
-{% block title %}Ваша анкета{% endblock %}
+{% block title %}{% trans 'Your profile' %}{% endblock %}
 
-{% block account_title %}Ваша анкета{% endblock %}
+{% block account_title %}{% trans 'Your profile' %}{% endblock %}
 
 {% block account_content %}
 <div class="account-forms">
@@ -18,22 +19,22 @@
     </div>
     <!-- /.account-forms__row -->
     <div class="account-forms__section forms-section">
-        <h3 class="forms-section__title">Загрузите ваше проверочное фото с сегодняшней датой</h3>
+        <h3 class="forms-section__title">{% trans 'Upload your verification photo with today's date' %}</h3>
         <div class="forms-section__row">
             {% include 'account/forms/form_profile_check_photo.html' %}
         </div>
-        <h3 class="forms-section__title">Загрузите ваше видео</h3>
+        <h3 class="forms-section__title">{% trans 'Upload your video' %}</h3>
         <div class="forms-section__row forms-section__row_videos">
             {% include 'account/forms/form_profile_videos.html' %}
             {% include 'account/videos.html' %}
         </div>
-        <h3 class="forms-section__title">Загрузите ваши фото</h3>
+        <h3 class="forms-section__title">{% trans 'Upload your photos' %}</h3>
         <div class="forms-section__row forms-section__row_gallery">
             {% include 'account/forms/form_profile_photos.html' %}
             {% include 'account/gallery.html' %}
         </div>
         <div class="account-services">
-            <h2 class="account-services__title">Ваши услуги</h2>
+            <h2 class="account-services__title">{% trans 'Your services' %}</h2>
             {% include 'account/forms/form_profile_services.html' %}
         </div>
     </div>

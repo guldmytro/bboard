@@ -1,19 +1,20 @@
 {% extends 'layout/account.html' %}
+{% load i18n %}
 
-{% block title %}Автоподброс{% endblock %}
+{% block title %}{% trans 'Auto flip' %}{% endblock %}
 
-{% block account_title %}Автоподброс{% endblock %}
+{% block account_title %}{% trans 'Auto flip' %}{% endblock %}
 
 {% block account_content %}
 <div class="account-random">
     <div class="account-tarif__info">
-        <p>Осталось дней: <strong>15</strong></p>
-        <p>Кол-во автоподбросов: <strong>20 шт.</strong></p>
+        <p>{% trans 'Days left:' %} <strong>15</strong></p>
+        <p>{% trans 'Auto flips:' %} <strong>20</strong></p>
     </div>
     <form action="." class="random-form">
         {{ rate_form }}
         <fieldset class="random-form__fieldset random-fieldset">
-            <h2 class="random_fieldset__title">Автоподбросы:</h2>
+            <h2 class="random_fieldset__title">{% trans 'Auto flips:' %}</h2>
             <label class="random-form__label">
                 <input type="radio" name="random" value="1">
                 <span class="custom-checkbox"></span>

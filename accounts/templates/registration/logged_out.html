@@ -1,16 +1,17 @@
 {% extends 'layout/base.html' %}
+{% load i18n %}
 
-{% block title %}Выход{% endblock %}
+{% block title %}{% trans 'Exit' %}{% endblock %}
 
 {% block content %}
 <main class="logged-out">
     <div class="container">
         <div class="form-authentification form-authentification_center">
-            <h1 class="form-authentification__title">Вы вышли</h1>
+            <h1 class="form-authentification__title">{% trans 'You logged out' %}</h1>
             <p>
-                Вы можете
-                <a href="{% url 'login' %}">войти снова.</a> или
-                <a href="{% url 'girls:home' %}">перейти на главную</a>
+                {% trans 'You can' %}
+                <a href="{% url 'login' %}">{% trans 'login again' %}.</a> {% trans 'or' %}
+                <a href="{% url 'girls:home' %}">{% trans 'go to the main page' %}</a>
             </p>
         </div>
     </div>
