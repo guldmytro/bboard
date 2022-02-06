@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
 
 User = get_user_model()
 
@@ -26,9 +27,9 @@ class Client(models.Model):
 
 class Review(models.Model):
     RATE_CHOICES = (
-        ('inert', 'Не был'),
-        ('good', 'Проходящий'),
-        ('bad', 'Гемор'),
+        ('inert', _('Was not')),
+        ('good', _('Passing')),
+        ('bad', _('Problem')),
     )
     author = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True,
                                verbose_name='Автор', related_name='reviews')

@@ -1,13 +1,13 @@
 {% extends 'layout/base.html' %}
-
-{% block title %}Поиск{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Search' %}{% endblock %}
 
 
 {% block content %}
 <section class="search">
     <div class="container">
         <div class="section-header">
-            <h1 class="section-header__title">Поиск</h1>
+            <h1 class="section-header__title">{% trans 'Search' %}</h1>
         </div>
         <form action="{% url 'girls:search' %}" method="get" class="search-form">
             <input type="hidden" name="search" value="search">

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-06 16:43+0200\n"
+"POT-Creation-Date: 2022-02-06 19:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,8 +18,80 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+#: accounts/forms.py:9
+msgid "Password"
+msgstr ""
+
+#: accounts/forms.py:10
+msgid "Repeat Password"
+msgstr ""
+
+#: accounts/forms.py:20
+msgid "User with this email is already registered"
+msgstr ""
+
+#: accounts/forms.py:27
+msgid "Password mismatch"
+msgstr ""
+
+#: accounts/forms.py:29
+msgid "Password length must be at least 8 characters"
+msgstr ""
+
+#: accounts/forms.py:36
+msgid "Your Name*"
+msgstr ""
+
+#: accounts/forms.py:40
+msgid "Age*"
+msgstr ""
+
+#: accounts/forms.py:44
+msgid "Breast*"
+msgstr ""
+
+#: accounts/forms.py:48
+msgid "Height*"
+msgstr ""
+
+#: accounts/forms.py:52
+msgid "Weight*"
+msgstr ""
+
+#: accounts/forms.py:55
+msgid "Choose city*"
+msgstr ""
+
+#: accounts/forms.py:59
+msgid "Text about you*"
+msgstr ""
+
+#: accounts/forms.py:71 accounts/forms.py:141 accounts/forms.py:149
+#: girls/forms.py:17
+msgid "Phone*"
+msgstr ""
+
+#: accounts/forms.py:160 girls/forms.py:23
+msgid "Review*"
+msgstr ""
+
+#: accounts/forms.py:172
+msgid "Autoflips"
+msgstr ""
+
+#: accounts/forms.py:175
+#: venv/lib/python3.8/site-packages/django/forms/widgets.py:713
+msgid "Yes"
+msgstr ""
+
+#: accounts/forms.py:176
+#: venv/lib/python3.8/site-packages/django/forms/widgets.py:714
+msgid "No"
+msgstr ""
+
 #: accounts/templates/account/blacklist.html:4
 #: accounts/templates/account/blacklist.html:6
+#: accounts/templates/layout/account.html:27
 msgid "Black list"
 msgstr ""
 
@@ -58,6 +130,7 @@ msgstr ""
 
 #: accounts/templates/account/dashboard.html:5
 #: accounts/templates/account/dashboard.html:7
+#: accounts/templates/layout/account.html:32
 msgid "Statistics"
 msgstr ""
 
@@ -78,36 +151,43 @@ msgid "Fill in the information"
 msgstr ""
 
 #: accounts/templates/account/forms/form_profile.html:28
+#: accounts/templates/account/forms/form_profile_price.html:37
 #: accounts/templates/account/forms/form_profile_services.html:31
 msgid "Save"
 msgstr ""
 
 #: accounts/templates/account/forms/form_profile_price.html:4
+#: girls/templates/girls/girl_detail.html:131
 msgid "Price"
 msgstr ""
 
-#: accounts/templates/account/forms/form_profile_price.html:9
+#: accounts/templates/account/forms/form_profile_price.html:9 girls/forms.py:45
+#: girls/templates/girls/girl_detail.html:136
 msgid "Apartments"
 msgstr ""
 
 #: accounts/templates/account/forms/form_profile_price.html:10
+#: girls/forms.py:48 girls/templates/girls/girl_detail.html:137
 msgid "Departure"
 msgstr ""
 
 #: accounts/templates/account/forms/form_profile_price.html:15
+#: girls/templates/girls/girl_detail.html:142
 msgid "minutes"
 msgstr ""
 
 #: accounts/templates/account/forms/form_profile_price.html:20
+#: girls/templates/girls/girl_detail.html:147
 msgid "hour"
 msgstr ""
 
 #: accounts/templates/account/forms/form_profile_price.html:25
+#: girls/templates/girls/girl_detail.html:152
 msgid "hours"
 msgstr ""
 
 #: accounts/templates/account/forms/form_profile_price.html:30
-#: accounts/templates/account/forms/form_profile_price.html:37
+#: girls/templates/girls/girl_detail.html:157
 msgid "night"
 msgstr ""
 
@@ -117,11 +197,226 @@ msgstr ""
 
 #: accounts/templates/account/profile.html:4
 #: accounts/templates/account/profile.html:6
+#: accounts/templates/layout/account.html:22
 msgid "Your profile"
 msgstr ""
 
 #: accounts/templates/account/profile.html:22
-msgid "Upload your verification photo with today"
+msgid "Upload your verification photo with today's date"
+msgstr ""
+
+#: accounts/templates/account/profile.html:26
+msgid "Upload your video"
+msgstr ""
+
+#: accounts/templates/account/profile.html:31
+msgid "Upload your photos"
+msgstr ""
+
+#: accounts/templates/account/profile.html:37
+msgid "Your services"
+msgstr ""
+
+#: accounts/templates/account/push.html:4
+#: accounts/templates/account/push.html:6
+msgid "Auto flip"
+msgstr ""
+
+#: accounts/templates/account/push.html:11
+msgid "Days left:"
+msgstr ""
+
+#: accounts/templates/account/push.html:12
+#: accounts/templates/account/push.html:17
+msgid "Auto flips:"
+msgstr ""
+
+#: accounts/templates/account/register.html:4
+#: accounts/templates/account/register.html:10
+msgid "Registration"
+msgstr ""
+
+#: accounts/templates/account/register.html:16
+msgid "By registering I accept the Privacy Policy"
+msgstr ""
+
+#: accounts/templates/account/register.html:20
+msgid ""
+"The site administration exclusively provides a platform for advertising on "
+"it and is not responsible for the content of the advertisement. All "
+"responsibility rests with the advertiser!"
+msgstr ""
+
+#: accounts/templates/account/register.html:22
+msgid "Register"
+msgstr ""
+
+#: accounts/templates/account/register_done.html:4
+msgid "Registration completed"
+msgstr ""
+
+#: accounts/templates/account/register_done.html:10
+msgid "Welcome!"
+msgstr ""
+
+#: accounts/templates/account/register_done.html:12
+msgid "Your account has been successfully created."
+msgstr ""
+
+#: accounts/templates/account/register_done.html:13
+msgid "Now you can"
+msgstr ""
+
+#: accounts/templates/account/register_done.html:13
+#: accounts/templates/registration/login.html:14
+#: accounts/templates/registration/password_reset_complete.html:11
+msgid "login"
+msgstr ""
+
+#: accounts/templates/account/reviews.html:6
+msgid "Result:"
+msgstr ""
+
+#: accounts/templates/account/reviews.html:24
+msgid "No reviews found for your query."
+msgstr ""
+
+#: accounts/templates/layout/account.html:15
+msgid "Your rate:"
+msgstr ""
+
+#: accounts/templates/layout/account.html:35
+msgid "Profile"
+msgstr ""
+
+#: accounts/templates/layout/account.html:39
+#: accounts/templates/registration/password_reset_confirm.html:16
+msgid "Change password"
+msgstr ""
+
+#: accounts/templates/layout/account.html:43
+msgid "Logout"
+msgstr ""
+
+#: accounts/templates/registration/logged_out.html:4
+msgid "Exit"
+msgstr ""
+
+#: accounts/templates/registration/logged_out.html:10
+msgid "You logged out"
+msgstr ""
+
+#: accounts/templates/registration/logged_out.html:12
+msgid "You can"
+msgstr ""
+
+#: accounts/templates/registration/logged_out.html:13
+msgid "login again"
+msgstr ""
+
+#: accounts/templates/registration/logged_out.html:13
+#: venv/lib/python3.8/site-packages/django/utils/text.py:242
+msgid "or"
+msgstr ""
+
+#: accounts/templates/registration/logged_out.html:14
+msgid "go to the main page"
+msgstr ""
+
+#: accounts/templates/registration/login.html:4
+msgid "Login"
+msgstr ""
+
+#: accounts/templates/registration/login.html:10
+#: girls/templates/layout/base.html:56 girls/templates/layout/base.html:119
+msgid "Authorization"
+msgstr ""
+
+#: accounts/templates/registration/login.html:16
+msgid "Forgot your password"
+msgstr ""
+
+#: accounts/templates/registration/password_change_done.html:4
+#: accounts/templates/registration/password_change_done.html:6
+#: accounts/templates/registration/password_change_form.html:4
+#: accounts/templates/registration/password_change_form.html:6
+#: accounts/templates/registration/password_change_form.html:12
+#: accounts/templates/registration/password_reset_complete.html:4
+#: accounts/templates/registration/password_reset_confirm.html:4
+#: accounts/templates/registration/password_reset_confirm.html:10
+#: accounts/templates/registration/password_reset_done.html:4
+#: accounts/templates/registration/password_reset_done.html:10
+msgid "Password change"
+msgstr ""
+
+#: accounts/templates/registration/password_change_done.html:12
+msgid "Password changed"
+msgstr ""
+
+#: accounts/templates/registration/password_change_done.html:13
+msgid "Your password has been successfully changed."
+msgstr ""
+
+#: accounts/templates/registration/password_change_form.html:15
+#: venv/lib/python3.8/site-packages/django/forms/widgets.py:405
+msgid "Change"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_complete.html:10
+msgid "Password changed!"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_confirm.html:12
+msgid "Please enter your new password twice:"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_confirm.html:20
+msgid ""
+"Your password reset link is incorrect. Perhaps it has already been used."
+msgstr ""
+
+#: accounts/templates/registration/password_reset_confirm.html:21
+msgid "Please do"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_confirm.html:21
+msgid "new password reset"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_done.html:11
+msgid ""
+"We have sent instructions for changing your password to the email address "
+"you provided."
+msgstr ""
+
+#: accounts/templates/registration/password_reset_done.html:12
+msgid ""
+"If you did not receive an email, please make sure you have entered a valid "
+"email address."
+msgstr ""
+
+#: accounts/templates/registration/password_reset_email.html:2
+msgid "Someone has requested a password change for your email"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_email.html:4
+msgid "To change your password, follow the link:"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_email.html:7
+msgid "Your login:"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_form.html:4
+msgid "Forgot your password?"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_form.html:10
+msgid "Password reset"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_form.html:13
+msgid "Send E-mail"
 msgstr ""
 
 #: bb/settings.py:175
@@ -135,6 +430,189 @@ msgstr "Русский"
 #: bb/settings.py:177
 msgid "Hebrew"
 msgstr "Иврит"
+
+#: girls/forms.py:11
+msgid "Name*"
+msgstr ""
+
+#: girls/forms.py:34
+msgid "City"
+msgstr ""
+
+#: girls/forms.py:36 girls/templates/girls/girl_detail.html:61
+msgid "Age"
+msgstr ""
+
+#: girls/forms.py:39
+msgid "Min price"
+msgstr ""
+
+#: girls/forms.py:42
+msgid "Max price"
+msgstr ""
+
+#: girls/templates/girls/forms/review-form.html:6
+msgid "Leave feedback"
+msgstr ""
+
+#: girls/templates/girls/forms/review-form.html:9
+msgid "Send"
+msgstr ""
+
+#: girls/templates/girls/girl_detail.html:62
+msgid "year(s)"
+msgstr ""
+
+#: girls/templates/girls/girl_detail.html:67
+msgid "Breast"
+msgstr ""
+
+#: girls/templates/girls/girl_detail.html:73
+msgid "Height"
+msgstr ""
+
+#: girls/templates/girls/girl_detail.html:79
+msgid "Weight"
+msgstr ""
+
+#: girls/templates/girls/girl_detail.html:111
+msgid "About me:"
+msgstr ""
+
+#: girls/templates/girls/girl_detail.html:120
+msgid "Services:"
+msgstr ""
+
+#: girls/templates/girls/girl_detail.html:169
+msgid "There is parking"
+msgstr ""
+
+#: girls/templates/girls/girl_detail.html:177
+msgid "Discrete flat"
+msgstr ""
+
+#: girls/templates/girls/girl_detail.html:184
+msgid "Leave Review"
+msgstr ""
+
+#: girls/templates/girls/partials/reviews.html:6
+msgid "Reviews"
+msgstr ""
+
+#: girls/templates/layout/base.html:9 girls/templates/layout/base.html:27
+#: girls/templates/layout/base.html:144
+msgid "Home"
+msgstr ""
+
+#: girls/templates/layout/base.html:31 girls/templates/layout/base.html:94
+#: girls/templates/layout/base.html:146
+msgid "Profiles"
+msgstr ""
+
+#: girls/templates/layout/base.html:34 girls/templates/layout/base.html:104
+#: girls/templates/layout/base.html:111 girls/templates/layout/base.html:148
+msgid "About us"
+msgstr ""
+
+#: girls/templates/layout/base.html:43
+msgid "Chose city"
+msgstr ""
+
+#: girls/templates/layout/base.html:50
+msgid "Cabinet"
+msgstr ""
+
+#: girls/templates/layout/base.html:96
+msgid "All the profiles"
+msgstr ""
+
+#: girls/templates/layout/base.html:125
+msgid "Add profile"
+msgstr ""
+
+#: girls/templates/layout/base.html:150
+msgid "Prostitutes of Israel"
+msgstr ""
+
+#: girls/templates/pages/catalog.html:5
+msgid "Catalog"
+msgstr ""
+
+#: girls/templates/pages/home.html:12
+msgid "The best prostitutes in Israel"
+msgstr ""
+
+#: girls/templates/pages/home.html:16
+msgid ""
+"Welcome to the most up-to-date and real escort site in Israel for finding "
+"beautiful and affordable girls! On our site you will find hot hot Israeli "
+"escort girls and individuals from the cities of Tel Aviv, Jerusalem, Bat "
+"Yam, Holon, Herzelia, Ramat Gan, Petahkva from north to south. Do you want "
+"to come to a discrete private apartment, or vice versa, call a call girl to "
+"your hotel, or maybe experience an unforgettable experience from an erotic "
+"massage in an erotic salon in Israel. No problem - our site Juicy Pussy will "
+"help you with this! The sweetest and juiciest pussies, pussy and boobs of "
+"Israel, ready to give you an unforgettable orgasm from such entertainment as "
+"- classic sex, cunnilingus, blowjob, blowjob without condom, squirt, slave, "
+"group sex, lesbian show, strapon, golden shower, mistress, light domination, "
+"prostate massage, fetish, anal, endings - cim cof, deep trout, french "
+"kissing, gfe, striptease, BDSM and role playing - All your fantasies, you "
+"can realize on our intimate Israel site."
+msgstr ""
+
+#: girls/templates/pages/home.html:17
+msgid ""
+"Our escort site will help you find all the girls for leisure - elite "
+"individuals with real photos, prostitutes, priestesses of virtual sex, night "
+"butterflies and masseuses from Tel Aviv, Jerusalem, Bat Yam and other cities "
+"of Israel. Inexpensive whores are also ready to go at any time of the day or "
+"night, if only the client turns out to be just as big a fan of sex. Girls "
+"with large natural breasts, a slender figure, with an elastic big booty, "
+"mulattos, young and young girls, mistress and even transvestites, with a big "
+"elastic ass - everything is on our sex escort site in Israel. We hope that "
+"you will be satisfied with our variety of prostitutes and take the "
+"opportunity to erotically meet the best sexy and trendy blondes, redheads "
+"and brunettes. Escort Fantasy Sex Leisure Girls for Money Prostitutes in "
+"Israel Intimate Tel Aviv and Jerusalem - all this is the best site - sex "
+"site JUICY PUSSY!!!"
+msgstr ""
+
+#: girls/templates/pages/home.html:40 girls/templates/pages/home.html:47
+msgid "Attention!"
+msgstr ""
+
+#: girls/templates/pages/home.html:42
+msgid ""
+"This site is intended for communication and search for people by interests, "
+"and only for persons of legal age."
+msgstr ""
+
+#: girls/templates/pages/home.html:49
+msgid ""
+"The site administration exclusively provides a platform for placing ads on "
+"it and is not responsible for the content of the ad. All responsibility "
+"rests with the advertiser!"
+msgstr ""
+
+#: girls/templates/pages/search.html:3 girls/templates/pages/search.html:10
+msgid "Search"
+msgstr ""
+
+#: girls/templates/partials/catalog.html:5
+msgid "Elite escort in Israel"
+msgstr ""
+
+#: girls/templates/partials/catalog.html:13
+msgid "New"
+msgstr ""
+
+#: girls/templates/partials/cities.html:6
+msgid "Choose city"
+msgstr ""
+
+#: girls/templates/partials/girls-list.html:11
+msgid "No girls were found matching your search."
+msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
@@ -750,20 +1228,8 @@ msgstr ""
 msgid "Currently"
 msgstr ""
 
-#: venv/lib/python3.8/site-packages/django/forms/widgets.py:405
-msgid "Change"
-msgstr ""
-
 #: venv/lib/python3.8/site-packages/django/forms/widgets.py:712
 msgid "Unknown"
-msgstr ""
-
-#: venv/lib/python3.8/site-packages/django/forms/widgets.py:713
-msgid "Yes"
-msgstr ""
-
-#: venv/lib/python3.8/site-packages/django/forms/widgets.py:714
-msgid "No"
 msgstr ""
 
 #. Translators: Please do not add spaces around commas.
@@ -1108,10 +1574,6 @@ msgstr ""
 #, python-format
 msgctxt "String to return when truncating text"
 msgid "%(truncated_text)s…"
-msgstr ""
-
-#: venv/lib/python3.8/site-packages/django/utils/text.py:242
-msgid "or"
 msgstr ""
 
 #. Translators: This string is used as a separator between list elements

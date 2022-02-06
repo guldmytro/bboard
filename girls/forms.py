@@ -1,25 +1,26 @@
 from django import forms
 from .models import Review
 from girls.models import City, Girl
+from django.utils.translation import gettext_lazy as _
 
 
 class AddReviewForm(forms.ModelForm):
     name = forms.CharField(label=False,
                            max_length=100,
                            widget=forms.TextInput(attrs={
-                               'placeholder': 'Имя*',
+                               'placeholder': _('Name*'),
                            }))
     phone = forms.CharField(label=False,
                             max_length=30,
                             widget=forms.TextInput(attrs={
                                 'type': 'tel',
-                                'placeholder': 'Телефон*'
+                                'placeholder': _('Phone*')
                             }))
     body = forms.CharField(label=False,
                            max_length=400,
                            widget=forms.Textarea(
                                attrs={
-                                   'placeholder': 'Отзыв*'
+                                   'placeholder': _('Review*')
                                }
                            ))
 
@@ -30,21 +31,21 @@ class AddReviewForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     city = forms.ModelChoiceField(queryset=City.objects.all(),
-                                  label='Город',
+                                  label=_('City'),
                                   required=False)
-    age = forms.ChoiceField(label='Возраст',
+    age = forms.ChoiceField(label=_('Age'),
                             required=False)
     price_from = forms.IntegerField(min_value=0,
-                                    label='Цена от',
+                                    label=_('Min price'),
                                     required=False)
     price_to = forms.IntegerField(min_value=0,
-                                  label='Цена до',
+                                  label=_('Max price'),
                                   required=False)
     apartments = forms.BooleanField(required=False,
-                                    label='Апартаменты',
+                                    label=_('Apartments'),
                                     widget=forms.CheckboxInput)
     arrive = forms.BooleanField(required=False,
-                                label='Выезд',
+                                label=_('Departure'),
                                 widget=forms.CheckboxInput)
     search = forms.CharField(widget=forms.HiddenInput(attrs={'value': 'search'}))
 

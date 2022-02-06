@@ -2,6 +2,7 @@
 {% load bb_tags %}
 {% load static %}
 {% load thumbnail %}
+{% load i18n %}
 
 {% block title %}{{ girl.name }}{% endblock %}
 
@@ -57,25 +58,25 @@
                 <ul class="single__params single-params">
                     {% if girl.age %}
                     <li class="single-params__item">
-                        <span class="label">Возраст</span>
-                        <strong class="value">{{ girl.age }} год(а)</strong>
+                        <span class="label">{% trans 'Age' %}</span>
+                        <strong class="value">{{ girl.age }} {% trans 'year(s)' %}</strong>
                     </li>
                     {% endif %}
                     {% if girl.breast %}
                     <li class="single-params__item">
-                        <span class="label">Грудь</span>
+                        <span class="label">{% trans 'Breast' %}</span>
                         <strong class="value">{{ girl.breast }}</strong>
                     </li>
                     {% endif %}
                     {% if girl.growth %}
                     <li class="single-params__item">
-                        <span class="label">Рост</span>
+                        <span class="label">{% trans 'Height' %}</span>
                         <strong class="value">{{ girl.growth }} см</strong>
                     </li>
                     {% endif %}
                     {% if girl.weight %}
                     <li class="single-params__item">
-                        <span class="label">Вес</span>
+                        <span class="label">{% trans 'Weight' %}</span>
                         <strong class="value">{{ girl.weight }} кг</strong>
                     </li>
                     {% endif %}
@@ -107,7 +108,7 @@
                 <!-- /.socials -->
                 {% if girl.about %}
                 <div class="single-about single__about">
-                    <h2 class="single-subtitle">Обо мне:</h2>
+                    <h2 class="single-subtitle">{% trans 'About me:' %}</h2>
                     <div class="single-about__desc">
                         {{ girl.about|linebreaks }}
                     </div>
@@ -116,7 +117,7 @@
                 {% with girl.services.all as services %}
                     {% if services %}
                     <div class="single-services">
-                        <h2 class="single-subtitle">Услуги</h2>
+                        <h2 class="single-subtitle">{% trans 'Services:' %}</h2>
                         <ul class="services-group">
                             {% for service in services %}
                                 <li class="services-group__item">{{ service.name }}</li>
@@ -127,33 +128,33 @@
                     {% endif %}
                 {% endwith %}
                 <div class="single-cost">
-                    <h2 class="single-subtitle">Стоимость:</h2>
+                    <h2 class="single-subtitle">{% trans 'Price' %}</h2>
                     <table class="single-cost__table cost-table">
                         <thead>
                             <tr>
                                 <td></td>
-                                <td>Апартаменты</td>
-                                <td>Выезд</td>
+                                <td>{% trans 'Apartments' %}</td>
+                                <td>{% trans 'Departure' %}</td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>30 мин</td>
+                                <td>30 {% trans 'minutes' %}</td>
                                 <td>{% firstof girl.price_30_home '----' %} ₪</td>
                                 <td>---- ₪</td>
                             </tr>
                             <tr>
-                                <td>1 час</td>
+                                <td>1 {% trans 'hour' %}</td>
                                 <td>{% firstof girl.price_1h_home '----' %} ₪</td>
                                 <td>{% firstof girl.price_1h_departure '----' %} ₪</td>
                             </tr>
                             <tr>
-                                <td>2 часа</td>
+                                <td>2 {% trans 'hours' %}</td>
                                 <td>{% firstof girl.price_2h_home '----' %} ₪</td>
                                 <td>{% firstof girl.price_2h_departure '----' %} ₪</td>
                             </tr>
                             <tr>
-                                <td>Ночь</td>
+                                <td>{% trans 'night' %}</td>
                                 <td>{% firstof girl.price_night_home '----' %} ₪</td>
                                 <td>{% firstof girl.price_night_departure '----' %} ₪</td>
                             </tr>
@@ -165,7 +166,7 @@
                             <div class="thumb">
                                 <img src="{% static 'img/icon-parking.png' %}" alt="маркер">
                             </div>
-                            <div class="adds-item__text">Есть парковка</div>
+                            <div class="adds-item__text">{% trans 'There is parking' %}</div>
                         </li>
                         {% endif %}
                         {% if girl.apartment %}
@@ -173,14 +174,14 @@
                             <div class="thumb">
                                 <img src="{% static 'img/icon-checked-rounded.png' %}" alt="маркер">
                             </div>
-                            <div class="adds-item__text">Дискретная квартира</div>
+                            <div class="adds-item__text">{% trans 'Discrete flat' %}</div>
                         </li>
                         {% endif %}
                     </ul>
                 </div>
                 <!-- /.single-cost -->
                 <div class="single-add-review">
-                    <button class="btn btn_secondary" type="button">Оставить отзыв</button>
+                    <button class="btn btn_secondary" type="button">{% trans 'Leave Review' %}</button>
                 </div>
             </div>
             <!-- /.single-info -->

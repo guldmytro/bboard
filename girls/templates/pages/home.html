@@ -1,5 +1,6 @@
 {% extends 'layout/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -8,12 +9,12 @@
 <section class="info" id="about">
     <div class="container">
         <div class="section-header">
-            <h2 class="section-header__title">Лучшие проститутки Израиля</h2>
+            <h2 class="section-header__title">{% trans 'The best prostitutes in Israel' %}</h2>
         </div>
         <div class="info-row">
             <div class="info-content">
-                <p>Добро пожаловать на самый актуальный и реальный эскорт сайт в Израиле по поиску красивых и доступных девушек! На нашем сайте Вы найдёте горячих жарких эскорт девушек и индивидуалок Израиля из городов Тель Авив, Иерусалим, Бат ям, Холон, Герцелия, Рамат ган, Петахква от севера до юга. Хотите приехать на дискретную приватную квартиру или наоборот вызвать девушку по вызову к себе в отель, а может быть испытать незабываемые ощущения от эротического массажа в эротическом салоне в Израиле. Нет проблем - в этом Вам поможет наш сайт Juicy Pussy! Самые сладкие и сочные киски попы писи и сиськи Израиля, готовые подарить Вам незабываемый оргазм от таких развлечений, как - классический секс, куннилингус, минет, минет без резинки, сквирт, рабыня, групповой секс, лесби шоу, страпон, золотой дождь, госпожа , легкая доминация, массаж простаты, фетиш, анал , окончания - сim cof , deep trout, французские поцелуи , gfe, стриптиз, BDSM и ролевые игры - Все Ваши фантазии, вы сможете реализовать на нашем интимном сайте Израиля.</p>
-                <p>Наш эскорт сайт поможет Вам найти всех девушек для досуга - элитных индивидуалок с реальными фотографиями, проституток, жриц виртуального секса, ночных бабочек и массажисток из Тель Авива , Иерусалима , Бат яма и других городов Израиля. Недорогие шлюхи тоже готовы в выезду в любое время дня и ночи, лишь бы клиент оказался таким же большим поклонником секса. Девушки с большой натуральной грудью, стройной фигурой, с упругой большой попой, мулатки, молодые и юные девочки, госпажа и даже трансвеститы , с большой упругой задницей - все есть на нашем интим эскорт сайте в Израиле. Надеемся, что Вы будете удовлетворены нашим разнообразием путан и воспользуетесь возможностью эротического знакомства с самыми лучшими сексуальными и актуальными блондинками, рыжими и брюнетками. Эскорт Фантазии Секс Досуг Девушки за Деньги Проститутки в Израиле Интим Тель Авив и Иерусалим - все это лучший сайт - интим сайт JUICY PUSSY!!!</p>
+                <p>{% trans 'Welcome to the most up-to-date and real escort site in Israel for finding beautiful and affordable girls! On our site you will find hot hot Israeli escort girls and individuals from the cities of Tel Aviv, Jerusalem, Bat Yam, Holon, Herzelia, Ramat Gan, Petahkva from north to south. Do you want to come to a discrete private apartment, or vice versa, call a call girl to your hotel, or maybe experience an unforgettable experience from an erotic massage in an erotic salon in Israel. No problem - our site Juicy Pussy will help you with this! The sweetest and juiciest pussies, pussy and boobs of Israel, ready to give you an unforgettable orgasm from such entertainment as - classic sex, cunnilingus, blowjob, blowjob without condom, squirt, slave, group sex, lesbian show, strapon, golden shower, mistress, light domination, prostate massage, fetish, anal, endings - cim cof, deep trout, french kissing, gfe, striptease, BDSM and role playing - All your fantasies, you can realize on our intimate Israel site.' %}</p>
+                <p>{% trans 'Our escort site will help you find all the girls for leisure - elite individuals with real photos, prostitutes, priestesses of virtual sex, night butterflies and masseuses from Tel Aviv, Jerusalem, Bat Yam and other cities of Israel. Inexpensive whores are also ready to go at any time of the day or night, if only the client turns out to be just as big a fan of sex. Girls with large natural breasts, a slender figure, with an elastic big booty, mulattos, young and young girls, mistress and even transvestites, with a big elastic ass - everything is on our sex escort site in Israel. We hope that you will be satisfied with our variety of prostitutes and take the opportunity to erotically meet the best sexy and trendy blondes, redheads and brunettes. Escort Fantasy Sex Leisure Girls for Money Prostitutes in Israel Intimate Tel Aviv and Jerusalem - all this is the best site - sex site JUICY PUSSY!!!' %}</p>
             </div>
             <ul class="socials">
                 <li class="socials__item socials-item">
@@ -36,16 +37,16 @@
             <div class="info-attention">
                 <div class="info-attention__item attention-item">
                     <img class="attention-item__img" src="{% static 'img/icon-adult.png' %}" alt="18+">
-                    <h3 class="attention-item__title">Внимание!</h3>
+                    <h3 class="attention-item__title">{% trans 'Attention!' %}</h3>
                     <p class="attention-item__text">
-                        Данный сайт предназначен для общения и поиска людей по интересам, и только для лиц совершеннолетнего возвраста.
+                        {% trans 'This site is intended for communication and search for people by interests, and only for persons of legal age.' %}
                     </p>
                 </div>
                 <div class="info-attention__item attention-item">
                     <img class="attention-item__img" src="{% static 'img/icon-attention.png' %}" alt="!">
-                    <h3 class="attention-item__title">Внимание!</h3>
+                    <h3 class="attention-item__title">{% trans 'Attention!' %}</h3>
                     <p class="attention-item__text">
-                        Администрация сайта, исключительно, предоставляет площадку для размещения на ней рекламы и ответственности за содержимое рекламы не несет. Вся ответственность возлагается на рекламодателя!
+                        {% trans 'The site administration exclusively provides a platform for placing ads on it and is not responsible for the content of the ad. All responsibility rests with the advertiser!' %}
                     </p>
                 </div>
             </div>

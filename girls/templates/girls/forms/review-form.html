@@ -1,9 +1,10 @@
+{% load i18n %}
 <form action="{% url 'girls:add_review' girl.id %}"
       class="review-form form-authentification"
       method="post">
     <button type="button" class="review-form__close" aria-label="закрыть"></button>
-    <h2 class="form-authentification__title">Оставить отзыв</h2>
+    <h2 class="form-authentification__title">{% trans 'Leave feedback' %}</h2>
     {{ add_review_form.as_p }}
     {% csrf_token %}
-    <button type="submit" class="btn btn_form">Отправить</button>
+    <button type="submit" class="btn btn_form">{% trans 'Send' %}</button>
 </form>

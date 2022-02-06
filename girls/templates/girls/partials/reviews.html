@@ -1,8 +1,9 @@
+{% load i18n %}
 {% if reviews %}
 <section class="girl-reviews" id="girl-reviews">
     <div class="container">
         <div class="section-header">
-            <h2 class="section-header__title">Отзывы</h2>
+            <h2 class="section-header__title">{% trans 'Reviews' %}</h2>
             <ul class="reviews-group">
                 {% for review in reviews %}
                 <li class="reviews-group__item review-item">
@@ -22,7 +23,7 @@
                     {% if request.user.is_authenticated and request.user.girl == girl and request.user.girl.can_delete_comments %}
                     <div class="review-item_delete-wrapper">
                         <button type="button" class="review-item__delete"
-                                data-action="{% url 'girls:delete_review' girl.id review.id %}">Удалить</button>
+                                data-action="{% url 'girls:delete_review' girl.id review.id %}">{% trans 'Delete' %}</button>
                     </div>
                     {% endif %}
                 </li>

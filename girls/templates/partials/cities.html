@@ -1,8 +1,9 @@
+{% load i18n %}
 <div class="popup-cities">
     <div class="cities-form form-authentification">
         <button type="button" class="cities-form__close" aria-label="закрыть"></button>
         <div class="section-header">
-            <h2 class="section-header__title">Выберите город</h2>
+            <h2 class="section-header__title">{% trans 'Choose city' %}</h2>
         </div>
         <ul class="cities-group">
             {% for c in cities %}
