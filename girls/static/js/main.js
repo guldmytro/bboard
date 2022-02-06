@@ -493,3 +493,11 @@ $('.cities-item__link:not(.active)').on('click', function(e) {
         }
     });
 });
+
+// language
+$('[name="language"]').on('change', function(e) {
+    e.preventDefault();
+    const url = $(this).find('option:selected').attr('data-url');
+    console.log(url);
+    window.location.href = url;
+});

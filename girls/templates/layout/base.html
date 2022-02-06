@@ -1,7 +1,8 @@
 {% load static %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +25,7 @@
                     <ul class="header-menus">
                         <li class="header-menus__item">
                             <a class="header-menus__link{% if section == 'home' %} active{% endif %}"
-                               href="{% url 'girls:home' %}">{% trans 'Home' %}</a>
+                               href="{% url 'girls:home' %}">{% trans 'Home Page' %}</a>
                         </li>
                         <li class="header-menus__item">
                             <a class="header-menus__link{% if section == 'catalog' %} active{% endif %}"
@@ -57,9 +58,17 @@
                         </a>
                         <!-- /.header-login -->
                         {% endif %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
                         <select name="language" class="header-controls__languages header-languages">
-                            <option class="header-languages__option" value="ru">RU</option>
-                            <option class="header-languages__option" value="en">EN</option>
+                            {% for language in languages %}
+                                <option class="header-languages__option"
+                                        data-url="/{{ language.code }}/"
+                                        value="{{ language.name_local }}"
+                                        {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                    {{ language.code }}
+                                </option>
+                            {% endfor %}
                         </select>
                         <!-- /.header-languages -->
                         <a href="{% url 'girls:search' %}" class="header-controls__search header-search" type="button" aria-label="Поиск">
@@ -89,7 +98,7 @@
                         </div>
                         <!-- /.mobile-controls -->
                         <ul class="mobile-menu__nav mobile-nav">
-                            <li class="mobile-nav__item{% if section == 'home' %} active{% endif %}"><a href="{% url 'girls:home' %}">Главная</a></li>
+                            <li class="mobile-nav__item{% if section == 'home' %} active{% endif %}"><a href="{% url 'girls:home' %}">{% trans 'Home Page' %}</a></li>
                             <li class="mobile-nav__item mobile-nav__item_has_children{% if slug == 'new' %} active{% endif %}">
                                 <span>{% trans 'Profiles' %}</span>
                                 <ul class="mobile-sub-menu">
@@ -141,7 +150,7 @@
                 </a>
                 <nav class="footer-nav">
                     <a class="footer-nav__link{% if section == 'home' %} active{% endif %}"
-                       href="{% url 'girls:home' %}">{% trans 'Home' %}</a>
+                       href="{% url 'girls:home' %}">{% trans 'Home Page' %}</a>
                     <a class="footer-nav__link{% if section == 'catalog' %} active{% endif %}"
                        href="{% url 'girls:catalog' %}">{% trans 'Profiles' %}</a>
                     <a class="footer-nav__link"

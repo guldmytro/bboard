@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rates.apps.RatesConfig',
     'orders.apps.OrdersConfig',
     'clients.apps.ClientsConfig',
+    'rosetta',
 ]
 
 MIDDLEWARE = [
@@ -121,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'ru-Ru'
 
 TIME_ZONE = 'Asia/Jerusalem'
 
@@ -173,7 +174,7 @@ except ImportError:
 
 LANGUAGES = (
     ('en', _('English')),
-    ('ru-RU', _('Russian')),
+    ('ru', _('Russian')),
     ('he', _('Hebrew')),
 )
 

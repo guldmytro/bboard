@@ -9,84 +9,84 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-06 21:34+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2022-02-06 20:48+0200\n"
+"Last-Translator:   <mail@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % "
-"1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: accounts/forms.py:9
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: accounts/forms.py:10
 msgid "Repeat Password"
-msgstr ""
+msgstr "Повторите пароль"
 
 #: accounts/forms.py:20
 msgid "User with this email is already registered"
-msgstr ""
+msgstr "Пользователь с таким email уже зарегистрирован"
 
 #: accounts/forms.py:27
 msgid "Password mismatch"
-msgstr ""
+msgstr "Пароли не совпадают"
 
 #: accounts/forms.py:29
 msgid "Password length must be at least 8 characters"
-msgstr ""
+msgstr "Длина пароля должна быть не меньше 8 символов"
 
 #: accounts/forms.py:36
 msgid "Your Name*"
-msgstr ""
+msgstr "Ваше Имя*"
 
 #: accounts/forms.py:40
 msgid "Age*"
-msgstr ""
+msgstr "Возраст*"
 
 #: accounts/forms.py:44
 msgid "Breast*"
-msgstr ""
+msgstr "Грудь*"
 
 #: accounts/forms.py:48
 msgid "Height*"
-msgstr ""
+msgstr "Рост*"
 
 #: accounts/forms.py:52
 msgid "Weight*"
-msgstr ""
+msgstr "Вес*"
 
 #: accounts/forms.py:55
 msgid "Choose city*"
-msgstr ""
+msgstr "Выберите город*"
 
 #: accounts/forms.py:59
 msgid "Text about you*"
-msgstr ""
+msgstr "Текст о вас*"
 
 #: accounts/forms.py:71 accounts/forms.py:141 accounts/forms.py:149
 #: girls/forms.py:17
 msgid "Phone*"
-msgstr ""
+msgstr "Телефон*"
 
 #: accounts/forms.py:160 girls/forms.py:23
 msgid "Review*"
-msgstr ""
+msgstr "Отзыв*"
 
 #: accounts/forms.py:172
 msgid "Autoflips"
-msgstr ""
+msgstr "Автоподбросы"
 
 #: accounts/forms.py:175
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: accounts/forms.py:176
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: accounts/templates/account/blacklist.html:4
 #: accounts/templates/account/blacklist.html:6
@@ -96,154 +96,156 @@ msgstr "Черный список"
 
 #: accounts/templates/account/blacklist.html:10
 msgid "Punching"
-msgstr ""
+msgstr "Пробивка"
 
 #: accounts/templates/account/blacklist.html:15
 #: accounts/templates/account/blacklist.html:51
 msgid "Enter your customer number"
-msgstr ""
+msgstr "Введите номер вашего клиента"
 
 #: accounts/templates/account/blacklist.html:18
 msgid "Check"
-msgstr ""
+msgstr "Проверить"
 
 #: accounts/templates/account/blacklist.html:27
 msgid "You can use the number punching service by paying a paid tariff once!"
 msgstr ""
+"Пользоваться сервисом пробивки номеров вы можете оплатитив платный тариф "
+"один раз!"
 
 #: accounts/templates/account/blacklist.html:31
 msgid "Phones on the blacklist"
-msgstr ""
+msgstr "Телефонов в чёрном списке"
 
 #: accounts/templates/account/blacklist.html:35
 msgid "Phones checked in total"
-msgstr ""
+msgstr "Проверено телефонов всего"
 
 #: accounts/templates/account/blacklist.html:39
 msgid "Checked phones in 24 hours"
-msgstr ""
+msgstr "Проверено телефонов за 24 часа"
 
 #: accounts/templates/account/blacklist.html:48
 msgid "Leave customer feedback"
-msgstr ""
+msgstr "Оставить отзыв о клиенте"
 
 #: accounts/templates/account/blacklist.html:65
 #: girls/templates/girls/forms/review-form.html:9
 msgid "Send"
-msgstr ""
+msgstr "Отправить"
 
 #: accounts/templates/account/dashboard.html:5
 #: accounts/templates/account/dashboard.html:7
 #: accounts/templates/layout/account.html:32
 msgid "Statistics"
-msgstr ""
+msgstr "Статистика"
 
 #: accounts/templates/account/dashboard.html:14
 msgid "Profiles viewed (for all time)"
-msgstr ""
+msgstr "Просмотренно анкеты (за всё время)"
 
 #: accounts/templates/account/dashboard.html:21
 msgid "Profiles viewed (per day)"
-msgstr ""
+msgstr "Просмотренно анкеты (за сутки)"
 
 #: accounts/templates/account/dashboard.html:28
 msgid "Watched video"
-msgstr ""
+msgstr "Просмотренно видео"
 
 #: accounts/templates/account/forms/form_profile.html:4
 msgid "Fill in the information"
-msgstr ""
+msgstr "Заполните информацию"
 
 #: accounts/templates/account/forms/form_profile.html:28
 #: accounts/templates/account/forms/form_profile_price.html:37
 #: accounts/templates/account/forms/form_profile_services.html:31
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: accounts/templates/account/forms/form_profile_price.html:4
 #: girls/templates/girls/girl_detail.html:131
 msgid "Price"
-msgstr ""
+msgstr "Цена"
 
 #: accounts/templates/account/forms/form_profile_price.html:9 girls/forms.py:45
 #: girls/templates/girls/girl_detail.html:136
 msgid "Apartments"
-msgstr ""
+msgstr "Апартаменты"
 
 #: accounts/templates/account/forms/form_profile_price.html:10
 #: girls/forms.py:48 girls/templates/girls/girl_detail.html:137
 msgid "Departure"
-msgstr ""
+msgstr "Выезд"
 
 #: accounts/templates/account/forms/form_profile_price.html:15
 #: girls/templates/girls/girl_detail.html:142
 msgid "minutes"
-msgstr ""
+msgstr "мин"
 
 #: accounts/templates/account/forms/form_profile_price.html:20
 #: girls/templates/girls/girl_detail.html:147
 msgid "hour"
-msgstr ""
+msgstr "час"
 
 #: accounts/templates/account/forms/form_profile_price.html:25
 #: girls/templates/girls/girl_detail.html:152
 msgid "hours"
-msgstr ""
+msgstr "часов"
 
 #: accounts/templates/account/forms/form_profile_price.html:30
 #: girls/templates/girls/girl_detail.html:157
 msgid "night"
-msgstr ""
+msgstr "ночь"
 
 #: accounts/templates/account/forms/form_profile_services.html:12
 msgid "Additional options"
-msgstr ""
+msgstr "Дополнительные опции"
 
 #: accounts/templates/account/profile.html:4
 #: accounts/templates/account/profile.html:6
 #: accounts/templates/layout/account.html:22
 msgid "Your profile"
-msgstr ""
+msgstr "Ваш профиль"
 
 #: accounts/templates/account/profile.html:22
 msgid "Upload your verification photo with today's date"
-msgstr ""
+msgstr "Загрузите ваше проверочное фото с сегодняшней датой"
 
 #: accounts/templates/account/profile.html:26
 msgid "Upload your video"
-msgstr ""
+msgstr "Загрузите ваше видео"
 
 #: accounts/templates/account/profile.html:31
 msgid "Upload your photos"
-msgstr ""
+msgstr "Загрузите ваши фото"
 
 #: accounts/templates/account/profile.html:37
 msgid "Your services"
-msgstr ""
+msgstr "Ваши услуги"
 
 #: accounts/templates/account/push.html:4
 #: accounts/templates/account/push.html:6
 msgid "Auto flip"
-msgstr ""
+msgstr "Авто подброс"
 
 #: accounts/templates/account/push.html:11
 msgid "Days left:"
-msgstr ""
+msgstr "Осталось дней:"
 
 #: accounts/templates/account/push.html:12
 #: accounts/templates/account/push.html:17
 msgid "Auto flips:"
-msgstr ""
+msgstr "Автоподбросы:"
 
 #: accounts/templates/account/register.html:4
 #: accounts/templates/account/register.html:10
 #: accounts/templates/registration/login.html:17
 msgid "Registration"
-msgstr ""
+msgstr "Регистрация"
 
 #: accounts/templates/account/register.html:16
 msgid "By registering I accept the Privacy Policy"
-msgstr ""
+msgstr "Регистрируясь я принимаю Политику конфиденциальности"
 
 #: accounts/templates/account/register.html:20
 msgid ""
@@ -251,95 +253,98 @@ msgid ""
 "it and is not responsible for the content of the advertisement. All "
 "responsibility rests with the advertiser!"
 msgstr ""
+"Администрация сайта исключительно предоставляет площадку для размещения на "
+"ней рекламы и ответственности                 за содержимое рекламы не "
+"несет. Вся ответственность возлагается на рекламодателя!"
 
 #: accounts/templates/account/register.html:22
 msgid "Register"
-msgstr ""
+msgstr "Регистрация"
 
 #: accounts/templates/account/register_done.html:4
 msgid "Registration completed"
-msgstr ""
+msgstr "Регистрация завершена"
 
 #: accounts/templates/account/register_done.html:10
 msgid "Welcome!"
-msgstr ""
+msgstr "Добро пожаловать!"
 
 #: accounts/templates/account/register_done.html:12
 msgid "Your account has been successfully created."
-msgstr ""
+msgstr "Ваш аккаунт был успешно создан."
 
 #: accounts/templates/account/register_done.html:13
 msgid "Now you can"
-msgstr ""
+msgstr "Теперь вы можете"
 
 #: accounts/templates/account/register_done.html:13
 #: accounts/templates/registration/login.html:14
 #: accounts/templates/registration/password_reset_complete.html:11
 msgid "login"
-msgstr ""
+msgstr "войти"
 
 #: accounts/templates/account/reviews.html:6
 msgid "Result:"
-msgstr ""
+msgstr "Результат:"
 
 #: accounts/templates/account/reviews.html:24
 msgid "No reviews found for your query."
-msgstr ""
+msgstr "По Вашему запросу отзывов не найдено."
 
 #: accounts/templates/layout/account.html:15
 msgid "Your rate:"
-msgstr ""
+msgstr "Ваш тарифный план:"
 
 #: accounts/templates/layout/account.html:35
 msgid "Profile"
-msgstr ""
+msgstr "Анкета"
 
 #: accounts/templates/layout/account.html:39
 #: accounts/templates/registration/password_reset_confirm.html:16
 msgid "Change password"
-msgstr ""
+msgstr "Изменить пароль"
 
 #: accounts/templates/layout/account.html:43
 msgid "Logout"
-msgstr ""
+msgstr "Выйти"
 
 #: accounts/templates/registration/logged_out.html:4
 msgid "Exit"
-msgstr ""
+msgstr "Выход"
 
 #: accounts/templates/registration/logged_out.html:10
 msgid "You logged out"
-msgstr ""
+msgstr "Вы вышли"
 
 #: accounts/templates/registration/logged_out.html:12
 msgid "You can"
-msgstr ""
+msgstr "Вы можете"
 
 #: accounts/templates/registration/logged_out.html:13
 msgid "login again"
-msgstr ""
+msgstr "войти снова"
 
 #: accounts/templates/registration/logged_out.html:13
 msgid "or"
-msgstr ""
+msgstr "или"
 
 #: accounts/templates/registration/logged_out.html:14
 msgid "go to the main page"
-msgstr ""
+msgstr "перейти на главную страницу"
 
 #: accounts/templates/registration/login.html:4
 msgid "Login"
-msgstr ""
+msgstr "Войти"
 
 #: accounts/templates/registration/login.html:10
 #: girls/templates/layout/base.html:57 girls/templates/layout/base.html:120
 msgid "Authorization"
-msgstr ""
+msgstr "Авторизация"
 
 #: accounts/templates/registration/login.html:16
 #: accounts/templates/registration/password_reset_form.html:4
 msgid "Forgot your password?"
-msgstr ""
+msgstr "Забыли пароль?"
 
 #: accounts/templates/registration/password_change_done.html:4
 #: accounts/templates/registration/password_change_done.html:6
@@ -352,211 +357,214 @@ msgstr ""
 #: accounts/templates/registration/password_reset_done.html:4
 #: accounts/templates/registration/password_reset_done.html:10
 msgid "Password change"
-msgstr ""
+msgstr "Смена пароля"
 
 #: accounts/templates/registration/password_change_done.html:12
 msgid "Password changed"
-msgstr ""
+msgstr "Пароль изменен"
 
 #: accounts/templates/registration/password_change_done.html:13
 msgid "Your password has been successfully changed."
-msgstr ""
+msgstr "Ваш пароль был успешно изменен."
 
 #: accounts/templates/registration/password_change_form.html:15
 msgid "Change"
-msgstr ""
+msgstr "Изменить"
 
 #: accounts/templates/registration/password_reset_complete.html:10
 msgid "Password changed!"
-msgstr ""
+msgstr "Пароль изменен!"
 
 #: accounts/templates/registration/password_reset_confirm.html:12
 msgid "Please enter your new password twice:"
-msgstr ""
+msgstr "Пожалуйста введите ваш пароль дважды"
 
 #: accounts/templates/registration/password_reset_confirm.html:20
 msgid ""
 "Your password reset link is incorrect. Perhaps it has already been used."
 msgstr ""
+"Ваша ссылка на смену пароля неправильна. Возможно она уже была использована."
 
 #: accounts/templates/registration/password_reset_confirm.html:21
 msgid "Please do"
-msgstr ""
+msgstr "Пожалуйста сделайте"
 
 #: accounts/templates/registration/password_reset_confirm.html:21
 msgid "new password reset"
-msgstr ""
+msgstr "новый сброс пароля"
 
 #: accounts/templates/registration/password_reset_done.html:11
 msgid ""
 "We have sent instructions for changing your password to the email address "
 "you provided."
-msgstr ""
+msgstr "Мы отправили инструкции по смене пароля на указаный вами e-mail."
 
 #: accounts/templates/registration/password_reset_done.html:12
 msgid ""
 "If you did not receive an email, please make sure you have entered a valid "
 "email address."
 msgstr ""
+"Если вы не получили email, пожалуйста убедитесь, что указали корректный e-"
+"mail."
 
 #: accounts/templates/registration/password_reset_email.html:2
 msgid "Someone has requested a password change for your email"
-msgstr ""
+msgstr "Кто-то запросил смену пароля для вашего e-mail"
 
 #: accounts/templates/registration/password_reset_email.html:4
 msgid "To change your password, follow the link:"
-msgstr ""
+msgstr "Для смены пароль перейдите по ссылке:"
 
 #: accounts/templates/registration/password_reset_email.html:7
 msgid "Your login:"
-msgstr ""
+msgstr "Ваш логин:"
 
 #: accounts/templates/registration/password_reset_form.html:10
 msgid "Password reset"
-msgstr ""
+msgstr "Сброс пароля"
 
 #: accounts/templates/registration/password_reset_form.html:13
 msgid "Send E-mail"
-msgstr ""
+msgstr "Отправить E-mail"
 
 #: bb/settings.py:176
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 #: bb/settings.py:177
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 #: bb/settings.py:178
 msgid "Hebrew"
-msgstr ""
+msgstr "Иврит"
 
 #: clients/models.py:30
 msgid "Was not"
-msgstr ""
+msgstr "Не был"
 
 #: clients/models.py:31
 msgid "Passing"
-msgstr ""
+msgstr "Проходящий"
 
 #: clients/models.py:32
 msgid "Problem"
-msgstr ""
+msgstr "Гемор"
 
 #: girls/forms.py:11
 msgid "Name*"
-msgstr ""
+msgstr "Имя*"
 
 #: girls/forms.py:34
 msgid "City"
-msgstr ""
+msgstr "Город"
 
 #: girls/forms.py:36 girls/templates/girls/girl_detail.html:61
 msgid "Age"
-msgstr ""
+msgstr "Возраст"
 
 #: girls/forms.py:39
 msgid "Min price"
-msgstr ""
+msgstr "Цена от"
 
 #: girls/forms.py:42
 msgid "Max price"
-msgstr ""
+msgstr "Цена до"
 
 #: girls/templates/girls/forms/review-form.html:6
 msgid "Leave feedback"
-msgstr ""
+msgstr "Оставить отзыв"
 
 #: girls/templates/girls/girl_detail.html:62
 msgid "year(s)"
-msgstr ""
+msgstr "г"
 
 #: girls/templates/girls/girl_detail.html:67
 msgid "Breast"
-msgstr ""
+msgstr "Грудь"
 
 #: girls/templates/girls/girl_detail.html:73
 msgid "Height"
-msgstr ""
+msgstr "Рост"
 
 #: girls/templates/girls/girl_detail.html:79
 msgid "Weight"
-msgstr ""
+msgstr "Вес"
 
 #: girls/templates/girls/girl_detail.html:111
 msgid "About me:"
-msgstr ""
+msgstr "Обо мне"
 
 #: girls/templates/girls/girl_detail.html:120
 msgid "Services:"
-msgstr ""
+msgstr "Услуги"
 
 #: girls/templates/girls/girl_detail.html:169
 msgid "There is parking"
-msgstr ""
+msgstr "Есть парковка"
 
 #: girls/templates/girls/girl_detail.html:177
 msgid "Discrete flat"
-msgstr ""
+msgstr "Дискретная квартира"
 
 #: girls/templates/girls/girl_detail.html:184
 msgid "Leave Review"
-msgstr ""
+msgstr "Оставить отзыв"
 
 #: girls/templates/girls/partials/reviews.html:6
 msgid "Reviews"
-msgstr ""
+msgstr "Отзывы"
 
 #: girls/templates/girls/partials/reviews.html:26
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: girls/templates/layout/base.html:10
 msgid "Home"
-msgstr ""
+msgstr "Главная"
 
 #: girls/templates/layout/base.html:28 girls/templates/layout/base.html:93
 #: girls/templates/layout/base.html:145
 msgid "Home Page"
-msgstr ""
+msgstr "Главная"
 
 #: girls/templates/layout/base.html:32 girls/templates/layout/base.html:95
 #: girls/templates/layout/base.html:147
 msgid "Profiles"
-msgstr ""
+msgstr "Анкеты"
 
 #: girls/templates/layout/base.html:35 girls/templates/layout/base.html:105
 #: girls/templates/layout/base.html:112 girls/templates/layout/base.html:149
 msgid "About us"
-msgstr ""
+msgstr "О нас"
 
 #: girls/templates/layout/base.html:44
 msgid "Chose city"
-msgstr ""
+msgstr "Выберите город"
 
 #: girls/templates/layout/base.html:51
 msgid "Cabinet"
-msgstr ""
+msgstr "Кабинет"
 
 #: girls/templates/layout/base.html:97
 msgid "All the profiles"
-msgstr ""
+msgstr "Все анкеты"
 
 #: girls/templates/layout/base.html:126
 msgid "Add profile"
-msgstr ""
+msgstr "Добавить анкету"
 
 #: girls/templates/layout/base.html:151
 msgid "Prostitutes of Israel"
-msgstr ""
+msgstr "Проститутки Израиля"
 
 #: girls/templates/pages/catalog.html:5
 msgid "Catalog"
-msgstr ""
+msgstr "Каталог"
 
 #: girls/templates/pages/home.html:12
 msgid "The best prostitutes in Israel"
-msgstr ""
+msgstr "Лучшие проститутки Израиля"
 
 #: girls/templates/pages/home.html:16
 msgid ""
@@ -575,6 +583,20 @@ msgid ""
 "kissing, gfe, striptease, BDSM and role playing - All your fantasies, you "
 "can realize on our intimate Israel site."
 msgstr ""
+"Добро пожаловать на самый актуальный и реальный эскорт сайт в Израиле по "
+"поиску красивых и доступных девушек! На нашем сайте Вы найдёте горячих "
+"жарких эскорт девушек и индивидуалок Израиля из городов Тель Авив, "
+"Иерусалим, Бат ям, Холон, Герцелия, Рамат ган, Петахква от севера до юга. "
+"Хотите приехать на дискретную приватную квартиру или наоборот вызвать "
+"девушку по вызову к себе в отель, а может быть испытать незабываемые "
+"ощущения от эротического массажа в эротическом салоне в Израиле. Нет проблем "
+"- в этом Вам поможет наш сайт Juicy Pussy! Самые сладкие и сочные киски попы "
+"писи и сиськи Израиля, готовые подарить Вам незабываемый оргазм от таких "
+"развлечений, как - классический секс, куннилингус, минет, минет без резинки, "
+"сквирт, рабыня, групповой секс, лесби шоу, страпон, золотой дождь, госпожа , "
+"легкая доминация, массаж простаты, фетиш, анал , окончания - сim cof , deep "
+"trout, французские поцелуи , gfe, стриптиз, BDSM и ролевые игры - Все Ваши "
+"фантазии, вы сможете реализовать на нашем интимном сайте Израиля."
 
 #: girls/templates/pages/home.html:17
 msgid ""
@@ -592,16 +614,31 @@ msgid ""
 "Israel Intimate Tel Aviv and Jerusalem - all this is the best site - sex "
 "site JUICY PUSSY!!!"
 msgstr ""
+"Наш эскорт сайт поможет Вам найти всех девушек для досуга - элитных "
+"индивидуалок с реальными фотографиями, проституток, жриц виртуального секса, "
+"ночных бабочек и массажисток из Тель Авива , Иерусалима , Бат яма и других "
+"городов Израиля. Недорогие шлюхи тоже готовы в выезду в любое время дня и "
+"ночи, лишь бы клиент оказался таким же большим поклонником секса. Девушки с "
+"большой натуральной грудью, стройной фигурой, с упругой большой попой, "
+"мулатки, молодые и юные девочки, госпажа и даже трансвеститы , с большой "
+"упругой задницей - все есть на нашем интим эскорт сайте в Израиле. Надеемся, "
+"что Вы будете удовлетворены нашим разнообразием путан и воспользуетесь "
+"возможностью эротического знакомства с самыми лучшими сексуальными и "
+"актуальными блондинками, рыжими и брюнетками. Эскорт Фантазии Секс Досуг "
+"Девушки за Деньги Проститутки в Израиле Интим Тель Авив и Иерусалим - все "
+"это лучший сайт - интим сайт JUICY PUSSY!!!"
 
 #: girls/templates/pages/home.html:40 girls/templates/pages/home.html:47
 msgid "Attention!"
-msgstr ""
+msgstr "Внимение!"
 
 #: girls/templates/pages/home.html:42
 msgid ""
 "This site is intended for communication and search for people by interests, "
 "and only for persons of legal age."
 msgstr ""
+"Данный сайт предназначен для общения и поиска людей по интересам, и только "
+"для лиц совершеннолетнего возвраста."
 
 #: girls/templates/pages/home.html:49
 msgid ""
@@ -609,23 +646,53 @@ msgid ""
 "it and is not responsible for the content of the ad. All responsibility "
 "rests with the advertiser!"
 msgstr ""
+"Администрация сайта, исключительно, предоставляет площадку для размещения на "
+"ней рекламы и ответственности за содержимое рекламы не несет. Вся "
+"ответственность возлагается на рекламодателя!"
 
 #: girls/templates/pages/search.html:3 girls/templates/pages/search.html:10
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
 #: girls/templates/partials/catalog.html:5
 msgid "Elite escort in Israel"
-msgstr ""
+msgstr "Элитный эскорт в Израиле"
 
 #: girls/templates/partials/catalog.html:13
 msgid "New"
-msgstr ""
+msgstr "Новые"
 
 #: girls/templates/partials/cities.html:6
 msgid "Choose city"
-msgstr ""
+msgstr "Выберите город"
 
 #: girls/templates/partials/girls-list.html:11
 msgid "No girls were found matching your search."
-msgstr ""
+msgstr "По Вашему запросу девушек не найдено."
+
+#~ msgid "Messages"
+#~ msgstr "Сообщения"
+
+#~ msgid "Site Maps"
+#~ msgstr "Карты сайта"
+
+#~ msgid "Static Files"
+#~ msgstr "Статические файлы"
+
+#~ msgid "Enter a valid value."
+#~ msgstr "Введите коректное значение"
+
+#~ msgid "Enter a valid URL."
+#~ msgstr "Введите коректную ссылку"
+
+#~ msgid "Enter a valid integer."
+#~ msgstr "Введите коректное число"
+
+#~ msgid "Enter a valid email address."
+#~ msgstr "Введите корректный email."
+
+#~ msgid "Enter only digits separated by commas."
+#~ msgstr "Введите только числа разделены запятыми."
+
+#~ msgid "Forgot your password"
+#~ msgstr "Забыли ваш пароль"
