@@ -9,84 +9,84 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-06 21:34+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2022-02-07 23:35+0200\n"
+"Last-Translator:   <mail@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % "
-"1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: accounts/forms.py:9
 msgid "Password"
-msgstr ""
+msgstr "סיסמה"
 
 #: accounts/forms.py:10
 msgid "Repeat Password"
-msgstr ""
+msgstr "חזור על הסיסמה"
 
 #: accounts/forms.py:20
 msgid "User with this email is already registered"
-msgstr ""
+msgstr "משתמש עם דוא\"ל זה כבר רשום"
 
 #: accounts/forms.py:27
 msgid "Password mismatch"
-msgstr ""
+msgstr "סיסמה לא תואמת"
 
 #: accounts/forms.py:29
 msgid "Password length must be at least 8 characters"
-msgstr ""
+msgstr "אורך הסיסמה חייב להיות לפחות 8 תווים"
 
 #: accounts/forms.py:36
 msgid "Your Name*"
-msgstr ""
+msgstr "שֵׁם*"
 
 #: accounts/forms.py:40
 msgid "Age*"
-msgstr ""
+msgstr "גיל*"
 
 #: accounts/forms.py:44
 msgid "Breast*"
-msgstr ""
+msgstr "שד*"
 
 #: accounts/forms.py:48
 msgid "Height*"
-msgstr ""
+msgstr "גוֹבַה*"
 
 #: accounts/forms.py:52
 msgid "Weight*"
-msgstr ""
+msgstr "מִשׁקָל*"
 
 #: accounts/forms.py:55
 msgid "Choose city*"
-msgstr ""
+msgstr "בחר עיר*"
 
 #: accounts/forms.py:59
 msgid "Text about you*"
-msgstr ""
+msgstr "טקסט עליך*"
 
 #: accounts/forms.py:71 accounts/forms.py:141 accounts/forms.py:149
 #: girls/forms.py:17
 msgid "Phone*"
-msgstr ""
+msgstr "טלפון*"
 
 #: accounts/forms.py:160 girls/forms.py:23
 msgid "Review*"
-msgstr ""
+msgstr "סקירה*"
 
 #: accounts/forms.py:172
 msgid "Autoflips"
-msgstr ""
+msgstr "היפוך אוטומטי"
 
 #: accounts/forms.py:175
 msgid "Yes"
-msgstr ""
+msgstr "כן"
 
 #: accounts/forms.py:176
 msgid "No"
-msgstr ""
+msgstr "אבל"
 
 #: accounts/templates/account/blacklist.html:4
 #: accounts/templates/account/blacklist.html:6
@@ -96,154 +96,155 @@ msgstr "Черный список"
 
 #: accounts/templates/account/blacklist.html:10
 msgid "Punching"
-msgstr ""
+msgstr "רשימה שחורה"
 
 #: accounts/templates/account/blacklist.html:15
 #: accounts/templates/account/blacklist.html:51
 msgid "Enter your customer number"
-msgstr ""
+msgstr "הזן את מספר הלקוח שלך"
 
 #: accounts/templates/account/blacklist.html:18
 msgid "Check"
-msgstr ""
+msgstr "חשבון"
 
 #: accounts/templates/account/blacklist.html:27
 msgid "You can use the number punching service by paying a paid tariff once!"
 msgstr ""
+"אתה יכול להשתמש בשירות ניקוב מספרים על ידי תשלום תעריף בתשלום פעם אחת!"
 
 #: accounts/templates/account/blacklist.html:31
 msgid "Phones on the blacklist"
-msgstr ""
+msgstr "טלפונים ברשימה השחורה"
 
 #: accounts/templates/account/blacklist.html:35
 msgid "Phones checked in total"
-msgstr ""
+msgstr "טלפונים נבדקו בסך הכל"
 
 #: accounts/templates/account/blacklist.html:39
 msgid "Checked phones in 24 hours"
-msgstr ""
+msgstr "בדק טלפונים תוך 24 שעות"
 
 #: accounts/templates/account/blacklist.html:48
 msgid "Leave customer feedback"
-msgstr ""
+msgstr "השאירו משוב ללקוח"
 
 #: accounts/templates/account/blacklist.html:65
 #: girls/templates/girls/forms/review-form.html:9
 msgid "Send"
-msgstr ""
+msgstr "לִשְׁלוֹחַ"
 
 #: accounts/templates/account/dashboard.html:5
 #: accounts/templates/account/dashboard.html:7
 #: accounts/templates/layout/account.html:32
 msgid "Statistics"
-msgstr ""
+msgstr "סטָטִיסטִיקָה"
 
 #: accounts/templates/account/dashboard.html:14
 msgid "Profiles viewed (for all time)"
-msgstr ""
+msgstr "פרופילים שנצפו (לכל הזמנים)"
 
 #: accounts/templates/account/dashboard.html:21
 msgid "Profiles viewed (per day)"
-msgstr ""
+msgstr "פרופילים שנצפו (ליום)"
 
 #: accounts/templates/account/dashboard.html:28
 msgid "Watched video"
-msgstr ""
+msgstr "צפה בוידאו"
 
 #: accounts/templates/account/forms/form_profile.html:4
 msgid "Fill in the information"
-msgstr ""
+msgstr "מלא את המידע"
 
 #: accounts/templates/account/forms/form_profile.html:28
 #: accounts/templates/account/forms/form_profile_price.html:37
 #: accounts/templates/account/forms/form_profile_services.html:31
 msgid "Save"
-msgstr ""
+msgstr "להציל"
 
 #: accounts/templates/account/forms/form_profile_price.html:4
 #: girls/templates/girls/girl_detail.html:131
 msgid "Price"
-msgstr ""
+msgstr "מחיר"
 
-#: accounts/templates/account/forms/form_profile_price.html:9 girls/forms.py:45
-#: girls/templates/girls/girl_detail.html:136
+#: accounts/templates/account/forms/form_profile_price.html:9
+#: girls/forms.py:45 girls/templates/girls/girl_detail.html:136
 msgid "Apartments"
-msgstr ""
+msgstr "דירות"
 
 #: accounts/templates/account/forms/form_profile_price.html:10
 #: girls/forms.py:48 girls/templates/girls/girl_detail.html:137
 msgid "Departure"
-msgstr ""
+msgstr "יְצִיאָה"
 
 #: accounts/templates/account/forms/form_profile_price.html:15
 #: girls/templates/girls/girl_detail.html:142
 msgid "minutes"
-msgstr ""
+msgstr "דקות"
 
 #: accounts/templates/account/forms/form_profile_price.html:20
 #: girls/templates/girls/girl_detail.html:147
 msgid "hour"
-msgstr ""
+msgstr "שעה (ות"
 
 #: accounts/templates/account/forms/form_profile_price.html:25
 #: girls/templates/girls/girl_detail.html:152
 msgid "hours"
-msgstr ""
+msgstr "שעה (ות"
 
 #: accounts/templates/account/forms/form_profile_price.html:30
 #: girls/templates/girls/girl_detail.html:157
 msgid "night"
-msgstr ""
+msgstr "לַיְלָה"
 
 #: accounts/templates/account/forms/form_profile_services.html:12
 msgid "Additional options"
-msgstr ""
+msgstr "אפשרויות נוספות"
 
 #: accounts/templates/account/profile.html:4
 #: accounts/templates/account/profile.html:6
 #: accounts/templates/layout/account.html:22
 msgid "Your profile"
-msgstr ""
+msgstr "הפרופיל שלך"
 
 #: accounts/templates/account/profile.html:22
 msgid "Upload your verification photo with today's date"
-msgstr ""
+msgstr "העלה את תמונת האימות שלך לתאריך של היום"
 
 #: accounts/templates/account/profile.html:26
 msgid "Upload your video"
-msgstr ""
+msgstr "העלה את הסרטון שלך"
 
 #: accounts/templates/account/profile.html:31
 msgid "Upload your photos"
-msgstr ""
+msgstr "העלה את התמונות שלך"
 
 #: accounts/templates/account/profile.html:37
 msgid "Your services"
-msgstr ""
+msgstr "השירותים שלך"
 
 #: accounts/templates/account/push.html:4
 #: accounts/templates/account/push.html:6
 msgid "Auto flip"
-msgstr ""
+msgstr "היפוך אוטומטי"
 
 #: accounts/templates/account/push.html:11
 msgid "Days left:"
-msgstr ""
+msgstr "ימים שנותרו:"
 
 #: accounts/templates/account/push.html:12
 #: accounts/templates/account/push.html:17
 msgid "Auto flips:"
-msgstr ""
+msgstr "התהפכות אוטומטיות:"
 
 #: accounts/templates/account/register.html:4
 #: accounts/templates/account/register.html:10
 #: accounts/templates/registration/login.html:17
 msgid "Registration"
-msgstr ""
+msgstr "הַרשָׁמָה"
 
 #: accounts/templates/account/register.html:16
 msgid "By registering I accept the Privacy Policy"
-msgstr ""
+msgstr "בהרשמה אני מקבל את מדיניות הפרטיות"
 
 #: accounts/templates/account/register.html:20
 msgid ""
@@ -251,95 +252,97 @@ msgid ""
 "it and is not responsible for the content of the advertisement. All "
 "responsibility rests with the advertiser!"
 msgstr ""
+"הנהלת האתר מספקת באופן בלעדי במה לפרסום בו ואינה אחראית לתוכן הפרסומת. כל "
+"האחריות היא על המפרסם!"
 
 #: accounts/templates/account/register.html:22
 msgid "Register"
-msgstr ""
+msgstr "הירשם"
 
 #: accounts/templates/account/register_done.html:4
 msgid "Registration completed"
-msgstr ""
+msgstr "ההרשמה הושלמה"
 
 #: accounts/templates/account/register_done.html:10
 msgid "Welcome!"
-msgstr ""
+msgstr "ברוך הבא"
 
 #: accounts/templates/account/register_done.html:12
 msgid "Your account has been successfully created."
-msgstr ""
+msgstr "החשבון שלך נוצר בהצלחה."
 
 #: accounts/templates/account/register_done.html:13
 msgid "Now you can"
-msgstr ""
+msgstr "עכשיו אתה יכול"
 
 #: accounts/templates/account/register_done.html:13
 #: accounts/templates/registration/login.html:14
 #: accounts/templates/registration/password_reset_complete.html:11
 msgid "login"
-msgstr ""
+msgstr "התחברות"
 
 #: accounts/templates/account/reviews.html:6
 msgid "Result:"
-msgstr ""
+msgstr "תוֹצָאָה:"
 
 #: accounts/templates/account/reviews.html:24
 msgid "No reviews found for your query."
-msgstr ""
+msgstr "לא נמצאו ביקורות עבור השאילתה שלך."
 
 #: accounts/templates/layout/account.html:15
 msgid "Your rate:"
-msgstr ""
+msgstr "התעריף שלך:"
 
 #: accounts/templates/layout/account.html:35
 msgid "Profile"
-msgstr ""
+msgstr "פּרוֹפִיל"
 
 #: accounts/templates/layout/account.html:39
 #: accounts/templates/registration/password_reset_confirm.html:16
 msgid "Change password"
-msgstr ""
+msgstr "שנה סיסמא"
 
 #: accounts/templates/layout/account.html:43
 msgid "Logout"
-msgstr ""
+msgstr "להתנתק"
 
 #: accounts/templates/registration/logged_out.html:4
 msgid "Exit"
-msgstr ""
+msgstr "יְצִיאָה"
 
 #: accounts/templates/registration/logged_out.html:10
 msgid "You logged out"
-msgstr ""
+msgstr "התנתקת"
 
 #: accounts/templates/registration/logged_out.html:12
 msgid "You can"
-msgstr ""
+msgstr "אתה יכול"
 
 #: accounts/templates/registration/logged_out.html:13
 msgid "login again"
-msgstr ""
+msgstr "היכנס שוב"
 
 #: accounts/templates/registration/logged_out.html:13
 msgid "or"
-msgstr ""
+msgstr "אופ"
 
 #: accounts/templates/registration/logged_out.html:14
 msgid "go to the main page"
-msgstr ""
+msgstr "עבור אל העמוד הראשי"
 
 #: accounts/templates/registration/login.html:4
 msgid "Login"
-msgstr ""
+msgstr "התחברות"
 
 #: accounts/templates/registration/login.html:10
 #: girls/templates/layout/base.html:57 girls/templates/layout/base.html:120
 msgid "Authorization"
-msgstr ""
+msgstr "הרשאה"
 
 #: accounts/templates/registration/login.html:16
 #: accounts/templates/registration/password_reset_form.html:4
 msgid "Forgot your password?"
-msgstr ""
+msgstr "שכחת ססמה?"
 
 #: accounts/templates/registration/password_change_done.html:4
 #: accounts/templates/registration/password_change_done.html:6
@@ -352,211 +355,211 @@ msgstr ""
 #: accounts/templates/registration/password_reset_done.html:4
 #: accounts/templates/registration/password_reset_done.html:10
 msgid "Password change"
-msgstr ""
+msgstr "שינוי סיסמה"
 
 #: accounts/templates/registration/password_change_done.html:12
 msgid "Password changed"
-msgstr ""
+msgstr "סיסמא שונתה"
 
 #: accounts/templates/registration/password_change_done.html:13
 msgid "Your password has been successfully changed."
-msgstr ""
+msgstr "הסיסמה שלך שונתה בהצלחה."
 
 #: accounts/templates/registration/password_change_form.html:15
 msgid "Change"
-msgstr ""
+msgstr "שינוי"
 
 #: accounts/templates/registration/password_reset_complete.html:10
 msgid "Password changed!"
-msgstr ""
+msgstr "סיסמא שונתה!"
 
 #: accounts/templates/registration/password_reset_confirm.html:12
 msgid "Please enter your new password twice:"
-msgstr ""
+msgstr "אנא הכנס את הסיסמה החדשה שלך פעמיים:"
 
 #: accounts/templates/registration/password_reset_confirm.html:20
 msgid ""
 "Your password reset link is incorrect. Perhaps it has already been used."
-msgstr ""
+msgstr "הקישור לאיפוס הסיסמה שלך שגוי. אולי זה כבר היה בשימוש."
 
 #: accounts/templates/registration/password_reset_confirm.html:21
 msgid "Please do"
-msgstr ""
+msgstr "בבקשה תעשה"
 
 #: accounts/templates/registration/password_reset_confirm.html:21
 msgid "new password reset"
-msgstr ""
+msgstr "איפוס סיסמה חדשה"
 
 #: accounts/templates/registration/password_reset_done.html:11
 msgid ""
 "We have sent instructions for changing your password to the email address "
 "you provided."
-msgstr ""
+msgstr "שלחנו הוראות לשינוי הסיסמה שלך לכתובת האימייל שסיפקת."
 
 #: accounts/templates/registration/password_reset_done.html:12
 msgid ""
 "If you did not receive an email, please make sure you have entered a valid "
 "email address."
-msgstr ""
+msgstr "אם לא קיבלת דוא\"ל, אנא ודא שהזנת כתובת דוא\"ל חוקית."
 
 #: accounts/templates/registration/password_reset_email.html:2
 msgid "Someone has requested a password change for your email"
-msgstr ""
+msgstr "מישהו ביקש שינוי סיסמה עבור האימייל שלך"
 
 #: accounts/templates/registration/password_reset_email.html:4
 msgid "To change your password, follow the link:"
-msgstr ""
+msgstr "כדי לשנות את הסיסמה, היכנסו לקישור:"
 
 #: accounts/templates/registration/password_reset_email.html:7
 msgid "Your login:"
-msgstr ""
+msgstr "הכניסה שלך:"
 
 #: accounts/templates/registration/password_reset_form.html:10
 msgid "Password reset"
-msgstr ""
+msgstr "איפוס סיסמא"
 
 #: accounts/templates/registration/password_reset_form.html:13
 msgid "Send E-mail"
-msgstr ""
+msgstr "שלח אימייל"
 
 #: bb/settings.py:176
 msgid "English"
-msgstr ""
+msgstr "אנגלית"
 
 #: bb/settings.py:177
 msgid "Russian"
-msgstr ""
+msgstr "רוּסִי"
 
 #: bb/settings.py:178
 msgid "Hebrew"
-msgstr ""
+msgstr "עִברִית"
 
 #: clients/models.py:30
 msgid "Was not"
-msgstr ""
+msgstr "לא היה"
 
 #: clients/models.py:31
 msgid "Passing"
-msgstr ""
+msgstr "חוֹלֵף"
 
 #: clients/models.py:32
 msgid "Problem"
-msgstr ""
+msgstr "בְּעָיָה"
 
 #: girls/forms.py:11
 msgid "Name*"
-msgstr ""
+msgstr "שֵׁם*"
 
 #: girls/forms.py:34
 msgid "City"
-msgstr ""
+msgstr "עִיר"
 
 #: girls/forms.py:36 girls/templates/girls/girl_detail.html:61
 msgid "Age"
-msgstr ""
+msgstr "גיל"
 
 #: girls/forms.py:39
 msgid "Min price"
-msgstr ""
+msgstr "מחיר מינימלי"
 
 #: girls/forms.py:42
 msgid "Max price"
-msgstr ""
+msgstr "מחיר מקסימלי"
 
 #: girls/templates/girls/forms/review-form.html:6
 msgid "Leave feedback"
-msgstr ""
+msgstr "השאר משוב"
 
 #: girls/templates/girls/girl_detail.html:62
 msgid "year(s)"
-msgstr ""
+msgstr "שנים"
 
 #: girls/templates/girls/girl_detail.html:67
 msgid "Breast"
-msgstr ""
+msgstr "שד"
 
 #: girls/templates/girls/girl_detail.html:73
 msgid "Height"
-msgstr ""
+msgstr "גוֹבַה"
 
 #: girls/templates/girls/girl_detail.html:79
 msgid "Weight"
-msgstr ""
+msgstr "מִשׁקָל"
 
 #: girls/templates/girls/girl_detail.html:111
 msgid "About me:"
-msgstr ""
+msgstr "עליי:"
 
 #: girls/templates/girls/girl_detail.html:120
 msgid "Services:"
-msgstr ""
+msgstr "שירותים:"
 
 #: girls/templates/girls/girl_detail.html:169
 msgid "There is parking"
-msgstr ""
+msgstr "יש חניה"
 
 #: girls/templates/girls/girl_detail.html:177
 msgid "Discrete flat"
-msgstr ""
+msgstr "שטוח דיסקרטי"
 
 #: girls/templates/girls/girl_detail.html:184
 msgid "Leave Review"
-msgstr ""
+msgstr "השאירו ביקורת"
 
 #: girls/templates/girls/partials/reviews.html:6
 msgid "Reviews"
-msgstr ""
+msgstr "ביקורות"
 
 #: girls/templates/girls/partials/reviews.html:26
 msgid "Delete"
-msgstr ""
+msgstr "לִמְחוֹק"
 
 #: girls/templates/layout/base.html:10
 msgid "Home"
-msgstr ""
+msgstr "בית"
 
 #: girls/templates/layout/base.html:28 girls/templates/layout/base.html:93
 #: girls/templates/layout/base.html:145
 msgid "Home Page"
-msgstr ""
+msgstr "דף הבית"
 
 #: girls/templates/layout/base.html:32 girls/templates/layout/base.html:95
 #: girls/templates/layout/base.html:147
 msgid "Profiles"
-msgstr ""
+msgstr "פרופילים"
 
 #: girls/templates/layout/base.html:35 girls/templates/layout/base.html:105
 #: girls/templates/layout/base.html:112 girls/templates/layout/base.html:149
 msgid "About us"
-msgstr ""
+msgstr "עלינו"
 
 #: girls/templates/layout/base.html:44
 msgid "Chose city"
-msgstr ""
+msgstr "בחרה בעיר"
 
 #: girls/templates/layout/base.html:51
 msgid "Cabinet"
-msgstr ""
+msgstr "קבינט"
 
 #: girls/templates/layout/base.html:97
 msgid "All the profiles"
-msgstr ""
+msgstr "כל הפרופילים"
 
 #: girls/templates/layout/base.html:126
 msgid "Add profile"
-msgstr ""
+msgstr "הוסף פרופיל"
 
 #: girls/templates/layout/base.html:151
 msgid "Prostitutes of Israel"
-msgstr ""
+msgstr "זונות של ישראל"
 
 #: girls/templates/pages/catalog.html:5
 msgid "Catalog"
-msgstr ""
+msgstr "Catalog"
 
 #: girls/templates/pages/home.html:12
 msgid "The best prostitutes in Israel"
-msgstr ""
+msgstr "מיטב הזונות בישראל"
 
 #: girls/templates/pages/home.html:16
 msgid ""
@@ -566,42 +569,64 @@ msgid ""
 "Yam, Holon, Herzelia, Ramat Gan, Petahkva from north to south. Do you want "
 "to come to a discrete private apartment, or vice versa, call a call girl to "
 "your hotel, or maybe experience an unforgettable experience from an erotic "
-"massage in an erotic salon in Israel. No problem - our site Juicy Pussy will "
-"help you with this! The sweetest and juiciest pussies, pussy and boobs of "
-"Israel, ready to give you an unforgettable orgasm from such entertainment as "
-"- classic sex, cunnilingus, blowjob, blowjob without condom, squirt, slave, "
-"group sex, lesbian show, strapon, golden shower, mistress, light domination, "
-"prostate massage, fetish, anal, endings - cim cof, deep trout, french "
-"kissing, gfe, striptease, BDSM and role playing - All your fantasies, you "
-"can realize on our intimate Israel site."
+"massage in an erotic salon in Israel. No problem - our site Juicy Pussy will"
+" help you with this! The sweetest and juiciest pussies, pussy and boobs of "
+"Israel, ready to give you an unforgettable orgasm from such entertainment as"
+" - classic sex, cunnilingus, blowjob, blowjob without condom, squirt, slave,"
+" group sex, lesbian show, strapon, golden shower, mistress, light "
+"domination, prostate massage, fetish, anal, endings - cim cof, deep trout, "
+"french kissing, gfe, striptease, BDSM and role playing - All your fantasies,"
+" you can realize on our intimate Israel site."
 msgstr ""
+"ברוכים הבאים לאתר הליווי הכי מעודכן ואמיתי בישראל למציאת בחורות יפות ובמחיר "
+"סביר! באתר שלנו תמצאו נערות ליווי ישראליות לוהטות ויחידות מהערים תל אביב, "
+"ירושלים, בת ים, חולון, הרצליה, רמת גן, פתחקווה מצפון ועד דרום. האם אתם רוצים"
+" להגיע לדירה פרטית דיסקרטית, או להיפך, התקשרו לטלפון למלון שלכם, או אולי "
+"לחוות חוויה בלתי נשכחת מעיסוי אירוטי בסלון אירוטי בישראל. אין בעיה - האתר "
+"שלנו Juicy Pussy יעזור לכם בזה! הכוסות, הכוס והציצים המתוקים והעסיסיים ביותר"
+" של ישראל, מוכנים לתת לכם אורגזמה בלתי נשכחת מבידור כמו - מין קלאסי, "
+"ציפורניים, מציצה, מציצה ללא קונדום, השפרצה, שפחה, סקס קבוצתי, מופע לסביות, "
+"סטראפון, מקלחת זהב, פילגש, שליטה קלה, עיסוי ערמונית, פטיש, אנאלי, סיומות - "
+"כוסית, פורל עמוק, נשיקות צרפתיות, GFE, חשפנות, BDSM ומשחקי תפקידים - את כל "
+"הפנטזיות שלך, תוכל לממש באתר האינטימי שלנו בישראל."
 
 #: girls/templates/pages/home.html:17
 msgid ""
 "Our escort site will help you find all the girls for leisure - elite "
-"individuals with real photos, prostitutes, priestesses of virtual sex, night "
-"butterflies and masseuses from Tel Aviv, Jerusalem, Bat Yam and other cities "
-"of Israel. Inexpensive whores are also ready to go at any time of the day or "
-"night, if only the client turns out to be just as big a fan of sex. Girls "
-"with large natural breasts, a slender figure, with an elastic big booty, "
-"mulattos, young and young girls, mistress and even transvestites, with a big "
-"elastic ass - everything is on our sex escort site in Israel. We hope that "
-"you will be satisfied with our variety of prostitutes and take the "
-"opportunity to erotically meet the best sexy and trendy blondes, redheads "
+"individuals with real photos, prostitutes, priestesses of virtual sex, night"
+" butterflies and masseuses from Tel Aviv, Jerusalem, Bat Yam and other "
+"cities of Israel. Inexpensive whores are also ready to go at any time of the"
+" day or night, if only the client turns out to be just as big a fan of sex. "
+"Girls with large natural breasts, a slender figure, with an elastic big "
+"booty, mulattos, young and young girls, mistress and even transvestites, "
+"with a big elastic ass - everything is on our sex escort site in Israel. We "
+"hope that you will be satisfied with our variety of prostitutes and take the"
+" opportunity to erotically meet the best sexy and trendy blondes, redheads "
 "and brunettes. Escort Fantasy Sex Leisure Girls for Money Prostitutes in "
 "Israel Intimate Tel Aviv and Jerusalem - all this is the best site - sex "
 "site JUICY PUSSY!!!"
 msgstr ""
+"אתר הליווי שלנו יעזור לך למצוא את כל הבנות לפנאי - יחידות עילית עם תמונות "
+"אמיתיות, זונות, כוהנות למין וירטואלי, פרפרי לילה ומעסות מתל אביב, ירושלים, "
+"בת ים וערים נוספות בישראל. זונות לא יקרות מוכנות גם ללכת בכל שעה ביום או "
+"בלילה, אם רק יתברר שהלקוח הוא חובב סקס לא פחות. בנות עם חזה טבעי גדול, גזרה "
+"דקיקה, עם שלל גדול אלסטי, מולאטות, נערות צעירות וצעירות, פילגש ואפילו "
+"טרנסווסטיטים, עם ישבן אלסטי גדול - הכל נמצא באתר ליווי המין שלנו בישראל. אנו"
+" מקווים שתהיו מרוצים ממגוון הזונות שלנו ותנצלו את ההזדמנות לפגוש באופן ארוטי"
+" את הבלונדיניות הסקסיות והטרנדיות, הג'ינג'יות והברונטיות הטובות ביותר. ליווי"
+" פנטזיה סקס פנאי בנות תמורת כסף פרוצות בישראל אינטימית תל אביב וירושלים - כל"
+" זה האתר הכי טוב - אתר סקס JUICY PUSSY!!!"
 
 #: girls/templates/pages/home.html:40 girls/templates/pages/home.html:47
 msgid "Attention!"
-msgstr ""
+msgstr "תשומת הלב!"
 
 #: girls/templates/pages/home.html:42
 msgid ""
 "This site is intended for communication and search for people by interests, "
 "and only for persons of legal age."
 msgstr ""
+"אתר זה מיועד לתקשורת ולחיפוש אנשים לפי תחומי עניין, ורק לבני גיל חוקי."
 
 #: girls/templates/pages/home.html:49
 msgid ""
@@ -609,23 +634,25 @@ msgid ""
 "it and is not responsible for the content of the ad. All responsibility "
 "rests with the advertiser!"
 msgstr ""
+"הנהלת האתר מספקת באופן בלעדי פלטפורמה להצבת מודעות בו ואינה אחראית לתוכן "
+"המודעה. כל האחריות היא על המפרסם!"
 
 #: girls/templates/pages/search.html:3 girls/templates/pages/search.html:10
 msgid "Search"
-msgstr ""
+msgstr "לחפש"
 
 #: girls/templates/partials/catalog.html:5
 msgid "Elite escort in Israel"
-msgstr ""
+msgstr "ליווי עילית בישראל"
 
 #: girls/templates/partials/catalog.html:13
 msgid "New"
-msgstr ""
+msgstr "חָדָשׁ"
 
 #: girls/templates/partials/cities.html:6
 msgid "Choose city"
-msgstr ""
+msgstr "בחר עיר"
 
 #: girls/templates/partials/girls-list.html:11
 msgid "No girls were found matching your search."
-msgstr ""
+msgstr "לא נמצאו בחורות התואמות לחיפוש שלך."
