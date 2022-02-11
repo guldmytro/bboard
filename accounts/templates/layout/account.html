@@ -11,7 +11,7 @@
             </h1>
         </div>
         <div class="account-nav-wrapper">
-            <a href="tarif.html" class="account-plan">
+            <a href="{% url 'tarifs' %}" class="account-plan">
                 <span class="account-plan__label">{% trans 'Your rate:' %}</span>
                 <span class="account-plan__value">VIP на месяц</span>
             </a>
@@ -33,6 +33,10 @@
                 </a>
                 <a class="account-nav__link account-nav-link" href="{{ request.user.girl.get_absolute_url }}">
                     <span class="account-nav-link__text">{% trans 'Profile' %}</span>
+                </a>
+                <a class="account-nav__link account-nav-link{% if section == 'password-change' %} active{% endif %}"
+                   href="{% url 'push' %}">
+                    <span class="account-nav-link__text">{% trans 'Autoflips' %}</span>
                 </a>
                 <a class="account-nav__link account-nav-link{% if section == 'password-change' %} active{% endif %}"
                    href="{% url 'password_change' %}">

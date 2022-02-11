@@ -1,0 +1,62 @@
+{% extends 'layout/account.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Auto flip Pay' %}{% endblock %}
+
+{% block account_title %}{% trans 'Order Payment' %} #{{ order.pk }}{% endblock %}
+
+{% block account_content %}
+    <div class="account-pay">
+        <div class="section-header">
+            <h3>
+                {% trans 'Choose a convenient payment method for you:' %}
+            </h3>
+        </div>
+        <div class="paypal-custom-wrapper">
+            <div id="smart-button-container">
+              <div style="text-align: center;">
+                <div id="paypal-button-container"></div>
+              </div>
+            </div>
+        <script src="https://www.paypal.com/sdk/js?client-id={{ paypal_api }}&enable-funding=venmo&currency=ILS" data-sdk-integration-source="button-factory"></script>
+        <script>
+            function initPayPalButton() {
+              paypal.Buttons({
+                style: {
+                  shape: 'rect',
+                  color: 'gold',
+                  layout: 'vertical',
+                  label: 'paypal',
+                },
+
+                createOrder: function(data, actions) {
+                  return actions.order.create({
+                    purchase_units: [{"amount":{"currency_code":"ILS","value": {{ order.get_total_cost  }} }}]
+                  });
+                },
+
+                onApprove: function(data, actions) {
+                  return actions.order.capture().then(function(orderData) {
+                    $.ajax({
+                        method: 'POST',
+                        url: '{% url 'update-order' order.pk %}',
+                        success: function(res) {
+                            if (res?.status === 'ok') {
+                                window.location.href = res.redirect;
+                            }
+                        }
+                    });
+                  });
+                },
+
+                onError: function(err) {
+                  console.log(err);
+                }
+              }).render('#paypal-button-container');
+            }
+            initPayPalButton();
+          </script>
+        </div>
+
+    </div>
+{% endblock %}

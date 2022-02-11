@@ -501,3 +501,17 @@ $('[name="language"]').on('change', function(e) {
     console.log(url);
     window.location.href = url;
 });
+
+$('.random-form [name="active_advertising"]').on('change', function() {
+    const form = $(this).closest('.random-form');
+    const formValue = form.serialize();
+    const url = form.attr('action');
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: formValue,
+        success: function(res) {
+            console.log(res);
+        }
+    });
+});

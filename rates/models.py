@@ -18,6 +18,10 @@ class Category(models.Model):
 
 
 class Rate(models.Model):
+    RATE_TYPES = (
+        ('start', 'Стартовый'),
+        ('lux', 'Люксовый')
+    )
     name = models.CharField(max_length=100, verbose_name='Тариф')
     slug = models.SlugField(max_length=100, verbose_name='Слаг')
     sub_name = models.TextField(max_length=300, verbose_name='Описание тарифа')
@@ -31,14 +35,7 @@ class Rate(models.Model):
 
     # days
     days = models.SmallIntegerField(verbose_name='Количество дней', help_text='-1 для безлимита')
-
-    # bonus
-    days_bonus = models.PositiveSmallIntegerField(verbose_name='Бонусное количество дней', default=0)
-    photos_bonus = models.PositiveSmallIntegerField(verbose_name='Бонусное количество фото', default=0)
-    videos_bonus = models.PositiveSmallIntegerField(verbose_name='Бонусное количество видео', default=0)
-    adds_bonus = models.PositiveSmallIntegerField(verbose_name='Бонусное количество автоподбросов', default=0)
-    bonus_start = models.DateTimeField(blank=True, null=True, verbose_name='Начало акции')
-    bonus_end = models.DateTimeField(blank=True, null=True, verbose_name='Окончание акции')
+    type = models.TextField(verbose_name='Тип тарифа', choices=RATE_TYPES, default='', blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     price = models.PositiveSmallIntegerField(verbose_name='Цена')

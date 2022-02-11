@@ -2389,6 +2389,12 @@ input[type=time] {
     color: var(--color-primary);
 }
 
+.paypal-custom-wrapper {
+    margin-top: 2rem;
+    max-width: 400px;
+    width: 100%;
+}
+
 @media (max-width:1399px) {
     :root {
         --width-container: 1140px

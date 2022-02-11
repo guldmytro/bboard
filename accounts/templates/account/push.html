@@ -8,60 +8,37 @@
 {% block account_content %}
 <div class="account-random">
     <div class="account-tarif__info">
-        <p>{% trans 'Days left:' %} <strong>15</strong></p>
-        <p>{% trans 'Auto flips:' %} <strong>20</strong></p>
+        <p>{% trans 'Auto flips:' %} <strong>{{ adds_left }}</strong></p>
     </div>
-    <form action="." class="random-form">
-        {{ rate_form }}
+    <form action="{% url 'update-adds-time' %}" class="random-form" method="post">
         <fieldset class="random-form__fieldset random-fieldset">
             <h2 class="random_fieldset__title">{% trans 'Auto flips:' %}</h2>
-            <label class="random-form__label">
-                <input type="radio" name="random" value="1">
-                <span class="custom-checkbox"></span>
-                <span class="label">Вкл</span>
-            </label>
-            <label class="random-form__label">
-                <input type="radio" name="random" value="1">
-                <span class="custom-checkbox"></span>
-                <span class="label">Откл</span>
-            </label>
-        </fieldset>
-        <fieldset class="random-form__fieldset random-fieldset">
-            <h2 class="random_fieldset__title">Автоподбросы в:</h2>
-            <label class="random-form__label">
-                <input type="time" value="">
-            </label>
-            <label class="random-form__label">
-                <input type="time" value="">
-            </label>
+            {% for field in rate_form.active_advertising %}
+                <label class="random-form__label">
+                    {{ field.tag }}
+                    <span class="custom-checkbox"></span>
+                    <span class="label">{{ field.choice_label }}</span>
+                </label>
+            {% endfor %}
         </fieldset>
     </form>
     <!-- /.random-form -->
     <div class="random-cards">
-        <h2 class="random-cards__title">Автоподбросы</h2>
+        <h2 class="random-cards__title">{% trans 'Autoflips' %}</h2>
         <ul class="random-group">
+            {% for toss in tosses %}
             <li class="random-group__item random-item">
-                <h3 class="random-item__title">Автоподбросы - 20 раз</h3>
+                <h3 class="random-item__title">{% trans 'Autoflips' %} - {{ toss.quantity }}</h3>
                 <p class="random-item__price">
-                    <span>₪ 100</span>
+                    <span>₪ {{ toss.price }}</span>
                 </p>
-                <button class="random-item__btn" type="button">Выбрать</button>
+                <a href="{% url 'create-order' toss.id  %}" class="random-item__btn" type="button">
+                    {% trans 'Choose' %}
+                </a>
             </li>
-            <li class="random-group__item random-item">
-                <h3 class="random-item__title">Автоподбросы - 50 раз</h3>
-                <p class="random-item__price">
-                    <span>₪ 200</span>
-                </p>
-                <button class="random-item__btn" type="button">Выбрать</button>
-            </li>
-            <li class="random-group__item random-item">
-                <h3 class="random-item__title">Автоподбросы - 100 раз</h3>
-                <p class="random-item__price">
-                    <span>₪ 350</span>
-                </p>
-                <button class="random-item__btn" type="button">Выбрать</button>
-            </li>
+            {% endfor %}
         </ul>
     </div>
 </div>
+
 {% endblock %}

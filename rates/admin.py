@@ -5,6 +5,7 @@ from .models import Rate, Category, Toss
 @admin.register(Rate)
 class RateAdmin(admin.ModelAdmin):
     list_display = ['name', 'price']
+    prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Category)

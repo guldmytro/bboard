@@ -170,21 +170,14 @@ class ClientReviewForm(forms.ModelForm):
 
 class RateForm(forms.ModelForm):
     active_advertising = forms.BooleanField(label=_('Autoflips'),
+                                            required=False,
                                             widget=forms.RadioSelect(
                                                 choices=[
                                                     (True, _('Yes')),
                                                     (False, _('No'))
                                                 ]
                                             ))
-    start_add_at = forms.CharField(label='Автоподбросы в',
-                                   widget=forms.TextInput(attrs={
-                                        'type': 'time'
-                                   }))
-    end_add_at = forms.CharField(label=False,
-                                 widget=forms.TextInput(attrs={
-                                     'type': 'time'
-                                 }))
 
     class Meta:
         model = Girl
-        fields = ('active_advertising', 'start_add_at', 'end_add_at')
+        fields = ('active_advertising',)

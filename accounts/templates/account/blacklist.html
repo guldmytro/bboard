@@ -9,6 +9,7 @@
 <div class="account-number">
     <h2 class="account-number__title">{% trans 'Punching' %}</h2>
     <div class="account-number-wrapper">
+        {% if request.user.girl.can_search %}
         <div class="col">
             <form action="{% url 'profile-check-phone' %}" method='post' class="number-form">
                 <fieldset class="number-form__fieldset">
@@ -22,6 +23,7 @@
             <div class="number-check-wrapper"></div>
         </div>
         <!-- /.col -->
+        {% endif %}
         <div class="col">
             <p class="account-number__info">
                 {% trans 'You can use the number punching service by paying a paid tariff once!' %}

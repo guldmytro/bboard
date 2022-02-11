@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, ProfileEditForm, ProfilePriceEditForm, ProfileServicesEditForm, \
@@ -9,6 +9,13 @@ from django.views.decorators.http import require_POST
 from django.utils.timezone import datetime
 from clients.models import Client, Revise, Review
 import re
+from orders.models import Order, OrderItem
+from rates.models import Toss
+from django.urls import reverse
+from django.db.models import F
+from django.conf import settings
+import datetime as _dt
+from rates.models import Rate
 
 
 def register(request):
@@ -18,7 +25,19 @@ def register(request):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            Girl.objects.create(user=new_user)
+
+            girl = Girl.objects.create(user=new_user)
+            try:
+                start_tarif = Rate.objects.filter(type='start').first()
+                if start_tarif:
+                    girl.rate = start_tarif
+                    girl.max_images = start_tarif.photos
+                    girl.max_videos = start_tarif.videos
+                    girl.adds_left = start_tarif.adds
+                    girl.rate_end_date = _dt.date.today() + _dt.timedelta(days=start_tarif.days)
+                    girl.save()
+            except:
+                pass
             return render(request, 'account/register_done.html',
                           {'new_user': new_user})
     else:
@@ -240,6 +259,8 @@ def profile_delete_video(request):
 @require_POST
 @login_required
 def profile_check_phone(request):
+    if not request.user.girl.can_search:
+        return JsonResponse({'status': 'bad'})
     phone_form = CheckPhoneForm(request.POST)
     if phone_form.is_valid():
         phone = phone_form.cleaned_data['phone']
@@ -278,9 +299,75 @@ def profile_add_phone(request):
 
 @login_required
 def push(request):
-    rate_form = RateForm()
+    rate_form = RateForm(instance=request.user.girl)
+    tosses = Toss.objects.all().order_by('price')
+    adds_left = request.user.girl.adds_left
     context = {
+        'adds_left': adds_left,
         'rate_form': rate_form,
+        'tosses': tosses,
         'section': 'push'
     }
     return render(request, 'account/push.html', context)
+
+
+@login_required
+def create_order(request, order_id):
+    toss = get_object_or_404(Toss, pk=order_id)
+    order = Order.objects.create(author=request.user)
+    order_item = OrderItem.objects.create(order=order, service=f'{toss.quantity} автоподбросов', price=toss.price,
+                                          quantity=toss.quantity)
+    return redirect('push-pay', order.pk)
+
+
+@login_required
+def push_pay(request, order_id):
+    order = get_object_or_404(Order, author=request.user, paid=False, pk=order_id)
+    paypal_api = settings.PAYPAL_API
+    context = {
+        'paypal_api': paypal_api,
+        'order': order
+    }
+    return render(request, 'account/push-pay.html', context)
+
+
+@login_required
+def update_order(request, order_id):
+    order = get_object_or_404(Order, author=request.user, paid=False, pk=order_id)
+    order.paid = True
+    order.save()
+    girl = request.user.girl
+    tosses_cnt = order.get_total_quantity()
+    girl.adds_left = F('adds_left') + tosses_cnt
+    girl.save()
+    redirect_link = reverse('push-pay-done', kwargs={'order_id': order.id})
+    return JsonResponse({'status': 'ok', 'redirect': redirect_link})
+
+
+@login_required
+def push_pay_done(request, order_id):
+    order = get_object_or_404(Order, author=request.user, paid=True, pk=order_id)
+    return render(request, 'account/push-pay-done.html', {'order': order})
+
+
+@login_required
+@require_POST
+def update_adds_time(request):
+    girl = request.user.girl
+    rate_form = RateForm(request.POST, instance=girl)
+    if rate_form.is_valid():
+        rate_form.save()
+        girl.auto_activation_advertising_at = _dt.date.today() + _dt.timedelta(days=15)
+        girl.save()
+        return JsonResponse({'status': 'ok'})
+    else:
+        return JsonResponse({'status': 'bad'})
+
+
+@login_required
+def tarifs(request):
+    adds_left = request.user.girl.adds_left
+    context = {
+        'adds_left': adds_left
+    }
+    return render(request, 'account/tarifs.html', context)

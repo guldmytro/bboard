@@ -20,14 +20,21 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_title()
+
+    def get_total_price(self):
+        return sum(item.price for item in self.items.price)
     
     def get_total_cost(self):
         return sum(item.price for item in self.items.all())
+
+    def get_total_quantity(self):
+        return sum(item.quantity for item in self.items.all())
 
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE, verbose_name='Заказ')
     service = models.CharField(max_length=100, verbose_name='Услуга')
+    quantity = models.PositiveSmallIntegerField(verbose_name='Количество')
     price = models.PositiveSmallIntegerField(verbose_name='Цена')
 
     def __str__(self):

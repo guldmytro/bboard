@@ -108,9 +108,9 @@ class Girl(models.Model):
     adds_left = models.IntegerField(verbose_name='Количество подбросов', default=0)
 
     # adds time
-    active_advertising = models.BooleanField(default=False, verbose_name='Активна реклама')
-    start_add_at = models.TimeField(blank=True, null=True, verbose_name='Начало рекламы')
-    end_add_at = models.TimeField(blank=True, null=True, verbose_name='Окончание рекламы')
+    active_advertising = models.BooleanField(default=True, verbose_name='Активна реклама')
+    auto_activation_advertising_at = models.DateField(verbose_name='Автоматическая активация рекламы после',
+                                                      blank=True, null=True)
 
     # rate
     rate = models.ForeignKey(Rate, related_name='girls', on_delete=models.SET_NULL, null=True, blank=True,
