@@ -1583,27 +1583,27 @@ input[type=time] {
     justify-items: center
 }
 
-.tarif-group__item:nth-child(1) {
+.tarif-group__item:nth-child(6n + 1) {
     background-image: linear-gradient(153deg, #08f 0, #000 100%)
 }
 
-.tarif-group__item:nth-child(2) {
+.tarif-group__item:nth-child(6n + 2) {
     background-image: linear-gradient(153deg, #b228c2 0, #000 100%)
 }
 
-.tarif-group__item:nth-child(3) {
+.tarif-group__item:nth-child(6n + 3) {
     background-image: linear-gradient(153deg, #00a460 0, #000 100%)
 }
 
-.tarif-group__item:nth-child(4) {
+.tarif-group__item:nth-child(6n + 4) {
     background-image: linear-gradient(153deg, #ff5ba8 0, #000 100%)
 }
 
-.tarif-group__item:nth-child(5) {
+.tarif-group__item:nth-child(6n + 5) {
     background-image: linear-gradient(153deg, #ff9000 0, #000 100%)
 }
 
-.tarif-group__item:nth-child(6) {
+.tarif-group__item:nth-child(6n + 6) {
     background-image: linear-gradient(153deg, #00b4ff 0, #000 100%)
 }
 

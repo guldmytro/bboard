@@ -6,87 +6,65 @@
 {% block account_title %}{% trans 'Auto flip' %}{% endblock %}
 
 {% block account_content %}
-    <div class="account-tarif">
-        <div class="account-tarif__controls">
-            <div class="account-tarif__info">
-                <p>Осталось дней: <strong>15</strong></p>
-                <p>Кол-во автоподбросов: <strong>{{ adds_left }}</strong></p>
-            </div>
-            <div class="account-tarif__buttons tarif-buttons">
-                <button class="tarif-buttons__item start" type="button">Включить рекламу</button>
-                <button class="tarif-buttons__item stop" type="button">Остановить рекламу</button>
-            </div>
+<div class="account-tarif">
+    <div class="account-tarif__controls">
+        <div class="account-tarif__info">
+            <p>Осталось дней: <strong>{{ request.user.girl.rate_days_left }}</strong></p>
+            <p>Кол-во автоподбросов: <strong>{{ adds_left }}</strong></p>
         </div>
-        <h2 class="account-tarif__title">Выберите тарифный план</h2>
-        <ul class="tarif-group">
-            <li class="tarif-group__item tarif-item">
-                <h3 class="tarif-item__title">Бесплатный тариф</h3>
-                <p class="tarif-item__price"><span>₪ 0</span></p>
-                <p class="tarif-item__delta">180 дней</p>
-                <p class="tarif-item__photo">1 фотография</p>
-                <p class="tarif-item__video">0 видео</p>
-                <button class="tarif-item__info" type="button">?</button>
-                <a class="tarif-item__link" href="#">
-                    Выбрать
-                </a>
-            </li>
-            <li class="tarif-group__item tarif-item">
-                <h3 class="tarif-item__title">vip на неделю</h3>
-                <p class="tarif-item__price"><span>₪ 300</span></p>
-                <p class="tarif-item__delta">7 дней</p>
-                <p>20 раз подбросить</p>
-                <p class="tarif-item__photo">7 фотографий</p>
-                <p class="tarif-item__video">1 видео</p>
-                <button class="tarif-item__info" type="button">?</button>
-                <a class="tarif-item__link" href="#">
-                    Выбрать
-                </a>
-            </li>
-            <li class="tarif-group__item tarif-item">
-                <h3 class="tarif-item__title">vip на месяц</h3>
-                <p class="tarif-item__price"><span>₪ 800</span></p>
-                <p class="tarif-item__delta">31 дeнь</p>
-                <p>100 раз подбросить</p>
-                <p class="tarif-item__photo">Без ограничений</p>
-                <p class="tarif-item__video">3 видео</p>
-                <button class="tarif-item__info" type="button">?</button>
-                <a class="tarif-item__link" href="#">
-                    Выбрать
-                </a>
-            </li>
-            <li class="tarif-group__item tarif-item">
-                <h3 class="tarif-item__title">Premium тариф на неделю</h3>
-                <p class="tarif-item__price"><span>₪ 0</span></p>
-                <p class="tarif-item__delta">180 дней</p>
-                <p class="tarif-item__photo">1 фотография</p>
-                <p class="tarif-item__video">0 видео</p>
-                <button class="tarif-item__info" type="button">?</button>
-                <a class="tarif-item__link" href="#">
-                    Выбрать
-                </a>
-            </li>
-            <li class="tarif-group__item tarif-item">
-                <h3 class="tarif-item__title">Premium тариф на месяц</h3>
-                <p class="tarif-item__price"><span>₪ 0</span></p>
-                <p class="tarif-item__delta">180 дней</p>
-                <p class="tarif-item__photo">1 фотография</p>
-                <p class="tarif-item__video">0 видео</p>
-                <button class="tarif-item__info" type="button">?</button>
-                <a class="tarif-item__link" href="#">
-                    Выбрать
-                </a>
-            </li>
-            <li class="tarif-group__item tarif-item">
-                <h3 class="tarif-item__title">Luxury Zone тариф на неделю</h3>
-                <p class="tarif-item__price"><span>₪ 0</span></p>
-                <p class="tarif-item__delta">180 дней</p>
-                <p class="tarif-item__photo">1 фотография</p>
-                <p class="tarif-item__video">0 видео</p>
-                <button class="tarif-item__info" type="button">?</button>
-                <a class="tarif-item__link" href="#">
-                    Выбрать
-                </a>
-            </li>
-        </ul>
+        <div class="account-tarif__buttons tarif-buttons">
+            <button class="tarif-buttons__item start" type="button">Включить рекламу</button>
+            <button class="tarif-buttons__item stop" type="button">Остановить рекламу</button>
+        </div>
     </div>
+    <h2 class="account-tarif__title">Выберите тарифный план</h2>
+    {% if rates %}
+    <ul class="tarif-group">
+        {% for tarif in rates %}
+            <li class="tarif-group__item tarif-item">
+                <h3 class="tarif-item__title">{{ tarif.name }}</h3>
+                <p class="tarif-item__price"><span>₪ {{ tarif.price }}</span></p>
+                <p class="tarif-item__delta">{{ tarif.days }} дней</p>
+                {% if tarif.photos != 0 %}
+                    {% if tarif.photos == -1 %}
+                        <p class="tarif-item__video">безлимит фото</p>
+                    {% else %}
+                        <p class="tarif-item__video">{{ tarif.photos }} фото</p>
+                    {% endif %}
+                {% endif %}
+                {% if tarif.videos != 0 %}
+                    {% if tarif.videos == -1 %}
+                        <p class="tarif-item__video">безлимит видео</p>
+                    {% else %}
+                        <p class="tarif-item__video">{{ tarif.videos }} видео</p>
+                    {% endif %}
+                {% endif %}
+                {% if tarif.adds != 0 %}
+                    {% if tarif.adds == -1 %}
+                        <p class="tarif-item__video">безлимит автоподбросов</p>
+                    {% else %}
+                        <p class="tarif-item__video">{{ tarif.adds }} автоподбросов</p>
+                    {% endif %}
+                {% endif %}
+                <button data-id="{{ tarif.pk }}" class="tarif-item__info" type="button">?</button>
+                <a class="tarif-item__link" href="{% url 'create-tariff_order' tarif.pk %}">
+                    Выбрать
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+<div class="popup popup-tarif">
+    <div class="review-form form-authentification">
+        <button type="button" class="review-form__close" aria-label="закрыть"></button>
+        <div class="tarif-info">
+            {% for tarif in rates  %}
+                <div class="tarif-info__item" data-id="{{ tarif.pk }}">
+                    {{ tarif.sub_name|linebreaks }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

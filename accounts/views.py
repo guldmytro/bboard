@@ -9,7 +9,7 @@ from django.views.decorators.http import require_POST
 from django.utils.timezone import datetime
 from clients.models import Client, Revise, Review
 import re
-from orders.models import Order, OrderItem
+from orders.models import Order, OrderItem, TariffOrderItem, TariffOrder
 from rates.models import Toss
 from django.urls import reverse
 from django.db.models import F
@@ -367,7 +367,54 @@ def update_adds_time(request):
 @login_required
 def tarifs(request):
     adds_left = request.user.girl.adds_left
+    rates = Rate.objects.all().exclude(type='start').order_by('price')
     context = {
+        'rates': rates,
         'adds_left': adds_left
     }
     return render(request, 'account/tarifs.html', context)
+
+
+@login_required
+def create_tarif_order(request, tariff_id):
+    rate = get_object_or_404(Rate, pk=tariff_id)
+    order = TariffOrder.objects.create(author=request.user)
+    order_item = TariffOrderItem.objects.create(order=order, rate=rate, price=rate.price,
+                                                videos=rate.videos, photos=rate.photos, adds=rate.adds, days=rate.days)
+    return redirect('tarif-pay', order.pk)
+
+
+@login_required
+def tarif_pay(request, tarif_order_id):
+    order = get_object_or_404(TariffOrder, author=request.user, paid=False, pk=tarif_order_id)
+    paypal_api = settings.PAYPAL_API
+    context = {
+        'paypal_api': paypal_api,
+        'order': order
+    }
+    return render(request, 'account/tarif-pay.html', context)
+
+
+@login_required
+def update_tarif_order(request, order_id):
+    order = get_object_or_404(TariffOrder, author=request.user, paid=False, pk=order_id)
+    order.paid = True
+    order.save()
+    girl = request.user.girl
+    rate = order.items.all().first()
+    girl.adds_left = F('adds_left') + rate.adds
+    girl.max_images = rate.photos
+    girl.max_videos = rate.videos
+    end_date = _dt.date.today() + _dt.timedelta(days=rate.days)
+    girl.rate_end_date = end_date
+    girl.rate = rate.rate
+    girl.save()
+    redirect_link = reverse('tariff-pay-done', kwargs={'order_id': order.id})
+    return JsonResponse({'status': 'ok', 'redirect': redirect_link})
+
+
+@login_required
+def tarif_pay_done(request, order_id):
+    order = get_object_or_404(TariffOrder, author=request.user, paid=True, pk=order_id)
+    return render(request, 'account/tarif-pay-done.html', {'order': order})
+

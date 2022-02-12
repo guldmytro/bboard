@@ -3,6 +3,7 @@ from django.utils import timezone
 from rates.models import Rate
 from django.conf import settings
 from django.urls import reverse
+import datetime
 
 
 class Service(models.Model):
@@ -133,6 +134,12 @@ class Girl(models.Model):
 
     def get_absolute_url(self):
         return reverse('girls:girl', kwargs={'id': self.pk})
+
+    def rate_days_left(self):
+        today = datetime.date.today()
+        end_date = datetime.date(self.rate_end_date.year, self.rate_end_date.month, self.rate_end_date.day)
+        days_left = end_date - today
+        return days_left.days
 
 
 class Review(models.Model):

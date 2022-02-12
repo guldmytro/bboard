@@ -1,0 +1,16 @@
+{% extends 'layout/account.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Change Rate' %}{% endblock %}
+
+{% block account_title %}{% trans 'Order Payment' %} #{{ order.pk }}{% endblock %}
+
+{% block account_content %}
+    <div class="account-pay">
+        <div class="section-header">
+            <h3>
+                {% trans 'Successfully payed!' %}
+            </h3>
+        </div>
+    </div>
+{% endblock %}

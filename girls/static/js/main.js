@@ -510,8 +510,14 @@ $('.random-form [name="active_advertising"]').on('change', function() {
         url: url,
         method: 'POST',
         data: formValue,
-        success: function(res) {
-            console.log(res);
-        }
     });
+});
+
+// show tarif-info
+const popupTarif = $('.popup-tarif');
+$('.tarif-item__info').on('click', function(e) {
+    e.preventDefault();
+    const id = $(this).attr('data-id');
+    popupTarif.find(`.tarif-info__item[data-id="${id}"]`).show();
+    popupTarif.fadeIn(200);
 });

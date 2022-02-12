@@ -13,7 +13,7 @@
         <div class="account-nav-wrapper">
             <a href="{% url 'tarifs' %}" class="account-plan">
                 <span class="account-plan__label">{% trans 'Your rate:' %}</span>
-                <span class="account-plan__value">VIP на месяц</span>
+                <span class="account-plan__value">{{ request.user.girl.rate.name }}</span>
             </a>
             <nav class="account-nav">
                 <a class="account-nav__link account-nav-link{% if section == 'profile' %} active{% endif %}"
