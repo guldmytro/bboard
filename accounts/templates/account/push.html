@@ -8,7 +8,15 @@
 {% block account_content %}
 <div class="account-random">
     <div class="account-tarif__info">
-        <p>{% trans 'Auto flips:' %} <strong>{{ adds_left }}</strong></p>
+        <p>{% trans 'Auto flips:' %}
+            <strong>
+                {% if adds_left == -1 %}
+                    {% trans 'unlimited' %}
+                {% else %}
+                    {{ adds_left }}
+                {% endif %}
+            </strong>
+        </p>
     </div>
     <form action="{% url 'update-adds-time' %}" class="random-form" method="post">
         <fieldset class="random-form__fieldset random-fieldset">

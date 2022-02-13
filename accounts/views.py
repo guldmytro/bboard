@@ -16,6 +16,7 @@ from django.db.models import F
 from django.conf import settings
 import datetime as _dt
 from rates.models import Rate
+from django.utils.translation import gettext_lazy as _
 
 
 def register(request):
@@ -121,9 +122,9 @@ def profile_update_info(request):
             if request.user.girl.status == 'draft':
                 request.user.girl.status = 'published'
                 request.user.girl.save()
-            messages.success(request, 'Ваш профиль был успешно обновлен')
+            messages.success(request, _('Your profile has been successfully updated'))
     else:
-        messages.error(request, 'Ошибка обновления профиля')
+        messages.error(request, _('Profile update error'))
     return redirect('profile')
 
 
@@ -146,9 +147,9 @@ def prifile_update_price(request):
                 request.user.girl.min_price = min_price
                 request.user.girl.max_price = max_price
                 request.user.girl.save()
-            messages.success(request, 'Ваш профиль был успешно обновлен')
+            messages.success(request, _('Your profile has been successfully updated'))
     else:
-        messages.error(request, 'Ошибка обновления профиля')
+        messages.error(request, _('Profile update error'))
     return redirect('profile')
 
 
@@ -161,9 +162,9 @@ def profile_update_services(request):
         if profile_service_form.has_changed() or profile_additional_form.has_changed():
             profile_service_form.save()
             profile_additional_form.save()
-            messages.success(request, 'Список Ваших услуг был успешно обновлен')
+            messages.success(request, _('The list of your services has been successfully updated'))
     else:
-        messages.error(request, 'Ошибка обновления профиля')
+        messages.error(request, _('Profile update error'))
     return redirect('profile')
 
 
@@ -290,10 +291,10 @@ def profile_add_phone(request):
         review.client = client
         review.author = request.user
         review.save()
-        messages.success(request, 'Отзыв успешно добавлен!')
+        messages.success(request, _('Review added successfully!'))
 
     else:
-        messages.success(request, 'Ошибка добавления отзыва...')
+        messages.success(request, _('Error adding review...'))
     return redirect('blacklist')
 
 

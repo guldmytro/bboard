@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-06 21:34+0200\n"
+"POT-Creation-Date: 2022-02-13 18:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,15 +75,17 @@ msgstr ""
 msgid "Review*"
 msgstr ""
 
-#: accounts/forms.py:172
+#: accounts/forms.py:172 accounts/templates/account/push.html:35
+#: accounts/templates/account/push.html:39
+#: accounts/templates/layout/account.html:39
 msgid "Autoflips"
 msgstr ""
 
-#: accounts/forms.py:175
+#: accounts/forms.py:176
 msgid "Yes"
 msgstr ""
 
-#: accounts/forms.py:176
+#: accounts/forms.py:177
 msgid "No"
 msgstr ""
 
@@ -97,36 +99,36 @@ msgstr ""
 msgid "Punching"
 msgstr ""
 
-#: accounts/templates/account/blacklist.html:15
-#: accounts/templates/account/blacklist.html:51
+#: accounts/templates/account/blacklist.html:16
+#: accounts/templates/account/blacklist.html:53
 msgid "Enter your customer number"
 msgstr ""
 
-#: accounts/templates/account/blacklist.html:18
+#: accounts/templates/account/blacklist.html:19
 msgid "Check"
 msgstr ""
 
-#: accounts/templates/account/blacklist.html:27
+#: accounts/templates/account/blacklist.html:29
 msgid "You can use the number punching service by paying a paid tariff once!"
 msgstr ""
 
-#: accounts/templates/account/blacklist.html:31
+#: accounts/templates/account/blacklist.html:33
 msgid "Phones on the blacklist"
 msgstr ""
 
-#: accounts/templates/account/blacklist.html:35
+#: accounts/templates/account/blacklist.html:37
 msgid "Phones checked in total"
 msgstr ""
 
-#: accounts/templates/account/blacklist.html:39
+#: accounts/templates/account/blacklist.html:41
 msgid "Checked phones in 24 hours"
 msgstr ""
 
-#: accounts/templates/account/blacklist.html:48
+#: accounts/templates/account/blacklist.html:50
 msgid "Leave customer feedback"
 msgstr ""
 
-#: accounts/templates/account/blacklist.html:65
+#: accounts/templates/account/blacklist.html:67
 #: girls/templates/girls/forms/review-form.html:9
 msgid "Send"
 msgstr ""
@@ -220,18 +222,46 @@ msgstr ""
 msgid "Your services"
 msgstr ""
 
+#: accounts/templates/account/push-pay-done.html:4
+#: accounts/templates/account/push-pay.html:4
+msgid "Auto flip Pay"
+msgstr ""
+
+#: accounts/templates/account/push-pay-done.html:6
+#: accounts/templates/account/push-pay.html:6
+#: accounts/templates/account/tarif-pay-done.html:6
+#: accounts/templates/account/tarif-pay.html:6
+msgid "Order Payment"
+msgstr ""
+
+#: accounts/templates/account/push-pay-done.html:12
+#: accounts/templates/account/tarif-pay-done.html:12
+msgid "Successfully payed!"
+msgstr ""
+
+#: accounts/templates/account/push-pay.html:12
+#: accounts/templates/account/tarif-pay.html:12
+msgid "Choose a convenient payment method for you:"
+msgstr ""
+
 #: accounts/templates/account/push.html:4
 #: accounts/templates/account/push.html:6
 msgid "Auto flip"
 msgstr ""
 
 #: accounts/templates/account/push.html:11
-msgid "Days left:"
+#: accounts/templates/account/push.html:23
+msgid "Auto flips:"
 msgstr ""
 
-#: accounts/templates/account/push.html:12
-#: accounts/templates/account/push.html:17
-msgid "Auto flips:"
+#: accounts/templates/account/push.html:14
+#: accounts/templates/account/tarifs.html:13
+msgid "unlimited"
+msgstr ""
+
+#: accounts/templates/account/push.html:44
+#: accounts/templates/account/tarifs.html:70
+msgid "Choose"
 msgstr ""
 
 #: accounts/templates/account/register.html:4
@@ -285,6 +315,80 @@ msgstr ""
 msgid "No reviews found for your query."
 msgstr ""
 
+#: accounts/templates/account/tarif-pay-done.html:4
+#: accounts/templates/account/tarif-pay.html:4
+msgid "Change Rate"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:4
+#: accounts/templates/account/tarifs.html:6
+msgid "Tariffs"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:12
+msgid "Days left"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:13
+msgid "Number of auto-throws"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:14
+msgid "Status"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:17
+msgid "Draft"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:19
+msgid "Disabled"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:21
+msgid "Published"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:29
+msgid "Start advertising"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:34
+msgid "Stop advertising"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:39
+msgid "Choose a plan"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:46
+msgid "days"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:49
+msgid "unlimited photos"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:51
+msgid "photo(s)"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:56
+msgid "unlimited videos"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:58
+msgid "video(s)"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:63
+msgid "unlimited autoflips"
+msgstr ""
+
+#: accounts/templates/account/tarifs.html:65
+msgid "autoflips"
+msgstr ""
+
 #: accounts/templates/layout/account.html:15
 msgid "Your rate:"
 msgstr ""
@@ -293,12 +397,12 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: accounts/templates/layout/account.html:39
+#: accounts/templates/layout/account.html:43
 #: accounts/templates/registration/password_reset_confirm.html:16
 msgid "Change password"
 msgstr ""
 
-#: accounts/templates/layout/account.html:43
+#: accounts/templates/layout/account.html:47
 msgid "Logout"
 msgstr ""
 
@@ -331,7 +435,7 @@ msgid "Login"
 msgstr ""
 
 #: accounts/templates/registration/login.html:10
-#: girls/templates/layout/base.html:57 girls/templates/layout/base.html:120
+#: girls/templates/layout/base.html:57 girls/templates/layout/base.html:128
 msgid "Authorization"
 msgstr ""
 
@@ -416,6 +520,26 @@ msgstr ""
 
 #: accounts/templates/registration/password_reset_form.html:13
 msgid "Send E-mail"
+msgstr ""
+
+#: accounts/views.py:125 accounts/views.py:150
+msgid "Your profile has been successfully updated"
+msgstr ""
+
+#: accounts/views.py:127 accounts/views.py:152 accounts/views.py:167
+msgid "Profile update error"
+msgstr ""
+
+#: accounts/views.py:165
+msgid "The list of your services has been successfully updated"
+msgstr ""
+
+#: accounts/views.py:294
+msgid "Review added successfully!"
+msgstr ""
+
+#: accounts/views.py:297
+msgid "Error adding review..."
 msgstr ""
 
 #: bb/settings.py:176
@@ -514,18 +638,18 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: girls/templates/layout/base.html:28 girls/templates/layout/base.html:93
-#: girls/templates/layout/base.html:145
+#: girls/templates/layout/base.html:28 girls/templates/layout/base.html:101
+#: girls/templates/layout/base.html:153
 msgid "Home Page"
 msgstr ""
 
-#: girls/templates/layout/base.html:32 girls/templates/layout/base.html:95
-#: girls/templates/layout/base.html:147
+#: girls/templates/layout/base.html:32 girls/templates/layout/base.html:103
+#: girls/templates/layout/base.html:155
 msgid "Profiles"
 msgstr ""
 
-#: girls/templates/layout/base.html:35 girls/templates/layout/base.html:105
-#: girls/templates/layout/base.html:112 girls/templates/layout/base.html:149
+#: girls/templates/layout/base.html:35 girls/templates/layout/base.html:113
+#: girls/templates/layout/base.html:120 girls/templates/layout/base.html:157
 msgid "About us"
 msgstr ""
 
@@ -537,15 +661,15 @@ msgstr ""
 msgid "Cabinet"
 msgstr ""
 
-#: girls/templates/layout/base.html:97
+#: girls/templates/layout/base.html:105
 msgid "All the profiles"
 msgstr ""
 
-#: girls/templates/layout/base.html:126
+#: girls/templates/layout/base.html:134
 msgid "Add profile"
 msgstr ""
 
-#: girls/templates/layout/base.html:151
+#: girls/templates/layout/base.html:159
 msgid "Prostitutes of Israel"
 msgstr ""
 
@@ -553,11 +677,11 @@ msgstr ""
 msgid "Catalog"
 msgstr ""
 
-#: girls/templates/pages/home.html:12
+#: girls/templates/pages/home.html:14
 msgid "The best prostitutes in Israel"
 msgstr ""
 
-#: girls/templates/pages/home.html:16
+#: girls/templates/pages/home.html:18
 msgid ""
 "Welcome to the most up-to-date and real escort site in Israel for finding "
 "beautiful and affordable girls! On our site you will find hot hot Israeli "
@@ -575,7 +699,7 @@ msgid ""
 "can realize on our intimate Israel site."
 msgstr ""
 
-#: girls/templates/pages/home.html:17
+#: girls/templates/pages/home.html:19
 msgid ""
 "Our escort site will help you find all the girls for leisure - elite "
 "individuals with real photos, prostitutes, priestesses of virtual sex, night "
@@ -592,17 +716,17 @@ msgid ""
 "site JUICY PUSSY!!!"
 msgstr ""
 
-#: girls/templates/pages/home.html:40 girls/templates/pages/home.html:47
+#: girls/templates/pages/home.html:42 girls/templates/pages/home.html:49
 msgid "Attention!"
 msgstr ""
 
-#: girls/templates/pages/home.html:42
+#: girls/templates/pages/home.html:44
 msgid ""
 "This site is intended for communication and search for people by interests, "
 "and only for persons of legal age."
 msgstr ""
 
-#: girls/templates/pages/home.html:49
+#: girls/templates/pages/home.html:51
 msgid ""
 "The site administration exclusively provides a platform for placing ads on "
 "it and is not responsible for the content of the ad. All responsibility "
@@ -610,7 +734,12 @@ msgid ""
 msgstr ""
 
 #: girls/templates/pages/search.html:3 girls/templates/pages/search.html:10
+#: girls/templates/pages/search.html:44
 msgid "Search"
+msgstr ""
+
+#: girls/templates/pages/search.html:31
+msgid "Type"
 msgstr ""
 
 #: girls/templates/partials/catalog.html:5
@@ -625,6 +754,6 @@ msgstr ""
 msgid "Choose city"
 msgstr ""
 
-#: girls/templates/partials/girls-list.html:11
+#: girls/templates/partials/girls-list.html:16
 msgid "No girls were found matching your search."
 msgstr ""

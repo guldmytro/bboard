@@ -28,7 +28,7 @@
                 {{ search_form.price_to }}
             </fieldset>
             <fieldset class="search-form__fieldset">
-                <span class="label">Тип указания услуг</span>
+                <span class="label">{% trans 'Type' %}</span>
                 <label class="radio-wrapper">
                     <span class="custom-label">{{ search_form.apartments.label }}</span>
                     {{ search_form.apartments }}
@@ -41,7 +41,7 @@
                 </label>
             </fieldset>
             <fieldset class="search-form__fieldset">
-                <button type="submit" class="btn btn_invert">Поиск анкет</button>
+                <button type="submit" class="btn btn_invert">{% trans 'Search' %}</button>
             </fieldset>
         </form>
         <!-- /.search-form -->

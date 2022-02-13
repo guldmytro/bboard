@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-06 21:34+0200\n"
-"PO-Revision-Date: 2022-02-07 23:35+0200\n"
+"POT-Creation-Date: 2022-02-13 18:39+0200\n"
+"PO-Revision-Date: 2022-02-13 18:39+0200\n"
 "Last-Translator:   <mail@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -76,15 +76,17 @@ msgstr "טלפון*"
 msgid "Review*"
 msgstr "סקירה*"
 
-#: accounts/forms.py:172
+#: accounts/forms.py:172 accounts/templates/account/push.html:35
+#: accounts/templates/account/push.html:39
+#: accounts/templates/layout/account.html:39
 msgid "Autoflips"
 msgstr "היפוך אוטומטי"
 
-#: accounts/forms.py:175
+#: accounts/forms.py:176
 msgid "Yes"
 msgstr "כן"
 
-#: accounts/forms.py:176
+#: accounts/forms.py:177
 msgid "No"
 msgstr "אבל"
 
@@ -98,37 +100,37 @@ msgstr "Черный список"
 msgid "Punching"
 msgstr "רשימה שחורה"
 
-#: accounts/templates/account/blacklist.html:15
-#: accounts/templates/account/blacklist.html:51
+#: accounts/templates/account/blacklist.html:16
+#: accounts/templates/account/blacklist.html:53
 msgid "Enter your customer number"
 msgstr "הזן את מספר הלקוח שלך"
 
-#: accounts/templates/account/blacklist.html:18
+#: accounts/templates/account/blacklist.html:19
 msgid "Check"
 msgstr "חשבון"
 
-#: accounts/templates/account/blacklist.html:27
+#: accounts/templates/account/blacklist.html:29
 msgid "You can use the number punching service by paying a paid tariff once!"
 msgstr ""
 "אתה יכול להשתמש בשירות ניקוב מספרים על ידי תשלום תעריף בתשלום פעם אחת!"
 
-#: accounts/templates/account/blacklist.html:31
+#: accounts/templates/account/blacklist.html:33
 msgid "Phones on the blacklist"
 msgstr "טלפונים ברשימה השחורה"
 
-#: accounts/templates/account/blacklist.html:35
+#: accounts/templates/account/blacklist.html:37
 msgid "Phones checked in total"
 msgstr "טלפונים נבדקו בסך הכל"
 
-#: accounts/templates/account/blacklist.html:39
+#: accounts/templates/account/blacklist.html:41
 msgid "Checked phones in 24 hours"
 msgstr "בדק טלפונים תוך 24 שעות"
 
-#: accounts/templates/account/blacklist.html:48
+#: accounts/templates/account/blacklist.html:50
 msgid "Leave customer feedback"
 msgstr "השאירו משוב ללקוח"
 
-#: accounts/templates/account/blacklist.html:65
+#: accounts/templates/account/blacklist.html:67
 #: girls/templates/girls/forms/review-form.html:9
 msgid "Send"
 msgstr "לִשְׁלוֹחַ"
@@ -222,19 +224,47 @@ msgstr "העלה את התמונות שלך"
 msgid "Your services"
 msgstr "השירותים שלך"
 
+#: accounts/templates/account/push-pay-done.html:4
+#: accounts/templates/account/push-pay.html:4
+msgid "Auto flip Pay"
+msgstr "היפוך אוטומטי"
+
+#: accounts/templates/account/push-pay-done.html:6
+#: accounts/templates/account/push-pay.html:6
+#: accounts/templates/account/tarif-pay-done.html:6
+#: accounts/templates/account/tarif-pay.html:6
+msgid "Order Payment"
+msgstr "הזמנה תשלום"
+
+#: accounts/templates/account/push-pay-done.html:12
+#: accounts/templates/account/tarif-pay-done.html:12
+msgid "Successfully payed!"
+msgstr "שולם בהצלחה!"
+
+#: accounts/templates/account/push-pay.html:12
+#: accounts/templates/account/tarif-pay.html:12
+msgid "Choose a convenient payment method for you:"
+msgstr "בחר אמצעי תשלום נוח עבורך:"
+
 #: accounts/templates/account/push.html:4
 #: accounts/templates/account/push.html:6
 msgid "Auto flip"
 msgstr "היפוך אוטומטי"
 
 #: accounts/templates/account/push.html:11
-msgid "Days left:"
-msgstr "ימים שנותרו:"
-
-#: accounts/templates/account/push.html:12
-#: accounts/templates/account/push.html:17
+#: accounts/templates/account/push.html:23
 msgid "Auto flips:"
 msgstr "התהפכות אוטומטיות:"
+
+#: accounts/templates/account/push.html:14
+#: accounts/templates/account/tarifs.html:13
+msgid "unlimited"
+msgstr "ללא הגבלה"
+
+#: accounts/templates/account/push.html:44
+#: accounts/templates/account/tarifs.html:70
+msgid "Choose"
+msgstr "בחר עיר"
 
 #: accounts/templates/account/register.html:4
 #: accounts/templates/account/register.html:10
@@ -289,6 +319,80 @@ msgstr "תוֹצָאָה:"
 msgid "No reviews found for your query."
 msgstr "לא נמצאו ביקורות עבור השאילתה שלך."
 
+#: accounts/templates/account/tarif-pay-done.html:4
+#: accounts/templates/account/tarif-pay.html:4
+msgid "Change Rate"
+msgstr "שינוי"
+
+#: accounts/templates/account/tarifs.html:4
+#: accounts/templates/account/tarifs.html:6
+msgid "Tariffs"
+msgstr "תעריפים"
+
+#: accounts/templates/account/tarifs.html:12
+msgid "Days left"
+msgstr "ימים שנותרו:"
+
+#: accounts/templates/account/tarifs.html:13
+msgid "Number of auto-throws"
+msgstr "מספר זריקות אוטומטיות"
+
+#: accounts/templates/account/tarifs.html:14
+msgid "Status"
+msgstr "סטָטִיסטִיקָה"
+
+#: accounts/templates/account/tarifs.html:17
+msgid "Draft"
+msgstr "טְיוּטָה"
+
+#: accounts/templates/account/tarifs.html:19
+msgid "Disabled"
+msgstr "נָכֶה"
+
+#: accounts/templates/account/tarifs.html:21
+msgid "Published"
+msgstr "יצא לאור"
+
+#: accounts/templates/account/tarifs.html:29
+msgid "Start advertising"
+msgstr "תתחיל לפרסם"
+
+#: accounts/templates/account/tarifs.html:34
+msgid "Stop advertising"
+msgstr "תפסיק לפרסם"
+
+#: accounts/templates/account/tarifs.html:39
+msgid "Choose a plan"
+msgstr "בחר תוכנית"
+
+#: accounts/templates/account/tarifs.html:46
+msgid "days"
+msgstr "ימים"
+
+#: accounts/templates/account/tarifs.html:49
+msgid "unlimited photos"
+msgstr "תמונות ללא הגבלה"
+
+#: accounts/templates/account/tarifs.html:51
+msgid "photo(s)"
+msgstr "תמונה"
+
+#: accounts/templates/account/tarifs.html:56
+msgid "unlimited videos"
+msgstr "צפה בוידאו"
+
+#: accounts/templates/account/tarifs.html:58
+msgid "video(s)"
+msgstr "וִידֵאוֹ"
+
+#: accounts/templates/account/tarifs.html:63
+msgid "unlimited autoflips"
+msgstr "סיבובים אוטומטיים ללא הגבלה"
+
+#: accounts/templates/account/tarifs.html:65
+msgid "autoflips"
+msgstr "היפוך אוטומטי"
+
 #: accounts/templates/layout/account.html:15
 msgid "Your rate:"
 msgstr "התעריף שלך:"
@@ -297,12 +401,12 @@ msgstr "התעריף שלך:"
 msgid "Profile"
 msgstr "פּרוֹפִיל"
 
-#: accounts/templates/layout/account.html:39
+#: accounts/templates/layout/account.html:43
 #: accounts/templates/registration/password_reset_confirm.html:16
 msgid "Change password"
 msgstr "שנה סיסמא"
 
-#: accounts/templates/layout/account.html:43
+#: accounts/templates/layout/account.html:47
 msgid "Logout"
 msgstr "להתנתק"
 
@@ -335,7 +439,7 @@ msgid "Login"
 msgstr "התחברות"
 
 #: accounts/templates/registration/login.html:10
-#: girls/templates/layout/base.html:57 girls/templates/layout/base.html:120
+#: girls/templates/layout/base.html:57 girls/templates/layout/base.html:128
 msgid "Authorization"
 msgstr "הרשאה"
 
@@ -421,6 +525,26 @@ msgstr "איפוס סיסמא"
 #: accounts/templates/registration/password_reset_form.html:13
 msgid "Send E-mail"
 msgstr "שלח אימייל"
+
+#: accounts/views.py:125 accounts/views.py:150
+msgid "Your profile has been successfully updated"
+msgstr "החשבון שלך נוצר בהצלחה."
+
+#: accounts/views.py:127 accounts/views.py:152 accounts/views.py:167
+msgid "Profile update error"
+msgstr "שגיאת עדכון פרופיל"
+
+#: accounts/views.py:165
+msgid "The list of your services has been successfully updated"
+msgstr "החשבון שלך נוצר בהצלחה."
+
+#: accounts/views.py:294
+msgid "Review added successfully!"
+msgstr "ביקורת נוספה בהצלחה!"
+
+#: accounts/views.py:297
+msgid "Error adding review..."
+msgstr "שגיאה בהוספת סקירה..."
 
 #: bb/settings.py:176
 msgid "English"
@@ -518,18 +642,18 @@ msgstr "לִמְחוֹק"
 msgid "Home"
 msgstr "בית"
 
-#: girls/templates/layout/base.html:28 girls/templates/layout/base.html:93
-#: girls/templates/layout/base.html:145
+#: girls/templates/layout/base.html:28 girls/templates/layout/base.html:101
+#: girls/templates/layout/base.html:153
 msgid "Home Page"
 msgstr "דף הבית"
 
-#: girls/templates/layout/base.html:32 girls/templates/layout/base.html:95
-#: girls/templates/layout/base.html:147
+#: girls/templates/layout/base.html:32 girls/templates/layout/base.html:103
+#: girls/templates/layout/base.html:155
 msgid "Profiles"
 msgstr "פרופילים"
 
-#: girls/templates/layout/base.html:35 girls/templates/layout/base.html:105
-#: girls/templates/layout/base.html:112 girls/templates/layout/base.html:149
+#: girls/templates/layout/base.html:35 girls/templates/layout/base.html:113
+#: girls/templates/layout/base.html:120 girls/templates/layout/base.html:157
 msgid "About us"
 msgstr "עלינו"
 
@@ -541,15 +665,15 @@ msgstr "בחרה בעיר"
 msgid "Cabinet"
 msgstr "קבינט"
 
-#: girls/templates/layout/base.html:97
+#: girls/templates/layout/base.html:105
 msgid "All the profiles"
 msgstr "כל הפרופילים"
 
-#: girls/templates/layout/base.html:126
+#: girls/templates/layout/base.html:134
 msgid "Add profile"
 msgstr "הוסף פרופיל"
 
-#: girls/templates/layout/base.html:151
+#: girls/templates/layout/base.html:159
 msgid "Prostitutes of Israel"
 msgstr "זונות של ישראל"
 
@@ -557,11 +681,11 @@ msgstr "זונות של ישראל"
 msgid "Catalog"
 msgstr "Catalog"
 
-#: girls/templates/pages/home.html:12
+#: girls/templates/pages/home.html:14
 msgid "The best prostitutes in Israel"
 msgstr "מיטב הזונות בישראל"
 
-#: girls/templates/pages/home.html:16
+#: girls/templates/pages/home.html:18
 msgid ""
 "Welcome to the most up-to-date and real escort site in Israel for finding "
 "beautiful and affordable girls! On our site you will find hot hot Israeli "
@@ -590,7 +714,7 @@ msgstr ""
 "כוסית, פורל עמוק, נשיקות צרפתיות, GFE, חשפנות, BDSM ומשחקי תפקידים - את כל "
 "הפנטזיות שלך, תוכל לממש באתר האינטימי שלנו בישראל."
 
-#: girls/templates/pages/home.html:17
+#: girls/templates/pages/home.html:19
 msgid ""
 "Our escort site will help you find all the girls for leisure - elite "
 "individuals with real photos, prostitutes, priestesses of virtual sex, night"
@@ -617,18 +741,18 @@ msgstr ""
 " פנטזיה סקס פנאי בנות תמורת כסף פרוצות בישראל אינטימית תל אביב וירושלים - כל"
 " זה האתר הכי טוב - אתר סקס JUICY PUSSY!!!"
 
-#: girls/templates/pages/home.html:40 girls/templates/pages/home.html:47
+#: girls/templates/pages/home.html:42 girls/templates/pages/home.html:49
 msgid "Attention!"
 msgstr "תשומת הלב!"
 
-#: girls/templates/pages/home.html:42
+#: girls/templates/pages/home.html:44
 msgid ""
 "This site is intended for communication and search for people by interests, "
 "and only for persons of legal age."
 msgstr ""
 "אתר זה מיועד לתקשורת ולחיפוש אנשים לפי תחומי עניין, ורק לבני גיל חוקי."
 
-#: girls/templates/pages/home.html:49
+#: girls/templates/pages/home.html:51
 msgid ""
 "The site administration exclusively provides a platform for placing ads on "
 "it and is not responsible for the content of the ad. All responsibility "
@@ -638,8 +762,13 @@ msgstr ""
 "המודעה. כל האחריות היא על המפרסם!"
 
 #: girls/templates/pages/search.html:3 girls/templates/pages/search.html:10
+#: girls/templates/pages/search.html:44
 msgid "Search"
 msgstr "לחפש"
+
+#: girls/templates/pages/search.html:31
+msgid "Type"
+msgstr "סוּג"
 
 #: girls/templates/partials/catalog.html:5
 msgid "Elite escort in Israel"
@@ -653,6 +782,6 @@ msgstr "חָדָשׁ"
 msgid "Choose city"
 msgstr "בחר עיר"
 
-#: girls/templates/partials/girls-list.html:11
+#: girls/templates/partials/girls-list.html:16
 msgid "No girls were found matching your search."
 msgstr "לא נמצאו בחורות התואמות לחיפוש שלך."

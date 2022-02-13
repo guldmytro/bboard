@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Girl, Image, City, Region, Service, Review
+from parler.admin import TranslatableAdmin
 
 
 class ImageInline(admin.StackedInline):
@@ -27,9 +28,9 @@ class CityAdmin(admin.ModelAdmin):
 
 
 @admin.register(Service)
-class ServiceAdmin(admin.ModelAdmin):
+class ServiceAdmin(TranslatableAdmin):
     list_display = ['name', 'slug']
-    prepopulated_fields = {'slug': ('name',)}
+    # prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Review)

@@ -9,9 +9,9 @@
 <div class="account-tarif">
     <div class="account-tarif__controls">
         <div class="account-tarif__info">
-            <p>Осталось дней: <strong>{{ request.user.girl.rate_days_left }}</strong></p>
-            <p>Кол-во автоподбросов: <strong>{% if adds_left == -1 %}{% trans 'unlimited' %}{% else %}{{ adds_left }}{% endif %}</strong></p>
-            <p>Статус обьявления:
+            <p>{% trans 'Days left' %}: <strong>{{ request.user.girl.rate_days_left }}</strong></p>
+            <p>{% trans 'Number of auto-throws' %}: <strong>{% if adds_left == -1 %}{% trans 'unlimited' %}{% else %}{{ adds_left }}{% endif %}</strong></p>
+            <p>{% trans 'Status' %}:
                 <strong>
                     {% if request.user.girl.status == 'draft' %}
                         {% trans 'Draft' %}
@@ -25,45 +25,49 @@
         </div>
         <div class="account-tarif__buttons tarif-buttons">
             {% if request.user.girl.status == 'disabled' %}
-                <button class="tarif-buttons__item start" data-url="{% url 'update-profile-status' %}" data-action="activate" type="button">Включить рекламу</button>
+                <button class="tarif-buttons__item start" data-url="{% url 'update-profile-status' %}" data-action="activate" type="button">
+                    {% trans 'Start advertising' %}
+                </button>
             {% endif %}
             {% if request.user.girl.status == 'published' %}
-                <button class="tarif-buttons__item stop" data-url="{% url 'update-profile-status' %}" data-action="deactivate" type="button">Остановить рекламу</button>
+                <button class="tarif-buttons__item stop" data-url="{% url 'update-profile-status' %}" data-action="deactivate" type="button">
+                    {% trans 'Stop advertising' %}
+                </button>
             {% endif %}
         </div>
     </div>
-    <h2 class="account-tarif__title">Выберите тарифный план</h2>
+    <h2 class="account-tarif__title">{% trans 'Choose a plan' %}</h2>
     {% if rates %}
     <ul class="tarif-group">
         {% for tarif in rates %}
             <li class="tarif-group__item tarif-item">
                 <h3 class="tarif-item__title">{{ tarif.name }}</h3>
                 <p class="tarif-item__price"><span>₪ {{ tarif.price }}</span></p>
-                <p class="tarif-item__delta">{{ tarif.days }} дней</p>
+                <p class="tarif-item__delta">{{ tarif.days }} {% trans 'days' %}</p>
                 {% if tarif.photos != 0 %}
                     {% if tarif.photos == -1 %}
-                        <p class="tarif-item__video">безлимит фото</p>
+                        <p class="tarif-item__video">{% trans 'unlimited photos' %}</p>
                     {% else %}
-                        <p class="tarif-item__video">{{ tarif.photos }} фото</p>
+                        <p class="tarif-item__video">{{ tarif.photos }} {% trans 'photo(s)' %}</p>
                     {% endif %}
                 {% endif %}
                 {% if tarif.videos != 0 %}
                     {% if tarif.videos == -1 %}
-                        <p class="tarif-item__video">безлимит видео</p>
+                        <p class="tarif-item__video">{% trans 'unlimited videos' %}</p>
                     {% else %}
-                        <p class="tarif-item__video">{{ tarif.videos }} видео</p>
+                        <p class="tarif-item__video">{{ tarif.videos }} {% trans 'video(s)' %}</p>
                     {% endif %}
                 {% endif %}
                 {% if tarif.adds != 0 %}
                     {% if tarif.adds == -1 %}
-                        <p class="tarif-item__video">безлимит автоподбросов</p>
+                        <p class="tarif-item__video">{% trans 'unlimited autoflips' %}</p>
                     {% else %}
-                        <p class="tarif-item__video">{{ tarif.adds }} автоподбросов</p>
+                        <p class="tarif-item__video">{{ tarif.adds }} {% trans 'autoflips' %}</p>
                     {% endif %}
                 {% endif %}
                 <button data-id="{{ tarif.pk }}" class="tarif-item__info" type="button">?</button>
                 <a class="tarif-item__link" href="{% url 'create-tariff_order' tarif.pk %}">
-                    Выбрать
+                    {% trans 'Choose' %}
                 </a>
             </li>
         {% endfor %}
