@@ -117,6 +117,8 @@ class Girl(models.Model):
     rate = models.ForeignKey(Rate, related_name='girls', on_delete=models.SET_NULL, null=True, blank=True,
                              verbose_name='Тарифный план')
     rate_end_date = models.DateField(verbose_name='Окончание тарифа', null=True, blank=True)
+    auto_activate_rate_at = models.DateField(verbose_name='Автоматическая активация тарифного плана после', blank=True,
+                                             null=True)
 
     objects = models.Manager()
     published = PublishedManager()
@@ -199,3 +201,12 @@ class View(models.Model):
         ordering = ('-created',)
         verbose_name = 'Просмотр'
         verbose_name_plural = 'Просмотры'
+
+
+class Retention(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    type = models.CharField(max_length=20, verbose_name='тип')
+    profile = models.ForeignKey(Girl, on_delete=models.CASCADE, verbose_name='девушка', related_name='retentions')
+
+    class Meta:
+        ordering = ('-created',)

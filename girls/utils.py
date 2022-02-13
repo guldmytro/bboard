@@ -18,3 +18,7 @@ def filter_by_city(request, objects):
         objects = objects.filter(city=city)
     return objects
 
+
+def force_girl_query():
+    return ''
+

@@ -1,0 +1,24 @@
+{% load static %}
+{% load thumbnail %}
+<div class="lux-slider__item lux-item">
+    <div class="lux-item__inner">
+        <p class="lux-item__label">Luxury Zone</p>
+        <a href="{{ girl.get_absolute_url }}" class="lux-item__thumb">
+            {% if girl.images.first %}
+                <img src="{{ girl.images.first.file|thumbnail_url:'medium' }}" class="catalog-item__img">
+            {% else %}
+                <img src="{% static 'img/girl.jpg' %}" class="catalog-item__img">
+            {% endif %}
+        </a>
+        <div class="lux-item__info">
+            <h2 class="lux-item__title"><a href="{{ girl.get_absolute_url }}">{{ girl.name }}</a></h2>
+            <p class="lux-item__location">{{ girl.city.name }}</p>
+            <div class="lux-item__labels lux-labels">
+                {% if girl.verified %}
+                    <span class="lux-labels__item">real foto</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.lux-item -->

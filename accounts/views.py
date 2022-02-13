@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, ProfileEditForm, ProfilePriceEditForm, ProfileServicesEditForm, \
     ProfileCheckPhotoForm, ProfileAdditionalEditForm, CheckPhoneForm, ClientForm, ClientReviewForm, RateForm
-from girls.models import Girl, Image, Video, View
+from girls.models import Girl, Image, Video, View, Retention
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.utils.timezone import datetime
@@ -402,7 +402,15 @@ def update_tarif_order(request, order_id):
     order.save()
     girl = request.user.girl
     rate = order.items.all().first()
-    girl.adds_left = F('adds_left') + rate.adds
+    if rate.adds == -1:
+        girl.adds_left = rate.adds
+    else:
+        if girl.adds_left == -1:
+            girl.adds_left = F('adds_left') + rate.adds + 1
+        else:
+            girl.adds_left = F('adds_left') + rate.adds
+    girl.can_search = True
+    girl.can_delete_comments = True
     girl.max_images = rate.photos
     girl.max_videos = rate.videos
     end_date = _dt.date.today() + _dt.timedelta(days=rate.days)
@@ -418,3 +426,38 @@ def tarif_pay_done(request, order_id):
     order = get_object_or_404(TariffOrder, author=request.user, paid=True, pk=order_id)
     return render(request, 'account/tarif-pay-done.html', {'order': order})
 
+
+@require_POST
+@login_required
+def update_profile_status(request):
+    status = request.POST.get('action')
+    girl = request.user.girl
+    today = _dt.date.today()
+    if status == 'activate':
+        if girl.status == 'disabled':
+            girl.status = 'published'
+            retention = Retention.objects.create(type='activation', profile=girl)
+            last_deactivation = Retention.objects.filter(type='deactivation', profile=girl).first()
+            if last_deactivation:
+                start_date = _dt.date(last_deactivation.created.year, last_deactivation.created.month,
+                                      last_deactivation.created.day)
+                days_left = today - start_date
+                days_left = days_left.days - 1
+                if days_left > 0:
+                    old_end_rate_date = _dt.date(girl.rate_end_date.year, girl.rate_end_date.month, girl.rate_end_date.day)
+                    girl.rate_end_date = old_end_rate_date + _dt.timedelta(days=days_left)
+            girl.save()
+            return JsonResponse({'status': 'ok', 'message': 'Your profile was published'})
+    else:
+        test_retention = Retention.objects.filter(created__year=today.year, created__month=today.month,
+                                                  created__day=today.day, type='deactivation')
+        if test_retention.count():
+            return JsonResponse({'status': 'bad', 'message': 'You have already paused your profile today'})
+        if girl.status == 'published':
+            girl.status = 'disabled'
+            retention = Retention.objects.create(type='deactivation', profile=girl)
+            girl.auto_activate_rate_at = _dt.date.today() + _dt.timedelta(days=15)
+            girl.save()
+            return JsonResponse({'status': 'ok', 'message': 'Your profile was disabled'})
+
+    return JsonResponse({'status': 'bad', 'message': 'Error'})

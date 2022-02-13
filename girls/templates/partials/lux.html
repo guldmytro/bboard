@@ -1,0 +1,12 @@
+{% if lux_girls %}
+<div class="lux">
+    <div class="container">
+        <div class="lux-slider">
+            {% for girl in lux_girls %}
+                {% include 'partials/lux-item.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- /.lux -->
+{% endif %}

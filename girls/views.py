@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from rates.models import Category, Rate
 from .forms import SearchForm
 from .utils import filter_by_city, get_current_city
+from random import shuffle
+from django.db.models import F
 
 
 def home(request):
@@ -23,8 +25,14 @@ def home(request):
         girls = paginator.page(1)
     except EmptyPage:
         girls = paginator.page(paginator.num_pages)
+
+    lux_tariffs = Rate.objects.filter(type='lux')
+    lux_tariffs = list(rate.id for rate in lux_tariffs)
+    lux_girls = Girl.published.filter(rate_id__in=lux_tariffs)
+    lux_girls = filter_by_city(request, lux_girls)
     context = {
         'category_name': category_name,
+        'lux_girls': lux_girls,
         'slug': slug,
         'girls': girls,
         'section': 'home'
@@ -34,9 +42,15 @@ def home(request):
 
 def girl_detail(request, id):
     girl = get_object_or_404(Girl, id=id)
-    photos = Image.objects.filter(girl=girl)
-    videos = Video.objects.filter(girl=girl)
-    reviews_objects = Review.objects.all().order_by('-created')
+    if girl.max_images == -1:
+        photos = Image.objects.filter(girl=girl)
+    else:
+        photos = Image.objects.filter(girl=girl)[:girl.max_images]
+    if girl.max_videos == -1:
+        videos = Video.objects.filter(girl=girl)
+    else:
+        videos = Video.objects.filter(girl=girl)[:girl.max_videos]
+    reviews_objects = girl.reviews.all().order_by('-created')
     paginator = Paginator(reviews_objects, 12)
     page = request.GET.get('page')
     try:
@@ -49,13 +63,15 @@ def girl_detail(request, id):
     add_review_form = AddReviewForm()
     if (request.user.is_authenticated and request.user.girl != girl) or not request.user.is_authenticated:
         View.objects.create(type='profile', profile=girl)
-
+    related_girls = list(Girl.published.exclude(id=girl.id).filter(city=girl.city)[:10])
+    shuffle(related_girls)
     context = {
         'girl': girl,
         'photos': photos,
         'videos': videos,
         'reviews': reviews,
-        'add_review_form': add_review_form
+        'add_review_form': add_review_form,
+        'related_girls': related_girls
     }
     return render(request, 'girls/girl_detail.html', context)
 
@@ -106,6 +122,18 @@ def catalog(request, slug=None):
     else:
         slug = 'new'
         category_name = 'Новые'
+
+    force_girls_list = None
+    if girls_object.count() > 20:
+        force_girls_list = list(girls_object.filter(active_advertising=True, adds_left__gt=0))
+        shuffle(force_girls_list)
+        force_girls_list = force_girls_list[:10]
+        force_girls_ids = list(girl.id for girl in force_girls_list)
+        girls_object = girls_object.exclude(id__in=force_girls_ids)
+        if not request.user.is_authenticated:
+            for force_girl in force_girls_list:
+                force_girl.adds_left = F('adds_left') - 1
+                force_girl.save()
     paginator = Paginator(girls_object, 15)
     page = request.GET.get('page')
     try:
@@ -118,6 +146,7 @@ def catalog(request, slug=None):
         'category_name': category_name,
         'slug': slug,
         'girls': girls,
+        'force_girls_list': force_girls_list,
         'section': 'catalog'
     }
     return render(request, 'pages/catalog.html', context)

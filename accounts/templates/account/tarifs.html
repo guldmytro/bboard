@@ -1,20 +1,35 @@
 {% extends 'layout/account.html' %}
 {% load i18n %}
 
-{% block title %}{% trans 'Auto flip' %}{% endblock %}
+{% block title %}{% trans 'Tariffs' %}{% endblock %}
 
-{% block account_title %}{% trans 'Auto flip' %}{% endblock %}
+{% block account_title %}{% trans 'Tariffs' %}{% endblock %}
 
 {% block account_content %}
 <div class="account-tarif">
     <div class="account-tarif__controls">
         <div class="account-tarif__info">
             <p>Осталось дней: <strong>{{ request.user.girl.rate_days_left }}</strong></p>
-            <p>Кол-во автоподбросов: <strong>{{ adds_left }}</strong></p>
+            <p>Кол-во автоподбросов: <strong>{% if adds_left == -1 %}{% trans 'unlimited' %}{% else %}{{ adds_left }}{% endif %}</strong></p>
+            <p>Статус обьявления:
+                <strong>
+                    {% if request.user.girl.status == 'draft' %}
+                        {% trans 'Draft' %}
+                    {% elif request.user.girl.status == 'disabled' %}
+                        {% trans 'Disabled' %}
+                    {% elif request.user.girl.status == 'published' %}
+                        {% trans 'Published' %}
+                    {% endif %}
+                </strong>
+            </p>
         </div>
         <div class="account-tarif__buttons tarif-buttons">
-            <button class="tarif-buttons__item start" type="button">Включить рекламу</button>
-            <button class="tarif-buttons__item stop" type="button">Остановить рекламу</button>
+            {% if request.user.girl.status == 'disabled' %}
+                <button class="tarif-buttons__item start" data-url="{% url 'update-profile-status' %}" data-action="activate" type="button">Включить рекламу</button>
+            {% endif %}
+            {% if request.user.girl.status == 'published' %}
+                <button class="tarif-buttons__item stop" data-url="{% url 'update-profile-status' %}" data-action="deactivate" type="button">Остановить рекламу</button>
+            {% endif %}
         </div>
     </div>
     <h2 class="account-tarif__title">Выберите тарифный план</h2>

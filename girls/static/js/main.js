@@ -521,3 +521,21 @@ $('.tarif-item__info').on('click', function(e) {
     popupTarif.find(`.tarif-info__item[data-id="${id}"]`).show();
     popupTarif.fadeIn(200);
 });
+
+$('.tarif-buttons__item').on('click', function(e) {
+    e.preventDefault();
+    const action = $(this).attr('data-action');
+    const url = $(this).attr('data-url');
+    $(this).prop('disabled', true);
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: {
+            'action': action
+        },
+        success: function(res) {
+            alert(res.message);
+            window.location.href = window.location.href;
+        }
+    });
+});

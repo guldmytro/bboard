@@ -1,7 +1,12 @@
 {% load i18n %}
 <div class="catalog-wrapper">
-    {% if girls %}
+    {% if girls or force_girls_list %}
     <ul class="catalog-group">
+        {% if girls.number == 1 %}
+            {% for girl in force_girls_list %}
+                {% include 'partials/archive-girl.html' %}
+            {% endfor %}
+        {% endif %}
         {% for girl in girls %}
             {% include 'partials/archive-girl.html' %}
         {% endfor %}

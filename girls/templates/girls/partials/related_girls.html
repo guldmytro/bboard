@@ -1,0 +1,15 @@
+{% if related_girls %}
+<section class="related-girls">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-header__title">Похожие девушки</h2>
+        </div>
+        <ul class="catalog-group">
+            {% for girl in related_girls %}
+                {% include 'partials/archive-girl.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- /.related-girls -->
+{% endif %}

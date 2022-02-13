@@ -49,4 +49,5 @@ urlpatterns = [
     path('profile/check-phone/', views.profile_check_phone, name='profile-check-phone'),
     path('profile/add-phone/', views.profile_add_phone, name='profile-add-phone'),
     path('update-adds-time/', views.update_adds_time, name='update-adds-time'),
+    path('update-profile-status/', views.update_profile_status, name='update-profile-status'),
 ]
