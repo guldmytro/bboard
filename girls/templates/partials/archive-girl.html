@@ -10,6 +10,6 @@
         {% endif %}
     </a>
     <div class="catalog-item__info">
-        <h2 class="catalog-item__title"><a href="girl.html">{{ girl.name }}</a></h2>
+        <h2 class="catalog-item__title"><a href="{{ girl.get_absolute_url }}">{{ girl.name }}</a></h2>
     </div>
 </li>
