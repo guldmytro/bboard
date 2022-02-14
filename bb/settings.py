@@ -182,9 +182,6 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
 )
 
-# PAYPAL_API = 'Af235RBzr_GETw_0RYHviONQqxVtryqHxcP82lIb1nidQoLFcc1Ouzi39tKf83S5TB8Em0v1b9cRso-V'
-PAYPAL_API = 'AeXmzS08S3hdlQaC3_htJFhixfNtlrs8v1OGAqwWRT1QAHB9ISjvrMsHUPym9CxrMet-kEjDOBiTkAa9'
-
 PARLER_LANGUAGES = {
     None: (
         {'code': 'en'},
