@@ -1,5 +1,7 @@
 {% extends 'layout/account.html' %}
 {% load i18n %}
+{% load lang_tags %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block title %}{% trans 'Tariffs' %}{% endblock %}
 
@@ -41,7 +43,7 @@
     <ul class="tarif-group">
         {% for tarif in rates %}
             <li class="tarif-group__item tarif-item">
-                <h3 class="tarif-item__title">{{ tarif.name }}</h3>
+                <h3 class="tarif-item__title">{{ tarif.name|translate:LANGUAGE_CODE }}</h3>
                 <p class="tarif-item__price"><span>₪ {{ tarif.price }}</span></p>
                 <p class="tarif-item__delta">{{ tarif.days }} {% trans 'days' %}</p>
                 {% if tarif.photos != 0 %}
