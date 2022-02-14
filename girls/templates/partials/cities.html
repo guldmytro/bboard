@@ -1,4 +1,6 @@
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load lang_tags %}
 <div class="popup-cities">
     <div class="cities-form form-authentification">
         <button type="button" class="cities-form__close" aria-label="закрыть"></button>
@@ -10,7 +12,7 @@
                 <li class="cities-group__item cities-item">
                     <button type="button" data-action="{% url 'girls:city' %}"
                             class="cities-item__link{% if city == c %} active{% endif %}"
-                            data-slug="{{ c.slug }}">{{ c.name }}</button>
+                            data-slug="{{ c.slug }}">{{ c.name|translate:LANGUAGE_CODE }}</button>
                 </li>
             {% endfor %}
         </ul>

@@ -1,4 +1,6 @@
 {% load i18n %}
+{% load lang_tags %}
+{% get_current_language as LANGUAGE_CODE %}
 <form class="form-bb form-bb_basic"
       action="{% url 'profile-update-info' %}" method="post">
     <h2 class="form-bb__title">{% trans 'Fill in the information' %}</h2>
@@ -9,7 +11,13 @@
         {{ profile_form.breast }}
         {{ profile_form.growth }}
         {{ profile_form.weight }}
-        {{ profile_form.city }}
+        <select name="{{ profile_form.city.name }}" required>
+            <option value="">{% trans 'Choose city*' %}</option>
+            {% for instance in profile_form.city.field.queryset %}
+                <option value="{{ instance.pk }}"
+                        {% if request.user.girl.city.slug == instance.slug %} selected{% endif %}>{{ instance.name|translate:LANGUAGE_CODE }}</option>
+            {% endfor %}
+        </select>
     </fieldset>
     <fieldset class="form-bb__fieldset">
         {{ profile_form.about }}

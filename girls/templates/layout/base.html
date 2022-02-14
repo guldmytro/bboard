@@ -1,6 +1,7 @@
 {% load static %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
+{% load lang_tags %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_CODE == 'he' %} style="direction:rtl;"{% endif %}>
 <head>
@@ -39,7 +40,7 @@
                     <div class="header-controls">
                         <button class="header-controls__city header-city">
                             {% if city %}
-                                <span class="header-city__val">{{ city.name }}</span>
+                                <span class="header-city__val">{{ city.name|translate:LANGUAGE_CODE }}</span>
                             {% else %}
                                 <span class="header-city__val">{% trans 'Chose city' %}</span>
                             {% endif %}

@@ -3,6 +3,8 @@
 {% load static %}
 {% load thumbnail %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load lang_tags %}
 
 {% block title %}{{ girl.name }}{% endblock %}
 
@@ -120,7 +122,7 @@
                         <h2 class="single-subtitle">{% trans 'Services:' %}</h2>
                         <ul class="services-group">
                             {% for service in services %}
-                                <li class="services-group__item">{{ service.name }}</li>
+                                <li class="services-group__item">{{ service.name|translate:LANGUAGE_CODE }}</li>
                             {% endfor %}
                         </ul>
                     </div>

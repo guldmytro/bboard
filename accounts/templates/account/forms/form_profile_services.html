@@ -1,11 +1,13 @@
 {% load i18n %}
+{% load lang_tags %}
+{% get_current_language as LANGUAGE_CODE %}
 <form class="services-form" action="{% url 'profile-update-services' %}" method="post">
     <div class="servises-group">
         {% for field in profile_service_form.services %}
             <label class="input-wrapper">
                 {{ field.tag }}
                 <span class="custom-checkbox"></span>
-                <span class="label">{{ field.choice_label }}</span>
+                <span class="label">{{ field.choice_label|translate:LANGUAGE_CODE }}</span>
             </label>
         {% endfor %}
     </div>

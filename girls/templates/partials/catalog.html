@@ -1,4 +1,6 @@
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load lang_tags %}
 <main class="catalog" id="catalog">
     <div class="container">
         <div class="section-header">
@@ -7,12 +9,12 @@
         <nav class="catalog-nav">
             {% for category in categories %}
                 <a class="catalog-nav__link{% if slug == category.slug %} active{% endif %}"
-                   href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                   href="{{ category.get_absolute_url }}">{{ category.name|translate:LANGUAGE_CODE }}</a>
             {% endfor %}
             <a class="catalog-nav__link{% if slug == 'new' %} active{% endif %}"
                href="{% url 'girls:catalog' %}">{% trans 'New' %}</a>
         </nav>
-        <h2 class="catalog__title">{{ category_name }}</h2>
+        <h2 class="catalog__title">{{ category_name|translate:LANGUAGE_CODE }}</h2>
         {% include 'partials/girls-list.html' %}
     </div>
 </main>

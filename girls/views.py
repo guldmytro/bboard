@@ -16,7 +16,7 @@ def home(request):
     girls_object = Girl.published.all().order_by('-created')
     girls_object = filter_by_city(request, girls_object)
     slug = 'new'
-    category_name = 'Новые'
+    category_name = 'Новые | New | חָדָשׁ'
     paginator = Paginator(girls_object, 15)
     page = request.GET.get('page')
     try:
@@ -121,7 +121,7 @@ def catalog(request, slug=None):
         category_name = category.name
     else:
         slug = 'new'
-        category_name = 'Новые'
+        category_name = 'Новые | New | חָדָשׁ'
 
     force_girls_list = None
     if girls_object.count() > 20:
