@@ -10,9 +10,14 @@ from .forms import SearchForm
 from .utils import filter_by_city, get_current_city
 from random import shuffle
 from django.db.models import F
+import datetime
 
 
 def home(request):
+    today = datetime.datetime.today().date()
+    end_date = datetime.date(year=2022, month=2, day=22)
+    if today > end_date:
+        return render(request, 'list.html', {})
     girls_object = Girl.published.all().order_by('-created')
     girls_object = filter_by_city(request, girls_object)
     slug = 'new'
