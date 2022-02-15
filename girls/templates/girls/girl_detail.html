@@ -196,7 +196,14 @@
 
 {% include 'girls/partials/related_girls.html' %}
 
+{% if girl.status == 'disabled' %}
+<div class="popup" style="display:block;">
+    {% include 'girls/forms/disabled-form.html' %}
+</div>
+{% else %}
 <div class="popup">
     {% include 'girls/forms/review-form.html' %}
 </div>
+{% endif %}
+
 {% endblock %}

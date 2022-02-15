@@ -30,9 +30,9 @@ class AddReviewForm(forms.ModelForm):
 
 
 class SearchForm(forms.Form):
-    city = forms.ModelChoiceField(queryset=City.objects.all(),
-                                  label=_('City'),
-                                  required=False)
+    # city = forms.ModelChoiceField(queryset=City.objects.all(),
+    #                               label=_('City'),
+    #                               required=False)
     age = forms.ChoiceField(label=_('Age'),
                             required=False)
     price_from = forms.IntegerField(min_value=0,

@@ -159,19 +159,19 @@ def catalog(request, slug=None):
 
 def search(request):
     city = get_current_city(request)
-    if request.GET.get('city'):
-        search_form = SearchForm(request.GET)
-    elif city:
-        search_form = SearchForm(initial={'city': city})
-    else:
-        search_form = SearchForm(request.GET)
+    # if request.GET.get('city'):
+    #     search_form = SearchForm(request.GET)
+    # elif city:
+    #     search_form = SearchForm(initial={'city': city})
+    # else:
+    search_form = SearchForm(request.GET)
     is_searching = False
     girls = False
     if search_form.is_valid():
         cd = search_form.cleaned_data
         girls_object = Girl.published.all()
-        if cd['city']:
-            girls_object = girls_object.filter(city=cd['city'])
+        # if cd['city']:
+        #     girls_object = girls_object.filter(city=cd['city'])
         if cd['age']:
             girls_object = girls_object.filter(age=cd['age'])
         if cd['price_from']:
