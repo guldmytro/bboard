@@ -28,9 +28,21 @@
                             <a class="header-menus__link{% if section == 'home' %} active{% endif %}"
                                href="{% url 'girls:home' %}">{% trans 'Home Page' %}</a>
                         </li>
-                        <li class="header-menus__item">
+                        <li class="header-menus__item header-menus__item_has-submenu">
                             <a class="header-menus__link{% if section == 'catalog' %} active{% endif %}"
                                href="{% url 'girls:catalog' %}">{% trans 'Profiles' %}</a>
+                            <ul class="submenu">
+                                {% for category in categories %}
+                                    <li>
+                                        <a class="header-menus__link{% if slug == category.slug %} active{% endif %}"
+                                           href="{{ category.get_absolute_url }}">{{ category.name|translate:LANGUAGE_CODE }}</a>
+                                    </li>
+                                {% endfor %}
+                                <li>
+                                    <a class="header-menus__link{% if slug == 'new' %} active{% endif %}"
+                                       href="{% url 'girls:catalog' %}">{% trans 'New' %}</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="header-menus__item">
                             <a class="header-menus__link" href="{% url 'girls:home' %}#about">{% trans 'About us' %}</a>
@@ -106,7 +118,7 @@
                                     <li{% if slug == 'new' %} class="active"{% endif %}><a href="{% url 'girls:catalog' %}">{% trans 'All the profiles' %}</a></li>
                                     {% for category in categories %}
                                         <li{% if slug == category.slug %} class="active"{% endif %}>
-                                            <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                                            <a href="{{ category.get_absolute_url }}">{{ category.name|translate:LANGUAGE_CODE }}</a>
                                         </li>
                                     {% endfor %}
                                 </ul>

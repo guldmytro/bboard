@@ -265,7 +265,7 @@ msgstr "безлимит"
 #: accounts/templates/account/push.html:44
 #: accounts/templates/account/tarifs.html:70
 msgid "Choose"
-msgstr "Выберите город"
+msgstr "Выбрать"
 
 #: accounts/templates/account/register.html:4
 #: accounts/templates/account/register.html:10

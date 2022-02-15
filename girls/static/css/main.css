@@ -2395,6 +2395,51 @@ input[type=time] {
     width: 100%;
 }
 
+.header-menus__item {
+    position: relative;
+}
+
+.submenu {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% - 1px);
+    transition: opacity 100ms;
+    padding: 4px 0;
+}
+
+.submenu .header-menus__link {
+    border-radius: 0;
+    display: block;
+}
+
+.header-menus__item:hover .submenu {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.header-menus__item_has-submenu {
+    position: relative;
+}
+
+.header-menus__item_has-submenu::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.header-menus__item_has-submenu .header-menus__link {
+    padding-right: 24px;
+}
+
 @media (max-width:1399px) {
     :root {
         --width-container: 1140px

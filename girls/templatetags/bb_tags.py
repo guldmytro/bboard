@@ -10,3 +10,11 @@ register = template.Library()
 def phone_to_link(value):
     tel = re.sub('[^0-9]', '', value)
     return f'tel:+{tel}'
+
+
+@register.filter
+@stringfilter
+def phone_clear(value):
+    tel = re.sub('[^0-9]', '', value)
+    return tel
+

@@ -61,7 +61,7 @@
                     {% if girl.age %}
                     <li class="single-params__item">
                         <span class="label">{% trans 'Age' %}</span>
-                        <strong class="value">{{ girl.age }} {% trans 'year(s)' %}</strong>
+                        <strong class="value">{{ girl.age }}</strong>
                     </li>
                     {% endif %}
                     {% if girl.breast %}
@@ -73,13 +73,13 @@
                     {% if girl.growth %}
                     <li class="single-params__item">
                         <span class="label">{% trans 'Height' %}</span>
-                        <strong class="value">{{ girl.growth }} см</strong>
+                        <strong class="value">{{ girl.growth }}</strong>
                     </li>
                     {% endif %}
                     {% if girl.weight %}
                     <li class="single-params__item">
                         <span class="label">{% trans 'Weight' %}</span>
-                        <strong class="value">{{ girl.weight }} кг</strong>
+                        <strong class="value">{{ girl.weight }}</strong>
                     </li>
                     {% endif %}
                 </ul>
@@ -102,7 +102,7 @@
                     <li class="socials__item socials-item">
                         <a class="socials-item__link" href="{{ girl.phone|phone_to_link }}" aria-label="телефон">
                             <img class="socials-item__img" src="{% static 'img/icon-phone.png' %}" alt="телефон">
-                            <span class="socials-item__text">{{ girl.phone }}</span>
+                            <span class="socials-item__text">{{ girl.phone|phone_clear }}</span>
                         </a>
                     </li>
                     {% endif %}
