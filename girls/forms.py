@@ -59,4 +59,3 @@ class SearchForm(forms.Form):
         choices.sort(key=lambda x:x[0])
         choices = [('', '---------')] + choices
         self.fields['age'].choices = choices
-
