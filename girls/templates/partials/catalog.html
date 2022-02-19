@@ -13,6 +13,16 @@
             {% endfor %}
             <a class="catalog-nav__link{% if slug == 'new' %} active{% endif %}"
                href="{% url 'girls:catalog' %}">{% trans 'New' %}</a>
+            <a class="catalog-nav__link{% if slug == 'bdsm' %} active{% endif %}"
+               href="{% url 'girls:catalog_by_service' 'bdsm' %}">{% trans 'BDSM' %}</a>
+            <a class="catalog-nav__link{% if slug == 'massazh-eroticheskij' %} active{% endif %}"
+               href="{% url 'girls:catalog_by_service' 'massazh-eroticheskij' %}">{% trans 'Erotic massage' %}</a>
+            <a class="catalog-nav__link{% if slug == 'real-photo' %} active{% endif %}"
+               href="{% url 'girls:catalog_by_real_photo' %}">{% trans 'Real photo' %}</a>
+            <a class="catalog-nav__link{% if slug == 'outcall' %} active{% endif %}"
+               href="{% url 'girls:catalog_by_outcall' %}">{% trans 'Outcall' %}</a>
+            <a class="catalog-nav__link{% if slug == 'apartment' %} active{% endif %}"
+               href="{% url 'girls:catalog_by_apartment' %}">{% trans 'Discrete flat' %}</a>
         </nav>
         <h2 class="catalog__title">{{ category_name|translate:LANGUAGE_CODE }}</h2>
         {% include 'partials/girls-list.html' %}

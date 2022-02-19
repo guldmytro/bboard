@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-15 12:56+0200\n"
-"PO-Revision-Date: 2022-02-15 12:59+0200\n"
+"POT-Creation-Date: 2022-02-19 19:04+0200\n"
+"PO-Revision-Date: 2022-02-19 19:06+0200\n"
 "Last-Translator:   <mail@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -67,26 +67,40 @@ msgstr "בחר עיר*"
 msgid "Text about you*"
 msgstr "טקסט עליך*"
 
-#: accounts/forms.py:71 accounts/forms.py:141 accounts/forms.py:149
+#: accounts/forms.py:71 accounts/forms.py:147 accounts/forms.py:155
 #: girls/forms.py:17
 msgid "Phone*"
 msgstr "טלפון*"
 
-#: accounts/forms.py:160 girls/forms.py:23
+#: accounts/forms.py:123
+msgid "Parking"
+msgstr "חֲנָיָה"
+
+#: accounts/forms.py:126
+msgid "Apartment"
+msgstr "דירות"
+
+#: accounts/forms.py:129 girls/templates/layout/base.html:59
+#: girls/templates/layout/base.html:154
+#: girls/templates/partials/catalog.html:23 girls/views.py:280
+msgid "Outcall"
+msgstr "יְצִיאָה"
+
+#: accounts/forms.py:166 girls/forms.py:23
 msgid "Review*"
 msgstr "סקירה*"
 
-#: accounts/forms.py:172 accounts/templates/account/push.html:35
+#: accounts/forms.py:178 accounts/templates/account/push.html:35
 #: accounts/templates/account/push.html:39
 #: accounts/templates/layout/account.html:39
 msgid "Autoflips"
 msgstr "היפוך אוטומטי"
 
-#: accounts/forms.py:176
+#: accounts/forms.py:182
 msgid "Yes"
 msgstr "כן"
 
-#: accounts/forms.py:177
+#: accounts/forms.py:183
 msgid "No"
 msgstr "אבל"
 
@@ -180,23 +194,23 @@ msgstr "יְצִיאָה"
 
 #: accounts/templates/account/forms/form_profile_price.html:15
 #: girls/templates/girls/girl_detail.html:144
-msgid "minutes"
-msgstr "דקות"
+msgid "30 minutes"
+msgstr "חצי שעה"
 
 #: accounts/templates/account/forms/form_profile_price.html:20
 #: girls/templates/girls/girl_detail.html:149
-msgid "hour"
-msgstr "שעה (ות"
+msgid "1 hour"
+msgstr "שעה"
 
 #: accounts/templates/account/forms/form_profile_price.html:25
 #: girls/templates/girls/girl_detail.html:154
-msgid "hours"
-msgstr "שעה (ות"
+msgid "2 hours"
+msgstr "שעתיים"
 
 #: accounts/templates/account/forms/form_profile_price.html:30
 #: girls/templates/girls/girl_detail.html:159
 msgid "night"
-msgstr "לַיְלָה"
+msgstr "לילה"
 
 #: accounts/templates/account/forms/form_profile_services.html:14
 msgid "Additional options"
@@ -439,7 +453,7 @@ msgid "Login"
 msgstr "התחברות"
 
 #: accounts/templates/registration/login.html:10
-#: girls/templates/layout/base.html:70 girls/templates/layout/base.html:141
+#: girls/templates/layout/base.html:90 girls/templates/layout/base.html:176
 msgid "Authorization"
 msgstr "הרשאה"
 
@@ -595,7 +609,6 @@ msgid "You can find another using"
 msgstr "אתה יכול למצוא אחר באמצעות"
 
 #: girls/templates/girls/forms/disabled-form.html:4
-#| msgid "Search"
 msgid "the search"
 msgstr "לחפש"
 
@@ -628,6 +641,8 @@ msgid "There is parking"
 msgstr "יש חניה"
 
 #: girls/templates/girls/girl_detail.html:179
+#: girls/templates/layout/base.html:63 girls/templates/layout/base.html:157
+#: girls/templates/partials/catalog.html:25
 msgid "Discrete flat"
 msgstr "שטוח דיסקרטי"
 
@@ -647,13 +662,13 @@ msgstr "לִמְחוֹק"
 msgid "Home"
 msgstr "בית"
 
-#: girls/templates/layout/base.html:29 girls/templates/layout/base.html:114
-#: girls/templates/layout/base.html:166
+#: girls/templates/layout/base.html:29 girls/templates/layout/base.html:134
+#: girls/templates/layout/base.html:201
 msgid "Home Page"
 msgstr "דף הבית"
 
-#: girls/templates/layout/base.html:33 girls/templates/layout/base.html:116
-#: girls/templates/layout/base.html:168
+#: girls/templates/layout/base.html:33 girls/templates/layout/base.html:136
+#: girls/templates/layout/base.html:203
 msgid "Profiles"
 msgstr "פרופילים"
 
@@ -662,28 +677,43 @@ msgstr "פרופילים"
 msgid "New"
 msgstr "חָדָשׁ"
 
-#: girls/templates/layout/base.html:48 girls/templates/layout/base.html:126
-#: girls/templates/layout/base.html:133 girls/templates/layout/base.html:170
+#: girls/templates/layout/base.html:47 girls/templates/layout/base.html:145
+#: girls/templates/partials/catalog.html:17
+msgid "BDSM"
+msgstr "BDSM"
+
+#: girls/templates/layout/base.html:51 girls/templates/layout/base.html:148
+#: girls/templates/partials/catalog.html:19
+msgid "Erotic massage"
+msgstr "עיסוי ארוטי"
+
+#: girls/templates/layout/base.html:55 girls/templates/layout/base.html:151
+#: girls/templates/partials/catalog.html:21 girls/views.py:244
+msgid "Real photo"
+msgstr "תמונה אמיתית"
+
+#: girls/templates/layout/base.html:68 girls/templates/layout/base.html:161
+#: girls/templates/layout/base.html:168 girls/templates/layout/base.html:205
 msgid "About us"
 msgstr "עלינו"
 
-#: girls/templates/layout/base.html:57
+#: girls/templates/layout/base.html:77
 msgid "Chose city"
 msgstr "בחרה בעיר"
 
-#: girls/templates/layout/base.html:64
+#: girls/templates/layout/base.html:84
 msgid "Cabinet"
 msgstr "קבינט"
 
-#: girls/templates/layout/base.html:118
+#: girls/templates/layout/base.html:138
 msgid "All the profiles"
 msgstr "כל הפרופילים"
 
-#: girls/templates/layout/base.html:147
+#: girls/templates/layout/base.html:182
 msgid "Add profile"
 msgstr "הוסף פרופיל"
 
-#: girls/templates/layout/base.html:172
+#: girls/templates/layout/base.html:207
 msgid "Prostitutes of Israel"
 msgstr "זונות של ישראל"
 
@@ -791,6 +821,10 @@ msgstr "בחר עיר"
 #: girls/templates/partials/girls-list.html:16
 msgid "No girls were found matching your search."
 msgstr "לא נמצאו בחורות התואמות לחיפוש שלך."
+
+#: girls/views.py:316
+msgid "Separate Apartment"
+msgstr "דירות"
 
 #~ msgid "City"
 #~ msgstr "עִיר"

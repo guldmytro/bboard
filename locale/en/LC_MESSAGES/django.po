@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-15 12:56+0200\n"
+"POT-Creation-Date: 2022-02-19 19:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,26 +66,40 @@ msgstr ""
 msgid "Text about you*"
 msgstr ""
 
-#: accounts/forms.py:71 accounts/forms.py:141 accounts/forms.py:149
+#: accounts/forms.py:71 accounts/forms.py:147 accounts/forms.py:155
 #: girls/forms.py:17
 msgid "Phone*"
 msgstr ""
 
-#: accounts/forms.py:160 girls/forms.py:23
+#: accounts/forms.py:123
+msgid "Parking"
+msgstr ""
+
+#: accounts/forms.py:126
+msgid "Apartment"
+msgstr ""
+
+#: accounts/forms.py:129 girls/templates/layout/base.html:59
+#: girls/templates/layout/base.html:154
+#: girls/templates/partials/catalog.html:23 girls/views.py:280
+msgid "Outcall"
+msgstr ""
+
+#: accounts/forms.py:166 girls/forms.py:23
 msgid "Review*"
 msgstr ""
 
-#: accounts/forms.py:172 accounts/templates/account/push.html:35
+#: accounts/forms.py:178 accounts/templates/account/push.html:35
 #: accounts/templates/account/push.html:39
 #: accounts/templates/layout/account.html:39
 msgid "Autoflips"
 msgstr ""
 
-#: accounts/forms.py:176
+#: accounts/forms.py:182
 msgid "Yes"
 msgstr ""
 
-#: accounts/forms.py:177
+#: accounts/forms.py:183
 msgid "No"
 msgstr ""
 
@@ -178,17 +192,17 @@ msgstr ""
 
 #: accounts/templates/account/forms/form_profile_price.html:15
 #: girls/templates/girls/girl_detail.html:144
-msgid "minutes"
+msgid "30 minutes"
 msgstr ""
 
 #: accounts/templates/account/forms/form_profile_price.html:20
 #: girls/templates/girls/girl_detail.html:149
-msgid "hour"
+msgid "1 hour"
 msgstr ""
 
 #: accounts/templates/account/forms/form_profile_price.html:25
 #: girls/templates/girls/girl_detail.html:154
-msgid "hours"
+msgid "2 hours"
 msgstr ""
 
 #: accounts/templates/account/forms/form_profile_price.html:30
@@ -435,7 +449,7 @@ msgid "Login"
 msgstr ""
 
 #: accounts/templates/registration/login.html:10
-#: girls/templates/layout/base.html:70 girls/templates/layout/base.html:141
+#: girls/templates/layout/base.html:90 girls/templates/layout/base.html:176
 msgid "Authorization"
 msgstr ""
 
@@ -623,6 +637,8 @@ msgid "There is parking"
 msgstr ""
 
 #: girls/templates/girls/girl_detail.html:179
+#: girls/templates/layout/base.html:63 girls/templates/layout/base.html:157
+#: girls/templates/partials/catalog.html:25
 msgid "Discrete flat"
 msgstr ""
 
@@ -642,13 +658,13 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: girls/templates/layout/base.html:29 girls/templates/layout/base.html:114
-#: girls/templates/layout/base.html:166
+#: girls/templates/layout/base.html:29 girls/templates/layout/base.html:134
+#: girls/templates/layout/base.html:201
 msgid "Home Page"
 msgstr ""
 
-#: girls/templates/layout/base.html:33 girls/templates/layout/base.html:116
-#: girls/templates/layout/base.html:168
+#: girls/templates/layout/base.html:33 girls/templates/layout/base.html:136
+#: girls/templates/layout/base.html:203
 msgid "Profiles"
 msgstr ""
 
@@ -656,28 +672,43 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: girls/templates/layout/base.html:48 girls/templates/layout/base.html:126
-#: girls/templates/layout/base.html:133 girls/templates/layout/base.html:170
+#: girls/templates/layout/base.html:47 girls/templates/layout/base.html:145
+#: girls/templates/partials/catalog.html:17
+msgid "BDSM"
+msgstr ""
+
+#: girls/templates/layout/base.html:51 girls/templates/layout/base.html:148
+#: girls/templates/partials/catalog.html:19
+msgid "Erotic massage"
+msgstr ""
+
+#: girls/templates/layout/base.html:55 girls/templates/layout/base.html:151
+#: girls/templates/partials/catalog.html:21 girls/views.py:244
+msgid "Real photo"
+msgstr ""
+
+#: girls/templates/layout/base.html:68 girls/templates/layout/base.html:161
+#: girls/templates/layout/base.html:168 girls/templates/layout/base.html:205
 msgid "About us"
 msgstr ""
 
-#: girls/templates/layout/base.html:57
+#: girls/templates/layout/base.html:77
 msgid "Chose city"
 msgstr ""
 
-#: girls/templates/layout/base.html:64
+#: girls/templates/layout/base.html:84
 msgid "Cabinet"
 msgstr ""
 
-#: girls/templates/layout/base.html:118
+#: girls/templates/layout/base.html:138
 msgid "All the profiles"
 msgstr ""
 
-#: girls/templates/layout/base.html:147
+#: girls/templates/layout/base.html:182
 msgid "Add profile"
 msgstr ""
 
-#: girls/templates/layout/base.html:172
+#: girls/templates/layout/base.html:207
 msgid "Prostitutes of Israel"
 msgstr ""
 
@@ -760,4 +791,8 @@ msgstr ""
 
 #: girls/templates/partials/girls-list.html:16
 msgid "No girls were found matching your search."
+msgstr ""
+
+#: girls/views.py:316
+msgid "Separate Apartment"
 msgstr ""

@@ -58,9 +58,9 @@ class ProfileEditForm(forms.ModelForm):
                             widget=forms.Textarea(attrs={
                                 'placeholder': _('Text about you*')
                             }))
-    whatsapp = forms.CharField(label=False, required=False,
+    whatsapp = forms.CharField(label=False, required=True,
                                widget=forms.TextInput(attrs={
-                                   'placeholder': 'WhatsApp'
+                                   'placeholder': 'WhatsApp*'
                                }))
     telegram = forms.CharField(label=False, required=False,
                                widget=forms.TextInput(attrs={
@@ -119,9 +119,15 @@ class ProfileServicesEditForm(forms.ModelForm):
 
 
 class ProfileAdditionalEditForm(forms.ModelForm):
-    parking = forms.CheckboxInput()
-    apartment = forms.CheckboxInput()
-    arrive = forms.CheckboxInput()
+    parking = forms.BooleanField(required=False,
+                                 label=_('Parking'),
+                                 widget=forms.CheckboxInput())
+    apartment = forms.BooleanField(required=False,
+                                   label=_('Apartment'),
+                                   widget=forms.CheckboxInput())
+    arrive = forms.BooleanField(required=False,
+                                label=_('Outcall'),
+                                widget=forms.CheckboxInput())
 
     class Meta:
         model = Girl

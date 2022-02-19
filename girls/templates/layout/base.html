@@ -42,6 +42,26 @@
                                     <a class="header-menus__link{% if slug == 'new' %} active{% endif %}"
                                        href="{% url 'girls:catalog' %}">{% trans 'New' %}</a>
                                 </li>
+                                <li>
+                                    <a class="header-menus__link{% if slug == 'bdsm' %} active{% endif %}"
+                                       href="{% url 'girls:catalog_by_service' 'bdsm' %}">{% trans 'BDSM' %}</a>
+                                </li>
+                                <li>
+                                    <a class="header-menus__link{% if slug == 'massazh-eroticheskij' %} active{% endif %}"
+                                       href="{% url 'girls:catalog_by_service' 'massazh-eroticheskij' %}">{% trans 'Erotic massage' %}</a>
+                                </li>
+                                <li>
+                                    <a class="header-menus__link{% if slug == 'real-photo' %} active{% endif %}"
+                                       href="{% url 'girls:catalog_by_real_photo' %}">{% trans 'Real photo' %}</a>
+                                </li>
+                                <li>
+                                    <a class="header-menus__link{% if slug == 'outcall' %} active{% endif %}"
+                                       href="{% url 'girls:catalog_by_outcall' %}">{% trans 'Outcall' %}</a>
+                                </li>
+                                <li>
+                                    <a class="header-menus__link{% if slug == 'apartment' %} active{% endif %}"
+                                       href="{% url 'girls:catalog_by_apartment' %}">{% trans 'Discrete flat' %}</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="header-menus__item">
@@ -121,6 +141,21 @@
                                             <a href="{{ category.get_absolute_url }}">{{ category.name|translate:LANGUAGE_CODE }}</a>
                                         </li>
                                     {% endfor %}
+                                    <li class="{% if slug == 'bdsm' %} active{% endif %}">
+                                        <a href="{% url 'girls:catalog_by_service' 'bdsm' %}">{% trans 'BDSM' %}</a>
+                                    </li>
+                                    <li class="{% if slug == 'massazh-eroticheskij' %} active{% endif %}">
+                                        <a href="{% url 'girls:catalog_by_service' 'massazh-eroticheskij' %}">{% trans 'Erotic massage' %}</a>
+                                    </li>
+                                    <li class="{% if slug == 'real-photo' %} active{% endif %}">
+                                        <a href="{% url 'girls:catalog_by_real_photo' %}">{% trans 'Real photo' %}</a>
+                                    </li>
+                                    <li class="{% if slug == 'outcall' %} active{% endif %}">
+                                        <a href="{% url 'girls:catalog_by_outcall' %}">{% trans 'Outcall' %}</a>
+                                    </li>
+                                    <li class="{% if slug == 'apartment' %} active{% endif %}">
+                                        <a href="{% url 'girls:catalog_by_apartment' %}">{% trans 'Discrete flat' %}</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="mobile-nav__item"><a href="{% url 'girls:home' %}#about">{% trans 'About us' %}</a></li>
@@ -174,7 +209,7 @@
         </div>
     </footer>
     <!-- ./footer -->
-    <button class="to-top" type="button" aria-label="Наверх">
+    <button class="to-top" type="button" aria-label="Наверх" onclick='window.scrollTo({top: 0, behavior: "smooth"});'>
         <img class="to-top__img" src="{% static 'img/icon-arrow-double.png' %}" alt="стрелки">
     </button>
 </div>

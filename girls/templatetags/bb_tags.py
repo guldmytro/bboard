@@ -18,3 +18,10 @@ def phone_clear(value):
     tel = re.sub('[^0-9]', '', value)
     return tel
 
+
+@register.filter
+@stringfilter
+def whatsapp(value):
+    tel = re.sub('[^0-9]', '', value)
+    return f'https://wa.me/{tel}'
+

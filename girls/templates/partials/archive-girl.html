@@ -11,5 +11,10 @@
     </a>
     <div class="catalog-item__info">
         <h2 class="catalog-item__title"><a href="{{ girl.get_absolute_url }}">{{ girl.name }}</a></h2>
+        <div class="catalog-item__labels catalog-labels">
+            {% if girl.verified %}
+                <span class="catalog-labels__item">real foto</span>
+            {% endif %}
+        </div>
     </div>
 </li>

@@ -451,6 +451,11 @@ input[type=time] {
     background-color: var(--color-secondary)
 }
 
+.header {
+    position: relative;
+    z-index: 10;
+}
+
 .header-row {
     display: flex;
     flex-flow: row nowrap;
@@ -2407,6 +2412,7 @@ input[type=time] {
     top: calc(100% - 1px);
     transition: opacity 100ms;
     padding: 4px 0;
+    background-color: #000;
 }
 
 .submenu .header-menus__link {
@@ -2440,6 +2446,34 @@ input[type=time] {
     padding-right: 24px;
 }
 
+.single-gallery .slick-arrow {
+    text-indent: -999px;
+    overflow: hidden;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: var(--color-primary) url("../img/icon-arrow-white.png") no-repeat center / 50% auto;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    opacity: 0.6;
+    transition: opacity 100ms;
+    transform-origin: center;
+}
+
+.single-gallery .slick-arrow:hover {
+    opacity: 1;
+}
+
+.single-gallery .slick-prev {
+    left: -1rem;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.single-gallery .slick-next {
+    right: -1rem;
+    transform: translateY(-50%) rotate(-90deg);
+}
 @media (max-width:1399px) {
     :root {
         --width-container: 1140px

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Girl, Image, Review, View, Video
+from .models import Girl, Image, Review, View, Video, Service
 from .forms import AddReviewForm
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
@@ -11,6 +11,7 @@ from .utils import filter_by_city, get_current_city
 from random import shuffle
 from django.db.models import F
 import datetime
+from django.utils.translation import gettext_lazy as _
 
 
 def home(request):
@@ -158,20 +159,13 @@ def catalog(request, slug=None):
 
 
 def search(request):
-    city = get_current_city(request)
-    # if request.GET.get('city'):
-    #     search_form = SearchForm(request.GET)
-    # elif city:
-    #     search_form = SearchForm(initial={'city': city})
-    # else:
     search_form = SearchForm(request.GET)
     is_searching = False
     girls = False
     if search_form.is_valid():
         cd = search_form.cleaned_data
-        girls_object = Girl.published.all()
-        # if cd['city']:
-        #     girls_object = girls_object.filter(city=cd['city'])
+        girls_object = Girl.published.all().order_by('-created')
+        girls_object = filter_by_city(request, girls_object)
         if cd['age']:
             girls_object = girls_object.filter(age=cd['age'])
         if cd['price_from']:
@@ -205,3 +199,147 @@ def search(request):
 def city(request):
     request.session['city'] = request.POST.get('slug')
     return JsonResponse({'status': 'ok'})
+
+
+def catalog_by_service(request, slug):
+    service = get_object_or_404(Service, slug=slug)
+    girls_object = Girl.published.all().order_by('-created')
+    girls_object = filter_by_city(request, girls_object)
+    girls_object = girls_object.filter(services=service)
+    category_name = service.name
+    force_girls_list = None
+    if girls_object.count() > 20:
+        force_girls_list = list(girls_object.filter(active_advertising=True, adds_left__gt=0))
+        shuffle(force_girls_list)
+        force_girls_list = force_girls_list[:10]
+        force_girls_ids = list(girl.id for girl in force_girls_list)
+        girls_object = girls_object.exclude(id__in=force_girls_ids)
+        if not request.user.is_authenticated:
+            for force_girl in force_girls_list:
+                force_girl.adds_left = F('adds_left') - 1
+                force_girl.save()
+    paginator = Paginator(girls_object, 15)
+    page = request.GET.get('page')
+    try:
+        girls = paginator.page(page)
+    except PageNotAnInteger:
+        girls = paginator.page(1)
+    except EmptyPage:
+        girls = paginator.page(paginator.num_pages)
+
+    context = {
+        'category_name': category_name,
+        'slug': slug,
+        'girls': girls,
+        'force_girls_list': force_girls_list,
+        'section': 'catalog'
+    }
+    return render(request, 'pages/catalog.html', context)
+
+
+def catalog_real_photo(request):
+    girls_object = Girl.published.all().order_by('-created')
+    girls_object = filter_by_city(request, girls_object)
+    girls_object = girls_object.filter(verified=True)
+    category_name = _('Real photo')
+    force_girls_list = None
+    if girls_object.count() > 20:
+        force_girls_list = list(girls_object.filter(active_advertising=True, adds_left__gt=0))
+        shuffle(force_girls_list)
+        force_girls_list = force_girls_list[:10]
+        force_girls_ids = list(girl.id for girl in force_girls_list)
+        girls_object = girls_object.exclude(id__in=force_girls_ids)
+        if not request.user.is_authenticated:
+            for force_girl in force_girls_list:
+                force_girl.adds_left = F('adds_left') - 1
+                force_girl.save()
+    paginator = Paginator(girls_object, 15)
+    page = request.GET.get('page')
+    try:
+        girls = paginator.page(page)
+    except PageNotAnInteger:
+        girls = paginator.page(1)
+    except EmptyPage:
+        girls = paginator.page(paginator.num_pages)
+    slug = 'real-photo'
+    context = {
+        'category_name': category_name,
+        'slug': 'by-real-photo',
+        'girls': girls,
+        'force_girls_list': force_girls_list,
+        'section': 'catalog',
+        'slug': slug
+    }
+    return render(request, 'pages/catalog.html', context)
+
+
+def catalog_outcall(request):
+    girls_object = Girl.published.all().order_by('-created')
+    girls_object = filter_by_city(request, girls_object)
+    girls_object = girls_object.filter(verified=True)
+    category_name = _('Outcall')
+    force_girls_list = None
+    if girls_object.count() > 20:
+        force_girls_list = list(girls_object.filter(active_advertising=True, adds_left__gt=0))
+        shuffle(force_girls_list)
+        force_girls_list = force_girls_list[:10]
+        force_girls_ids = list(girl.id for girl in force_girls_list)
+        girls_object = girls_object.exclude(id__in=force_girls_ids)
+        if not request.user.is_authenticated:
+            for force_girl in force_girls_list:
+                force_girl.adds_left = F('adds_left') - 1
+                force_girl.save()
+    paginator = Paginator(girls_object, 15)
+    page = request.GET.get('page')
+    try:
+        girls = paginator.page(page)
+    except PageNotAnInteger:
+        girls = paginator.page(1)
+    except EmptyPage:
+        girls = paginator.page(paginator.num_pages)
+    slug = 'outcall'
+    context = {
+        'category_name': category_name,
+        'slug': 'by-real-photo',
+        'girls': girls,
+        'force_girls_list': force_girls_list,
+        'section': 'catalog',
+        'slug': slug
+    }
+    return render(request, 'pages/catalog.html', context)
+
+
+def catalog_apartment(request):
+    girls_object = Girl.published.all().order_by('-created')
+    girls_object = filter_by_city(request, girls_object)
+    girls_object = girls_object.filter(verified=True)
+    category_name = _('Separate Apartment')
+    force_girls_list = None
+    if girls_object.count() > 20:
+        force_girls_list = list(girls_object.filter(active_advertising=True, adds_left__gt=0))
+        shuffle(force_girls_list)
+        force_girls_list = force_girls_list[:10]
+        force_girls_ids = list(girl.id for girl in force_girls_list)
+        girls_object = girls_object.exclude(id__in=force_girls_ids)
+        if not request.user.is_authenticated:
+            for force_girl in force_girls_list:
+                force_girl.adds_left = F('adds_left') - 1
+                force_girl.save()
+    paginator = Paginator(girls_object, 15)
+    page = request.GET.get('page')
+    try:
+        girls = paginator.page(page)
+    except PageNotAnInteger:
+        girls = paginator.page(1)
+    except EmptyPage:
+        girls = paginator.page(paginator.num_pages)
+    slug = 'apartment'
+    context = {
+        'category_name': category_name,
+        'slug': 'by-real-photo',
+        'girls': girls,
+        'force_girls_list': force_girls_list,
+        'section': 'catalog',
+        'slug': slug
+    }
+    return render(request, 'pages/catalog.html', context)

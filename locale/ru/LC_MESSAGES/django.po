@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-15 12:56+0200\n"
-"PO-Revision-Date: 2022-02-15 13:00+0200\n"
+"POT-Creation-Date: 2022-02-19 19:04+0200\n"
+"PO-Revision-Date: 2022-02-19 19:05+0200\n"
 "Last-Translator:   <mail@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -67,26 +67,40 @@ msgstr "Выберите город*"
 msgid "Text about you*"
 msgstr "Текст о вас*"
 
-#: accounts/forms.py:71 accounts/forms.py:141 accounts/forms.py:149
+#: accounts/forms.py:71 accounts/forms.py:147 accounts/forms.py:155
 #: girls/forms.py:17
 msgid "Phone*"
 msgstr "Телефон*"
 
-#: accounts/forms.py:160 girls/forms.py:23
+#: accounts/forms.py:123
+msgid "Parking"
+msgstr "Парковка"
+
+#: accounts/forms.py:126
+msgid "Apartment"
+msgstr "Апартаменты"
+
+#: accounts/forms.py:129 girls/templates/layout/base.html:59
+#: girls/templates/layout/base.html:154
+#: girls/templates/partials/catalog.html:23 girls/views.py:280
+msgid "Outcall"
+msgstr "Выезд"
+
+#: accounts/forms.py:166 girls/forms.py:23
 msgid "Review*"
 msgstr "Отзыв*"
 
-#: accounts/forms.py:172 accounts/templates/account/push.html:35
+#: accounts/forms.py:178 accounts/templates/account/push.html:35
 #: accounts/templates/account/push.html:39
 #: accounts/templates/layout/account.html:39
 msgid "Autoflips"
 msgstr "Автоподбросы"
 
-#: accounts/forms.py:176
+#: accounts/forms.py:182
 msgid "Yes"
 msgstr "Да"
 
-#: accounts/forms.py:177
+#: accounts/forms.py:183
 msgid "No"
 msgstr "Нет"
 
@@ -181,18 +195,18 @@ msgstr "Выезд"
 
 #: accounts/templates/account/forms/form_profile_price.html:15
 #: girls/templates/girls/girl_detail.html:144
-msgid "minutes"
-msgstr "мин"
+msgid "30 minutes"
+msgstr "30 минут"
 
 #: accounts/templates/account/forms/form_profile_price.html:20
 #: girls/templates/girls/girl_detail.html:149
-msgid "hour"
-msgstr "час"
+msgid "1 hour"
+msgstr "1 час"
 
 #: accounts/templates/account/forms/form_profile_price.html:25
 #: girls/templates/girls/girl_detail.html:154
-msgid "hours"
-msgstr "часов"
+msgid "2 hours"
+msgstr "2 часа"
 
 #: accounts/templates/account/forms/form_profile_price.html:30
 #: girls/templates/girls/girl_detail.html:159
@@ -441,7 +455,7 @@ msgid "Login"
 msgstr "Войти"
 
 #: accounts/templates/registration/login.html:10
-#: girls/templates/layout/base.html:70 girls/templates/layout/base.html:141
+#: girls/templates/layout/base.html:90 girls/templates/layout/base.html:176
 msgid "Authorization"
 msgstr "Авторизация"
 
@@ -600,7 +614,6 @@ msgid "You can find another using"
 msgstr "Вы можете найти другую воспользовавшись"
 
 #: girls/templates/girls/forms/disabled-form.html:4
-#| msgid "Search"
 msgid "the search"
 msgstr "поиском"
 
@@ -633,6 +646,8 @@ msgid "There is parking"
 msgstr "Есть парковка"
 
 #: girls/templates/girls/girl_detail.html:179
+#: girls/templates/layout/base.html:63 girls/templates/layout/base.html:157
+#: girls/templates/partials/catalog.html:25
 msgid "Discrete flat"
 msgstr "Дискретная квартира"
 
@@ -652,13 +667,13 @@ msgstr "Удалить"
 msgid "Home"
 msgstr "Главная"
 
-#: girls/templates/layout/base.html:29 girls/templates/layout/base.html:114
-#: girls/templates/layout/base.html:166
+#: girls/templates/layout/base.html:29 girls/templates/layout/base.html:134
+#: girls/templates/layout/base.html:201
 msgid "Home Page"
 msgstr "Главная"
 
-#: girls/templates/layout/base.html:33 girls/templates/layout/base.html:116
-#: girls/templates/layout/base.html:168
+#: girls/templates/layout/base.html:33 girls/templates/layout/base.html:136
+#: girls/templates/layout/base.html:203
 msgid "Profiles"
 msgstr "Анкеты"
 
@@ -667,28 +682,43 @@ msgstr "Анкеты"
 msgid "New"
 msgstr "Новые"
 
-#: girls/templates/layout/base.html:48 girls/templates/layout/base.html:126
-#: girls/templates/layout/base.html:133 girls/templates/layout/base.html:170
+#: girls/templates/layout/base.html:47 girls/templates/layout/base.html:145
+#: girls/templates/partials/catalog.html:17
+msgid "BDSM"
+msgstr "BDSM"
+
+#: girls/templates/layout/base.html:51 girls/templates/layout/base.html:148
+#: girls/templates/partials/catalog.html:19
+msgid "Erotic massage"
+msgstr "Эротический массаж"
+
+#: girls/templates/layout/base.html:55 girls/templates/layout/base.html:151
+#: girls/templates/partials/catalog.html:21 girls/views.py:244
+msgid "Real photo"
+msgstr "Реальное фото"
+
+#: girls/templates/layout/base.html:68 girls/templates/layout/base.html:161
+#: girls/templates/layout/base.html:168 girls/templates/layout/base.html:205
 msgid "About us"
 msgstr "О нас"
 
-#: girls/templates/layout/base.html:57
+#: girls/templates/layout/base.html:77
 msgid "Chose city"
 msgstr "Выберите город"
 
-#: girls/templates/layout/base.html:64
+#: girls/templates/layout/base.html:84
 msgid "Cabinet"
 msgstr "Кабинет"
 
-#: girls/templates/layout/base.html:118
+#: girls/templates/layout/base.html:138
 msgid "All the profiles"
 msgstr "Все анкеты"
 
-#: girls/templates/layout/base.html:147
+#: girls/templates/layout/base.html:182
 msgid "Add profile"
 msgstr "Добавить анкету"
 
-#: girls/templates/layout/base.html:172
+#: girls/templates/layout/base.html:207
 msgid "Prostitutes of Israel"
 msgstr "Проститутки Израиля"
 
@@ -804,6 +834,10 @@ msgstr "Выберите город"
 #: girls/templates/partials/girls-list.html:16
 msgid "No girls were found matching your search."
 msgstr "По Вашему запросу девушек не найдено."
+
+#: girls/views.py:316
+msgid "Separate Apartment"
+msgstr "Апартаменты"
 
 #~ msgid "City"
 #~ msgstr "Город"

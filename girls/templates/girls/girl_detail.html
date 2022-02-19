@@ -86,7 +86,7 @@
                 <ul class="socials">
                     {% if girl.whatsapp %}
                     <li class="socials__item socials-item">
-                        <a class="socials-item__link" target="_blank" href="{{ girl.whatsapp }}" aria-label="вотсап">
+                        <a class="socials-item__link" target="_blank" href="{{ girl.whatsapp|whatsapp }}" aria-label="вотсап">
                             <img class="socials-item__img" src="{% static 'img/icon-whatsapp.png' %}" alt="вотсап">
                         </a>
                     </li>
@@ -141,17 +141,17 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>30 {% trans 'minutes' %}</td>
+                                <td>{% trans '30 minutes' %}</td>
                                 <td>{% firstof girl.price_30_home '----' %} ₪</td>
                                 <td>---- ₪</td>
                             </tr>
                             <tr>
-                                <td>1 {% trans 'hour' %}</td>
+                                <td>{% trans '1 hour' %}</td>
                                 <td>{% firstof girl.price_1h_home '----' %} ₪</td>
                                 <td>{% firstof girl.price_1h_departure '----' %} ₪</td>
                             </tr>
                             <tr>
-                                <td>2 {% trans 'hours' %}</td>
+                                <td>{% trans '2 hours' %}</td>
                                 <td>{% firstof girl.price_2h_home '----' %} ₪</td>
                                 <td>{% firstof girl.price_2h_departure '----' %} ₪</td>
                             </tr>
