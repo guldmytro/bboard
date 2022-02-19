@@ -34,7 +34,7 @@
                 <a class="account-nav__link account-nav-link" href="{{ request.user.girl.get_absolute_url }}">
                     <span class="account-nav-link__text">{% trans 'Profile' %}</span>
                 </a>
-                <a class="account-nav__link account-nav-link{% if section == 'password-change' %} active{% endif %}"
+                <a class="account-nav__link account-nav-link{% if section == 'push' %} active{% endif %}"
                    href="{% url 'push' %}">
                     <span class="account-nav-link__text">{% trans 'Autoflips' %}</span>
                 </a>

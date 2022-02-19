@@ -2474,6 +2474,7 @@ input[type=time] {
     right: -1rem;
     transform: translateY(-50%) rotate(-90deg);
 }
+
 @media (max-width:1399px) {
     :root {
         --width-container: 1140px
