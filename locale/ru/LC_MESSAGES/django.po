@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-19 19:04+0200\n"
-"PO-Revision-Date: 2022-02-19 19:05+0200\n"
+"PO-Revision-Date: 2022-02-20 20:18+0200\n"
 "Last-Translator:   <mail@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -84,7 +84,7 @@ msgstr "Апартаменты"
 #: girls/templates/layout/base.html:154
 #: girls/templates/partials/catalog.html:23 girls/views.py:280
 msgid "Outcall"
-msgstr "Выезд"
+msgstr "Девушки на выезд"
 
 #: accounts/forms.py:166 girls/forms.py:23
 msgid "Review*"

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>{% block title %}{% trans 'Home' %}{% endblock %} - Juicy Pussy</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}?ver=2.11">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}?ver=2.2">
 </head>
 <body>
 <div class="wrapper">
@@ -39,10 +39,6 @@
                                     </li>
                                 {% endfor %}
                                 <li>
-                                    <a class="header-menus__link{% if slug == 'new' %} active{% endif %}"
-                                       href="{% url 'girls:catalog' %}">{% trans 'New' %}</a>
-                                </li>
-                                <li>
                                     <a class="header-menus__link{% if slug == 'bdsm' %} active{% endif %}"
                                        href="{% url 'girls:catalog_by_service' 'bdsm' %}">{% trans 'BDSM' %}</a>
                                 </li>
@@ -61,6 +57,10 @@
                                 <li>
                                     <a class="header-menus__link{% if slug == 'apartment' %} active{% endif %}"
                                        href="{% url 'girls:catalog_by_apartment' %}">{% trans 'Discrete flat' %}</a>
+                                </li>
+                                <li>
+                                    <a class="header-menus__link{% if slug == 'new' %} active{% endif %}"
+                                       href="{% url 'girls:catalog' %}">{% trans 'New' %}</a>
                                 </li>
                             </ul>
                         </li>
@@ -215,8 +215,8 @@
 </div>
 <!-- /.wrapper -->
 {% include 'partials/cities.html' %}
-<script src="{% static 'js/jquery.min.js' %}?ver=2.1"></script>
-<script src="{% static 'js/slick.min.js' %}?ver=2.1"></script>
-<script src="{% static 'js/main.js' %}?ver=2.1"></script>
+<script src="{% static 'js/jquery.min.js' %}?ver=2.2"></script>
+<script src="{% static 'js/slick.min.js' %}?ver=2.2"></script>
+<script src="{% static 'js/main.js' %}?ver=2.2"></script>
 </body>
 </html>

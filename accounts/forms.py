@@ -126,7 +126,7 @@ class ProfileAdditionalEditForm(forms.ModelForm):
                                    label=_('Apartment'),
                                    widget=forms.CheckboxInput())
     arrive = forms.BooleanField(required=False,
-                                label=_('Outcall'),
+                                label=_('Departure'),
                                 widget=forms.CheckboxInput())
 
     class Meta:
