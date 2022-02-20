@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-19 19:04+0200\n"
-"PO-Revision-Date: 2022-02-19 19:06+0200\n"
+"PO-Revision-Date: 2022-02-20 18:10+0200\n"
 "Last-Translator:   <mail@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -84,7 +84,7 @@ msgstr "דירות"
 #: girls/templates/layout/base.html:154
 #: girls/templates/partials/catalog.html:23 girls/views.py:280
 msgid "Outcall"
-msgstr "יְצִיאָה"
+msgstr "נערות ליווי  לביתך מלון"
 
 #: accounts/forms.py:166 girls/forms.py:23
 msgid "Review*"
@@ -675,7 +675,7 @@ msgstr "פרופילים"
 #: girls/templates/layout/base.html:43
 #: girls/templates/partials/catalog.html:15
 msgid "New"
-msgstr "חָדָשׁ"
+msgstr "חדשות"
 
 #: girls/templates/layout/base.html:47 girls/templates/layout/base.html:145
 #: girls/templates/partials/catalog.html:17
