@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-19 19:04+0200\n"
-"PO-Revision-Date: 2022-02-20 20:17+0200\n"
+"POT-Creation-Date: 2022-02-20 20:29+0200\n"
+"PO-Revision-Date: 2022-02-20 20:31+0200\n"
 "Last-Translator:   <mail@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -80,10 +80,10 @@ msgstr "חֲנָיָה"
 msgid "Apartment"
 msgstr "דירות"
 
-#: accounts/forms.py:129 girls/templates/layout/base.html:59
-#: girls/templates/layout/base.html:154
-#: girls/templates/partials/catalog.html:23 girls/views.py:280
-msgid "Outcall"
+#: accounts/forms.py:129
+#: accounts/templates/account/forms/form_profile_price.html:10
+#: girls/forms.py:48 girls/templates/girls/girl_detail.html:139
+msgid "Departure"
 msgstr "לביתך/ מלון"
 
 #: accounts/forms.py:166 girls/forms.py:23
@@ -186,11 +186,6 @@ msgstr "מחיר"
 #: girls/forms.py:45 girls/templates/girls/girl_detail.html:138
 msgid "Apartments"
 msgstr "דירות"
-
-#: accounts/templates/account/forms/form_profile_price.html:10
-#: girls/forms.py:48 girls/templates/girls/girl_detail.html:139
-msgid "Departure"
-msgstr "לביתך/ מלון"
 
 #: accounts/templates/account/forms/form_profile_price.html:15
 #: girls/templates/girls/girl_detail.html:144
@@ -641,8 +636,8 @@ msgid "There is parking"
 msgstr "יש חניה"
 
 #: girls/templates/girls/girl_detail.html:179
-#: girls/templates/layout/base.html:63 girls/templates/layout/base.html:157
-#: girls/templates/partials/catalog.html:25
+#: girls/templates/layout/base.html:59 girls/templates/layout/base.html:157
+#: girls/templates/partials/catalog.html:23
 msgid "Discrete flat"
 msgstr "שטוח דיסקרטי"
 
@@ -672,25 +667,30 @@ msgstr "דף הבית"
 msgid "Profiles"
 msgstr "פרופילים"
 
-#: girls/templates/layout/base.html:43
+#: girls/templates/layout/base.html:43 girls/templates/layout/base.html:145
 #: girls/templates/partials/catalog.html:15
-msgid "New"
-msgstr "חדשות"
-
-#: girls/templates/layout/base.html:47 girls/templates/layout/base.html:145
-#: girls/templates/partials/catalog.html:17
 msgid "BDSM"
 msgstr "BDSM"
 
-#: girls/templates/layout/base.html:51 girls/templates/layout/base.html:148
-#: girls/templates/partials/catalog.html:19
+#: girls/templates/layout/base.html:47 girls/templates/layout/base.html:148
+#: girls/templates/partials/catalog.html:17
 msgid "Erotic massage"
 msgstr "עיסוי ארוטי"
 
-#: girls/templates/layout/base.html:55 girls/templates/layout/base.html:151
-#: girls/templates/partials/catalog.html:21 girls/views.py:244
+#: girls/templates/layout/base.html:51 girls/templates/layout/base.html:151
+#: girls/templates/partials/catalog.html:19 girls/views.py:244
 msgid "Real photo"
 msgstr "תמונה אמיתית"
+
+#: girls/templates/layout/base.html:55 girls/templates/layout/base.html:154
+#: girls/templates/partials/catalog.html:21
+msgid "Escort to your Home / Hotel"
+msgstr "לביתך/ מלון"
+
+#: girls/templates/layout/base.html:63
+#: girls/templates/partials/catalog.html:25
+msgid "New"
+msgstr "חדשות"
 
 #: girls/templates/layout/base.html:68 girls/templates/layout/base.html:161
 #: girls/templates/layout/base.html:168 girls/templates/layout/base.html:205
@@ -821,6 +821,10 @@ msgstr "בחר עיר"
 #: girls/templates/partials/girls-list.html:16
 msgid "No girls were found matching your search."
 msgstr "לא נמצאו בחורות התואמות לחיפוש שלך."
+
+#: girls/views.py:280
+msgid "Outcall"
+msgstr "לביתך/ מלון"
 
 #: girls/views.py:316
 msgid "Separate Apartment"

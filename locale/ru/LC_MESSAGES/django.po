@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-19 19:04+0200\n"
-"PO-Revision-Date: 2022-02-20 20:18+0200\n"
+"POT-Creation-Date: 2022-02-20 20:29+0200\n"
+"PO-Revision-Date: 2022-02-20 20:30+0200\n"
 "Last-Translator:   <mail@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -80,11 +80,11 @@ msgstr "Парковка"
 msgid "Apartment"
 msgstr "Апартаменты"
 
-#: accounts/forms.py:129 girls/templates/layout/base.html:59
-#: girls/templates/layout/base.html:154
-#: girls/templates/partials/catalog.html:23 girls/views.py:280
-msgid "Outcall"
-msgstr "Девушки на выезд"
+#: accounts/forms.py:129
+#: accounts/templates/account/forms/form_profile_price.html:10
+#: girls/forms.py:48 girls/templates/girls/girl_detail.html:139
+msgid "Departure"
+msgstr "Выезд"
 
 #: accounts/forms.py:166 girls/forms.py:23
 msgid "Review*"
@@ -187,11 +187,6 @@ msgstr "Цена"
 #: girls/forms.py:45 girls/templates/girls/girl_detail.html:138
 msgid "Apartments"
 msgstr "Апартаменты"
-
-#: accounts/templates/account/forms/form_profile_price.html:10
-#: girls/forms.py:48 girls/templates/girls/girl_detail.html:139
-msgid "Departure"
-msgstr "Выезд"
 
 #: accounts/templates/account/forms/form_profile_price.html:15
 #: girls/templates/girls/girl_detail.html:144
@@ -646,8 +641,8 @@ msgid "There is parking"
 msgstr "Есть парковка"
 
 #: girls/templates/girls/girl_detail.html:179
-#: girls/templates/layout/base.html:63 girls/templates/layout/base.html:157
-#: girls/templates/partials/catalog.html:25
+#: girls/templates/layout/base.html:59 girls/templates/layout/base.html:157
+#: girls/templates/partials/catalog.html:23
 msgid "Discrete flat"
 msgstr "Дискретная квартира"
 
@@ -677,25 +672,30 @@ msgstr "Главная"
 msgid "Profiles"
 msgstr "Анкеты"
 
-#: girls/templates/layout/base.html:43
+#: girls/templates/layout/base.html:43 girls/templates/layout/base.html:145
 #: girls/templates/partials/catalog.html:15
-msgid "New"
-msgstr "Новые"
-
-#: girls/templates/layout/base.html:47 girls/templates/layout/base.html:145
-#: girls/templates/partials/catalog.html:17
 msgid "BDSM"
 msgstr "BDSM"
 
-#: girls/templates/layout/base.html:51 girls/templates/layout/base.html:148
-#: girls/templates/partials/catalog.html:19
+#: girls/templates/layout/base.html:47 girls/templates/layout/base.html:148
+#: girls/templates/partials/catalog.html:17
 msgid "Erotic massage"
 msgstr "Эротический массаж"
 
-#: girls/templates/layout/base.html:55 girls/templates/layout/base.html:151
-#: girls/templates/partials/catalog.html:21 girls/views.py:244
+#: girls/templates/layout/base.html:51 girls/templates/layout/base.html:151
+#: girls/templates/partials/catalog.html:19 girls/views.py:244
 msgid "Real photo"
 msgstr "Реальное фото"
+
+#: girls/templates/layout/base.html:55 girls/templates/layout/base.html:154
+#: girls/templates/partials/catalog.html:21
+msgid "Escort to your Home / Hotel"
+msgstr "Девушки на выезд"
+
+#: girls/templates/layout/base.html:63
+#: girls/templates/partials/catalog.html:25
+msgid "New"
+msgstr "Новые"
 
 #: girls/templates/layout/base.html:68 girls/templates/layout/base.html:161
 #: girls/templates/layout/base.html:168 girls/templates/layout/base.html:205
@@ -834,6 +834,10 @@ msgstr "Выберите город"
 #: girls/templates/partials/girls-list.html:16
 msgid "No girls were found matching your search."
 msgstr "По Вашему запросу девушек не найдено."
+
+#: girls/views.py:280
+msgid "Outcall"
+msgstr "Девушки на выезд"
 
 #: girls/views.py:316
 msgid "Separate Apartment"
