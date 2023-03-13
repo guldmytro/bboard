@@ -49,7 +49,11 @@ def register(request):
 
 @login_required
 def dashboard(request):
-    girl = request.user.girl
+    try: 
+        girl = request.user.girl
+    except:
+        girl = Girl.objects.create(user=request.user)
+
     all_views = View.objects.filter(profile=girl, type='profile').count()
     today = datetime.today()
     last_day_views = View.objects.filter(profile=girl, type='profile',
@@ -91,7 +95,10 @@ def blacklist(request):
 
 @login_required
 def profile(request):
-    girl = request.user.girl
+    try: 
+        girl = request.user.girl
+    except:
+        girl = Girl.objects.create(user=request.user)
     profile_form = ProfileEditForm(instance=girl)
     profile_price_form = ProfilePriceEditForm(instance=girl)
     profile_service_form = ProfileServicesEditForm(instance=girl)
